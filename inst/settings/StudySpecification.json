@@ -1,0 +1,1160 @@
+{
+  "skeletonType": "ComparativeEffectStudy",
+  "positiveControlSynthesisArgs": {
+    "outputIdOffset": 10000,
+    "precision": 0.01,
+    "riskWindowStart": 0,
+    "control": {
+      "maxIterations": 1000,
+      "autoSearch": true,
+      "seed": 1,
+      "initialBound": 2,
+      "gridSteps": 10,
+      "threads": 1,
+      "startingVariance": 0.01,
+      "useKKTSwindle": false,
+      "lowerLimit": 0.01,
+      "attr_class": "cyclopsControl",
+      "cvRepetitions": 1,
+      "noiseLevel": "quiet",
+      "fold": 10,
+      "minCVData": 100,
+      "resetCoefficients": false,
+      "upperLimit": 20,
+      "cvType": "auto",
+      "selectorType": "auto",
+      "convergenceType": "gradient",
+      "tuneSwindle": 10,
+      "maxBoundCount": 5,
+      "tolerance": 1.0E-6,
+      "algorithm": "ccd"
+    },
+    "washoutPeriod": 365,
+    "modelType": "survival",
+    "addExposureDaysToEnd": true,
+    "minOutcomeCountForModel": 50,
+    "firstOutcomeOnly": true,
+    "maxSubjectsForModel": 250000,
+    "minOutcomeCountForInjection": 25,
+    "prior": {
+      "variance": [1],
+      "useCrossValidation": true,
+      "priorType": "laplace",
+      "exclude": [0],
+      "neighborhood": null,
+      "attr_class": "cyclopsPrior",
+      "forceIntercept": false,
+      "graph": null
+    },
+    "effectSizes": [
+      1.5,
+      2,
+      4
+    ],
+    "covariateSettings": {
+      "VisitCountMediumTerm": false,
+      "ObservationShortTerm": true,
+      "shortTermStartDays": -30,
+      "MeasurementRangeGroupShortTerm": false,
+      "ConditionOccurrenceLongTerm": false,
+      "DrugEraStartLongTerm": false,
+      "VisitCountShortTerm": false,
+      "Chads2Vasc": true,
+      "ConditionGroupEraStartLongTerm": false,
+      "ConditionEraShortTerm": false,
+      "Dcsi": true,
+      "DrugGroupEraLongTerm": true,
+      "DrugGroupEraShortTerm": true,
+      "ConditionEraStartLongTerm": false,
+      "temporal": false,
+      "DemographicsIndexMonth": true,
+      "ConditionOccurrencePrimaryInpatientLongTerm": false,
+      "ConditionEraAnyTimePrior": false,
+      "addDescendantsToInclude": false,
+      "ConditionGroupEraStartMediumTerm": false,
+      "ProcedureOccurrenceLongTerm": true,
+      "DrugExposureLongTerm": false,
+      "DrugEraStartShortTerm": false,
+      "DistinctIngredientCountMediumTerm": false,
+      "DistinctMeasurementCountShortTerm": false,
+      "MeasurementRangeGroupLongTerm": true,
+      "ConditionGroupEraOverlapping": false,
+      "attr_fun": "getDbDefaultCovariateData",
+      "MeasurementRangeGroupMediumTerm": false,
+      "DrugGroupEraStartMediumTerm": false,
+      "MeasurementAnyTimePrior": false,
+      "MeasurementMediumTerm": false,
+      "includedCovariateIds": [],
+      "ConditionOccurrenceAnyTimePrior": false,
+      "DistinctConditionCountLongTerm": false,
+      "MeasurementValueLongTerm": false,
+      "DrugEraShortTerm": false,
+      "DrugGroupEraAnyTimePrior": false,
+      "DrugEraOverlapping": false,
+      "ConditionOccurrencePrimaryInpatientAnyTimePrior": false,
+      "ConditionEraMediumTerm": false,
+      "ConditionEraOverlapping": false,
+      "ConditionEraStartShortTerm": false,
+      "ObservationAnyTimePrior": false,
+      "VisitConceptCountShortTerm": false,
+      "DemographicsEthnicity": true,
+      "DistinctIngredientCountLongTerm": false,
+      "ConditionOccurrencePrimaryInpatientShortTerm": false,
+      "DemographicsAgeGroup": true,
+      "DistinctProcedureCountShortTerm": false,
+      "DistinctObservationCountMediumTerm": false,
+      "includedCovariateConceptIds": [],
+      "DrugGroupEraStartShortTerm": false,
+      "addDescendantsToExclude": false,
+      "DrugEraLongTerm": false,
+      "DistinctConditionCountShortTerm": false,
+      "ConditionGroupEraShortTerm": true,
+      "ConditionEraStartMediumTerm": false,
+      "VisitCountLongTerm": false,
+      "DemographicsRace": true,
+      "ProcedureOccurrenceAnyTimePrior": false,
+      "DistinctObservationCountLongTerm": false,
+      "attr_class": "covariateSettings",
+      "ProcedureOccurrenceMediumTerm": false,
+      "CharlsonIndex": true,
+      "DemographicsPriorObservationTime": false,
+      "MeasurementShortTerm": true,
+      "DistinctProcedureCountMediumTerm": false,
+      "ConditionEraLongTerm": false,
+      "DrugGroupEraStartLongTerm": false,
+      "DemographicsGender": true,
+      "DeviceExposureAnyTimePrior": false,
+      "ObservationLongTerm": true,
+      "DemographicsIndexYearMonth": false,
+      "ConditionOccurrenceMediumTerm": false,
+      "longTermStartDays": -365,
+      "DemographicsAge": false,
+      "DrugGroupEraOverlapping": true,
+      "DistinctMeasurementCountLongTerm": false,
+      "MeasurementRangeGroupAnyTimePrior": false,
+      "DistinctConditionCountMediumTerm": false,
+      "DrugGroupEraMediumTerm": false,
+      "ProcedureOccurrenceShortTerm": true,
+      "ObservationMediumTerm": false,
+      "ConditionGroupEraAnyTimePrior": false,
+      "Chads2": true,
+      "DrugExposureAnyTimePrior": false,
+      "DeviceExposureLongTerm": true,
+      "DemographicsTimeInCohort": false,
+      "DistinctMeasurementCountMediumTerm": false,
+      "MeasurementValueShortTerm": false,
+      "DeviceExposureMediumTerm": false,
+      "ConditionGroupEraStartShortTerm": false,
+      "ConditionOccurrencePrimaryInpatientMediumTerm": false,
+      "MeasurementLongTerm": true,
+      "DemographicsIndexYear": true,
+      "MeasurementValueMediumTerm": false,
+      "DrugEraStartMediumTerm": false,
+      "MeasurementValueAnyTimePrior": false,
+      "DistinctObservationCountShortTerm": false,
+      "DrugEraMediumTerm": false,
+      "ConditionGroupEraLongTerm": true,
+      "DrugExposureShortTerm": false,
+      "DistinctIngredientCountShortTerm": false,
+      "DeviceExposureShortTerm": true,
+      "mediumTermStartDays": -180,
+      "DemographicsPostObservationTime": false,
+      "VisitConceptCountLongTerm": false,
+      "VisitConceptCountMediumTerm": false,
+      "excludedCovariateConceptIds": [],
+      "ConditionGroupEraMediumTerm": false,
+      "DrugExposureMediumTerm": false,
+      "DistinctProcedureCountLongTerm": false,
+      "DrugEraAnyTimePrior": false,
+      "endDays": 0,
+      "ConditionOccurrenceShortTerm": false
+    },
+    "riskWindowEnd": 30,
+    "firstExposureOnly": true,
+    "removePeopleWithPriorOutcomes": true
+  },
+  "organizationName": "Janssen Research and Development",
+  "negativeControlExposureCohortDefinition": {},
+  "version": "v2.7.0",
+  "estimationAnalysisSettings": {
+    "analysisSpecification": {
+      "targetComparatorOutcomes": [{
+        "targetId": 558,
+        "comparatorId": 564,
+        "includedCovariateConceptIds": [],
+        "excludedCovariateConceptIds": [],
+        "outcomeIds": [553]
+      }],
+      "cohortMethodAnalysisList": [{
+        "comparatorType": null,
+        "fitOutcomeModel": true,
+        "getDbCohortMethodDataArgs": {
+          "restrictToCommonPeriod": false,
+          "removeDuplicateSubjects": "keep all",
+          "maxCohortSize": 0,
+          "excludeDrugsFromCovariates": false,
+          "covariateSettings": {
+            "VisitCountMediumTerm": false,
+            "ObservationShortTerm": true,
+            "shortTermStartDays": -30,
+            "MeasurementRangeGroupShortTerm": false,
+            "ConditionOccurrenceLongTerm": false,
+            "DrugEraStartLongTerm": false,
+            "VisitCountShortTerm": false,
+            "Chads2Vasc": true,
+            "ConditionGroupEraStartLongTerm": false,
+            "ConditionEraShortTerm": false,
+            "Dcsi": true,
+            "DrugGroupEraLongTerm": true,
+            "DrugGroupEraShortTerm": true,
+            "ConditionEraStartLongTerm": false,
+            "temporal": false,
+            "DemographicsIndexMonth": true,
+            "ConditionOccurrencePrimaryInpatientLongTerm": false,
+            "ConditionEraAnyTimePrior": false,
+            "addDescendantsToInclude": false,
+            "ConditionGroupEraStartMediumTerm": false,
+            "ProcedureOccurrenceLongTerm": true,
+            "DrugExposureLongTerm": false,
+            "DrugEraStartShortTerm": false,
+            "DistinctIngredientCountMediumTerm": false,
+            "DistinctMeasurementCountShortTerm": false,
+            "MeasurementRangeGroupLongTerm": true,
+            "ConditionGroupEraOverlapping": false,
+            "attr_fun": "getDbDefaultCovariateData",
+            "MeasurementRangeGroupMediumTerm": false,
+            "DrugGroupEraStartMediumTerm": false,
+            "MeasurementAnyTimePrior": false,
+            "MeasurementMediumTerm": false,
+            "includedCovariateIds": [],
+            "ConditionOccurrenceAnyTimePrior": false,
+            "DistinctConditionCountLongTerm": false,
+            "MeasurementValueLongTerm": false,
+            "DrugEraShortTerm": false,
+            "DrugGroupEraAnyTimePrior": false,
+            "DrugEraOverlapping": false,
+            "ConditionOccurrencePrimaryInpatientAnyTimePrior": false,
+            "ConditionEraMediumTerm": false,
+            "ConditionEraOverlapping": false,
+            "ConditionEraStartShortTerm": false,
+            "ObservationAnyTimePrior": false,
+            "VisitConceptCountShortTerm": false,
+            "DemographicsEthnicity": true,
+            "DistinctIngredientCountLongTerm": false,
+            "ConditionOccurrencePrimaryInpatientShortTerm": false,
+            "DemographicsAgeGroup": true,
+            "DistinctProcedureCountShortTerm": false,
+            "DistinctObservationCountMediumTerm": false,
+            "includedCovariateConceptIds": [],
+            "DrugGroupEraStartShortTerm": false,
+            "addDescendantsToExclude": false,
+            "DrugEraLongTerm": false,
+            "DistinctConditionCountShortTerm": false,
+            "ConditionGroupEraShortTerm": true,
+            "ConditionEraStartMediumTerm": false,
+            "VisitCountLongTerm": false,
+            "DemographicsRace": true,
+            "ProcedureOccurrenceAnyTimePrior": false,
+            "DistinctObservationCountLongTerm": false,
+            "attr_class": "covariateSettings",
+            "ProcedureOccurrenceMediumTerm": false,
+            "CharlsonIndex": true,
+            "DemographicsPriorObservationTime": false,
+            "MeasurementShortTerm": true,
+            "DistinctProcedureCountMediumTerm": false,
+            "ConditionEraLongTerm": false,
+            "DrugGroupEraStartLongTerm": false,
+            "DemographicsGender": true,
+            "DeviceExposureAnyTimePrior": false,
+            "ObservationLongTerm": true,
+            "DemographicsIndexYearMonth": false,
+            "ConditionOccurrenceMediumTerm": false,
+            "longTermStartDays": -365,
+            "DemographicsAge": false,
+            "DrugGroupEraOverlapping": true,
+            "DistinctMeasurementCountLongTerm": false,
+            "MeasurementRangeGroupAnyTimePrior": false,
+            "DistinctConditionCountMediumTerm": false,
+            "DrugGroupEraMediumTerm": false,
+            "ProcedureOccurrenceShortTerm": true,
+            "ObservationMediumTerm": false,
+            "ConditionGroupEraAnyTimePrior": false,
+            "Chads2": true,
+            "DrugExposureAnyTimePrior": false,
+            "DeviceExposureLongTerm": true,
+            "DemographicsTimeInCohort": false,
+            "DistinctMeasurementCountMediumTerm": false,
+            "MeasurementValueShortTerm": false,
+            "DeviceExposureMediumTerm": false,
+            "ConditionGroupEraStartShortTerm": false,
+            "ConditionOccurrencePrimaryInpatientMediumTerm": false,
+            "MeasurementLongTerm": true,
+            "DemographicsIndexYear": true,
+            "MeasurementValueMediumTerm": false,
+            "DrugEraStartMediumTerm": false,
+            "MeasurementValueAnyTimePrior": false,
+            "DistinctObservationCountShortTerm": false,
+            "DrugEraMediumTerm": false,
+            "ConditionGroupEraLongTerm": true,
+            "DrugExposureShortTerm": false,
+            "DistinctIngredientCountShortTerm": false,
+            "DeviceExposureShortTerm": true,
+            "mediumTermStartDays": -180,
+            "DemographicsPostObservationTime": false,
+            "VisitConceptCountLongTerm": false,
+            "VisitConceptCountMediumTerm": false,
+            "excludedCovariateConceptIds": [],
+            "ConditionGroupEraMediumTerm": false,
+            "DrugExposureMediumTerm": false,
+            "DistinctProcedureCountLongTerm": false,
+            "DrugEraAnyTimePrior": false,
+            "endDays": 0,
+            "ConditionOccurrenceShortTerm": false
+          },
+          "studyStartDate": null,
+          "washoutPeriod": 0,
+          "firstExposureOnly": false,
+          "attr_class": "args",
+          "studyEndDate": null
+        },
+        "trimByPs": false,
+        "createStudyPopArgs": {
+          "restrictToCommonPeriod": false,
+          "removeDuplicateSubjects": "keep all",
+          "minDaysAtRisk": 1,
+          "addExposureDaysToStart": false,
+          "riskWindowStart": 0,
+          "washoutPeriod": 0,
+          "attr_class": "args",
+          "censorAtNewRiskWindow": false,
+          "addExposureDaysToEnd": true,
+          "priorOutcomeLookback": 99999,
+          "removeSubjectsWithPriorOutcome": false,
+          "riskWindowEnd": 0,
+          "firstExposureOnly": false
+        },
+        "description": "New analysis 1",
+        "trimByPsArgs": {
+          "trimFraction": 0.05,
+          "attr_class": "args"
+        },
+        "targetType": null,
+        "attr_class": "cmAnalysis",
+        "stratifyByPs": true,
+        "stratifyByPsAndCovariates": false,
+        "matchOnPsAndCovariatesArgs": {
+          "caliper": 0.2,
+          "caliperScale": "standardized logit",
+          "maxRatio": 1,
+          "covariateIds": [],
+          "attr_class": "args"
+        },
+        "trimByPsToEquipoise": false,
+        "matchOnPs": false,
+        "stratifyByPsAndCovariatesArgs": {
+          "baseSelection": "all",
+          "covariateIds": [],
+          "numberOfStrata": 5,
+          "attr_class": "args"
+        },
+        "matchOnPsArgs": {
+          "caliper": 0.2,
+          "caliperScale": "standardized logit",
+          "maxRatio": 1,
+          "attr_class": "args",
+          "stratificationColumns": []
+        },
+        "stratifyByPsArgs": {
+          "baseSelection": "all",
+          "numberOfStrata": 5,
+          "attr_class": "args",
+          "stratificationColumns": []
+        },
+        "matchOnPsAndCovariates": false,
+        "analysisId": 1,
+        "createPsArgs": {
+          "stopOnError": true,
+          "excludeCovariateIds": [],
+          "prior": {
+            "variance": [1],
+            "useCrossValidation": true,
+            "priorType": "laplace",
+            "exclude": [0],
+            "neighborhood": null,
+            "attr_class": "cyclopsPrior",
+            "forceIntercept": false,
+            "graph": null
+          },
+          "errorOnHighCorrelation": true,
+          "control": {
+            "maxIterations": 1000,
+            "autoSearch": true,
+            "seed": 1,
+            "initialBound": 2,
+            "gridSteps": 10,
+            "threads": 1,
+            "startingVariance": 0.01,
+            "useKKTSwindle": false,
+            "lowerLimit": 0.01,
+            "attr_class": "cyclopsControl",
+            "cvRepetitions": 10,
+            "noiseLevel": "silent",
+            "fold": 10,
+            "minCVData": 100,
+            "resetCoefficients": false,
+            "upperLimit": 20,
+            "cvType": "auto",
+            "selectorType": "auto",
+            "convergenceType": "gradient",
+            "tuneSwindle": 10,
+            "maxBoundCount": 5,
+            "tolerance": 2.0E-7,
+            "algorithm": "ccd"
+          },
+          "attr_class": "args",
+          "includeCovariateIds": [],
+          "maxCohortSizeForFitting": 250000
+        },
+        "trimByPsToEquipoiseArgs": {
+          "bounds": [
+            0.25,
+            0.75
+          ],
+          "attr_class": "args"
+        },
+        "fitOutcomeModelArgs": {
+          "excludeCovariateIds": [],
+          "useCovariates": false,
+          "prior": {
+            "variance": [1],
+            "useCrossValidation": true,
+            "priorType": "laplace",
+            "exclude": [0],
+            "neighborhood": null,
+            "attr_class": "cyclopsPrior",
+            "forceIntercept": false,
+            "graph": null
+          },
+          "inversePtWeighting": false,
+          "control": {
+            "maxIterations": 1000,
+            "autoSearch": true,
+            "seed": 1,
+            "initialBound": 2,
+            "gridSteps": 10,
+            "threads": 1,
+            "startingVariance": 0.01,
+            "useKKTSwindle": false,
+            "lowerLimit": 0.01,
+            "attr_class": "cyclopsControl",
+            "cvRepetitions": 10,
+            "noiseLevel": "quiet",
+            "fold": 10,
+            "minCVData": 100,
+            "resetCoefficients": false,
+            "upperLimit": 20,
+            "cvType": "auto",
+            "selectorType": "auto",
+            "convergenceType": "gradient",
+            "tuneSwindle": 10,
+            "maxBoundCount": 5,
+            "tolerance": 2.0E-7,
+            "algorithm": "ccd"
+          },
+          "modelType": "cox",
+          "stratified": true,
+          "attr_class": "args",
+          "interactionCovariateIds": [],
+          "includeCovariateIds": []
+        },
+        "createPs": true
+      }]
+    },
+    "estimationType": "ComparativeCohortAnalysis"
+  },
+  "skeletonVersion": "v0.0.1",
+  "negativeControlOutcomeCohortDefinition": {
+    "detectOnDescendants": true,
+    "domains": [
+      "condition",
+      "procedure"
+    ],
+    "occurrenceType": "all"
+  },
+  "conceptSetCrossReference": [{
+    "targetName": "negativeControlOutcomes",
+    "conceptSetId": 1004,
+    "propertyName": "outcomeId",
+    "targetIndex": 0
+  }],
+  "cohortDefinitions": [
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "First"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 90
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 3004410,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "4548-4",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c (Glycated)",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 3007263,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "17855-8",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c/Hemoglobin.total in Blood by calculation",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 3003309,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "4549-2",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c/Hemoglobin.total in Blood by Electrophoresis",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 3005673,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "17856-6",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c/Hemoglobin.total in Blood by HPLC",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 40762352,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "59261-8",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c/Hemoglobin.total in Blood by IFCC protocol",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 40758583,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "55454-3",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c in Blood",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 3034639,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "41995-2",
+                "VOCABULARY_ID": "LOINC",
+                "CONCEPT_NAME": "Hemoglobin A1c [Mass/volume] in Blood",
+                "DOMAIN_ID": "Measurement",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Lab Test",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "HbA1c_v2",
+          "id": 0
+        }],
+        "EndStrategy": {"DateOffset": {
+          "DateField": "StartDate",
+          "Offset": 1
+        }},
+        "cdmVersionRange": ">=5.0.0",
+        "CensoringCriteria": [],
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [
+            {"Measurement": {
+              "Operator": null,
+              "RangeHigh": null,
+              "MeasurementTypeExclude": false,
+              "ValueAsConcept": null,
+              "CorrelatedCriteria": null,
+              "RangeHighRatio": null,
+              "CodesetId": 0,
+              "ProviderSpecialty": null,
+              "Gender": null,
+              "Unit": [{
+                "INVALID_REASON_CAPTION": "Unknown",
+                "CONCEPT_ID": 8554,
+                "STANDARD_CONCEPT": null,
+                "CONCEPT_CODE": "%",
+                "VOCABULARY_ID": "UCUM",
+                "CONCEPT_NAME": "percent",
+                "DOMAIN_ID": "Unit",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "CONCEPT_CLASS_ID": null,
+                "INVALID_REASON": null
+              }],
+              "RangeLowRatio": null,
+              "MeasurementType": null,
+              "MeasurementSourceConcept": null,
+              "VisitType": null,
+              "ValueAsNumber": {
+                "Op": "lte",
+                "Extent": null,
+                "Value": 7
+              },
+              "First": null,
+              "OccurrenceStartDate": null,
+              "RangeLow": null,
+              "Abnormal": null,
+              "Age": null
+            }},
+            {"Measurement": {
+              "Operator": null,
+              "RangeHigh": null,
+              "MeasurementTypeExclude": false,
+              "ValueAsConcept": null,
+              "CorrelatedCriteria": null,
+              "RangeHighRatio": null,
+              "CodesetId": 0,
+              "ProviderSpecialty": null,
+              "Gender": null,
+              "Unit": [{
+                "INVALID_REASON_CAPTION": "Unknown",
+                "CONCEPT_ID": 9579,
+                "STANDARD_CONCEPT": null,
+                "CONCEPT_CODE": "mmol/mol",
+                "VOCABULARY_ID": "UCUM",
+                "CONCEPT_NAME": "millimole per mole",
+                "DOMAIN_ID": "Unit",
+                "STANDARD_CONCEPT_CAPTION": "Unknown",
+                "CONCEPT_CLASS_ID": null,
+                "INVALID_REASON": null
+              }],
+              "RangeLowRatio": null,
+              "MeasurementType": null,
+              "MeasurementSourceConcept": null,
+              "VisitType": null,
+              "ValueAsNumber": {
+                "Op": "lte",
+                "Extent": null,
+                "Value": 53
+              },
+              "First": null,
+              "OccurrenceStartDate": null,
+              "RangeLow": null,
+              "Abnormal": null,
+              "Age": null
+            }}
+          ],
+          "PrimaryCriteriaLimit": {"Type": "All"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": null,
+      "createdBy": null,
+      "name": "[LEGEND-T2DM] Glycemic control",
+      "modifiedDate": null,
+      "description": "Glycemic control as defined by first HbA1c laboratory measurement <= 7%",
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": null,
+      "id": 558
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "All"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 30
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 380688,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "267384006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemic coma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4048805,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "230796005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Non-diabetic hypoglycemic coma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4226798,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "421725003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemic coma due to diabetes mellitus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4228112,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "421437000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemic coma due to type 1 diabetes mellitus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 36714116,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "719216001",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemic coma due to type 2 diabetes mellitus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 24609,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "302866003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 23034,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "52767006",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Neonatal hypoglycemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4029424,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "237637005",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Non-diabetic hypoglycemia",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4029423,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "237633009",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemia due to diabetes mellitus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 45769876,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "84371000119108",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemia due to type 1 diabetes mellitus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 45757363,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "120731000119103",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hypoglycemia due to type 2 diabetes mellitus",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 4096804,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "190448007",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Drug-induced hypoglycemia without coma",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "Hypoglycemia",
+          "id": 0
+        }],
+        "EndStrategy": {"DateOffset": {
+          "DateField": "StartDate",
+          "Offset": 1
+        }},
+        "cdmVersionRange": ">=5.0.0",
+        "CensoringCriteria": [],
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"ConditionOccurrence": {
+            "OccurrenceEndDate": null,
+            "CorrelatedCriteria": null,
+            "ConditionTypeExclude": false,
+            "CodesetId": 0,
+            "ProviderSpecialty": null,
+            "Gender": null,
+            "VisitType": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "ConditionType": null,
+            "ConditionSourceConcept": null,
+            "ConditionStatus": null,
+            "StopReason": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "All"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": null,
+      "createdBy": null,
+      "name": "[LEGEND-T2DM] Hypoglycemia",
+      "modifiedDate": null,
+      "description": "Condition occurrence of hypoglycemia; successive records > 30 day gap are considered independent episodes",
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": null,
+      "id": 564
+    },
+    {
+      "expression": {
+        "ExpressionLimit": {"Type": "All"},
+        "CollapseSettings": {
+          "CollapseType": "ERA",
+          "EraPad": 90
+        },
+        "CensorWindow": {
+          "StartDate": null,
+          "EndDate": null
+        },
+        "ConceptSets": [{
+          "expression": {"items": [
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 313232,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "408667000",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Hemodialysis-associated hypotension",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": false,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 317002,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "45007003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Low blood pressure",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            },
+            {
+              "isExcluded": true,
+              "concept": {
+                "INVALID_REASON_CAPTION": "Valid",
+                "CONCEPT_ID": 314432,
+                "STANDARD_CONCEPT": "S",
+                "CONCEPT_CODE": "88887003",
+                "VOCABULARY_ID": "SNOMED",
+                "CONCEPT_NAME": "Maternal hypotension syndrome",
+                "DOMAIN_ID": "Condition",
+                "STANDARD_CONCEPT_CAPTION": "Standard",
+                "CONCEPT_CLASS_ID": "Clinical Finding",
+                "INVALID_REASON": "V"
+              },
+              "includeMapped": false,
+              "includeDescendants": true
+            }
+          ]},
+          "name": "[LEGEND HTN] Hypotension",
+          "id": 0
+        }],
+        "EndStrategy": {"DateOffset": {
+          "DateField": "StartDate",
+          "Offset": 1
+        }},
+        "cdmVersionRange": ">=5.0.0",
+        "CensoringCriteria": [],
+        "QualifiedLimit": {"Type": "First"},
+        "InclusionRules": [],
+        "PrimaryCriteria": {
+          "CriteriaList": [{"ConditionOccurrence": {
+            "OccurrenceEndDate": null,
+            "CorrelatedCriteria": null,
+            "ConditionTypeExclude": false,
+            "CodesetId": 0,
+            "ProviderSpecialty": null,
+            "Gender": null,
+            "VisitType": null,
+            "First": null,
+            "OccurrenceStartDate": null,
+            "ConditionType": null,
+            "ConditionSourceConcept": null,
+            "ConditionStatus": null,
+            "StopReason": null,
+            "Age": null
+          }}],
+          "PrimaryCriteriaLimit": {"Type": "All"},
+          "ObservationWindow": {
+            "PostDays": 0,
+            "PriorDays": 0
+          }
+        }
+      },
+      "createdDate": null,
+      "createdBy": null,
+      "name": "[LEGEND-T2DM] Hypotension",
+      "modifiedDate": null,
+      "description": null,
+      "expressionType": "SIMPLE_EXPRESSION",
+      "modifiedBy": null,
+      "id": 553
+    }
+  ],
+  "name": "LegendT2dmTest",
+  "conceptSets": [{
+    "expression": {"items": [
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 4241223,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "59393003",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Hidradenitis suppurativa",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": true
+      },
+      {
+        "isExcluded": false,
+        "concept": {
+          "INVALID_REASON_CAPTION": "Valid",
+          "CONCEPT_ID": 434119,
+          "STANDARD_CONCEPT": "S",
+          "CONCEPT_CODE": "69741000",
+          "VOCABULARY_ID": "SNOMED",
+          "CONCEPT_NAME": "Hidradenitis",
+          "DOMAIN_ID": "Condition",
+          "STANDARD_CONCEPT_CAPTION": "Standard",
+          "CONCEPT_CLASS_ID": "Clinical Finding",
+          "INVALID_REASON": "V"
+        },
+        "includeMapped": false,
+        "includeDescendants": false
+      }
+    ]},
+    "name": "Hidradenitis suppurativa",
+    "id": 1004
+  }],
+  "doPositiveControlSynthesis": false,
+  "id": 16,
+  "packageName": "LegendT2dmTestCases",
+  "negativeControls": [
+    {
+      "targetId": 558,
+      "outcomeName": "Hidradenitis suppurativa",
+      "comparatorId": 564,
+      "outcomeId": 4241223,
+      "type": "outcome"
+    },
+    {
+      "targetId": 558,
+      "outcomeName": "Hidradenitis",
+      "comparatorId": 564,
+      "outcomeId": 434119,
+      "type": "outcome"
+    }
+  ]
+}
