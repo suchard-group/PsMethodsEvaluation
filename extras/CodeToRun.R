@@ -1,35 +1,33 @@
 library(LegendT2dmTestCases)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
-options(andromedaTempFolder = "s:/andromedaTemp")
+options(andromedaTempFolder = "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutputShort")
 
 # Maximum number of cores to be used:
-maxCores <- parallel::detectCores()
+maxCores <- 2
 
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "s:/LegendT2dmTestCases"
+outputFolder <- "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutputShort"
+pathToDriver = "D:/Users/msuchard/Documents/Drivers"
 
-# Details for connecting to the server:
-connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "pdw",
-                                                                server = Sys.getenv("PDW_SERVER"),
-                                                                user = NULL,
-                                                                password = NULL,
-                                                                port = Sys.getenv("PDW_PORT"))
-
-# The name of the database schema where the CDM data can be found:
-cdmDatabaseSchema <- "CDM_IBM_MDCD_V1153.dbo"
-
-# The name of the database schema and table where the study-specific cohorts will be instantiated:
-cohortDatabaseSchema <- "scratch.dbo"
-cohortTable <- "mschuemi_skeleton"
-
-# Some meta-information that will be used by the export function:
-databaseId <- "Synpuf"
-databaseName <- "Medicare Claims Synthetic Public Use Files (SynPUFs)"
-databaseDescription <- "Medicare Claims Synthetic Public Use Files (SynPUFs) were created to allow interested parties to gain familiarity using Medicare claims data while protecting beneficiary privacy. These files are intended to promote development of software and applications that utilize files in this format, train researchers on the use and complexities of Centers for Medicare and Medicaid Services (CMS) claims, and support safe data mining innovations. The SynPUFs were created by combining randomized information from multiple unique beneficiaries and changing variable values. This randomization and combining of beneficiary information ensures privacy of health information."
-
-# For Oracle: define a schema that can be used to emulate temp tables:
+# Details for connecting to the server from Legend T2dm:
 oracleTempSchema <- NULL
+cdmDatabaseSchema <- "cdm_truven_mdcr_v1838" # MAS: I just updated to most recent
+#serverSuffix <- "truven_mdcr"
+cohortDatabaseSchema <- "scratch_msuchard"
+cohortTable <- "legendt2dm_testcases"
+
+databaseId<- "MDCR"
+databaseName <- "IBM Health MarketScan Medicare Supplemental and Coordination of Benefits Database"
+databaseDescription <- "IBM Health MarketScan® Medicare Supplemental and Coordination of Benefits Database (MDCR) represents health services of retirees in the United States with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service, or capitated health plans. These data include adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy). Additionally, it captures laboratory tests for a subset of the covered lives."
+
+connectionDetails <- DatabaseConnector::createConnectionDetails(
+        dbms = "redshift",
+        server = paste0(keyring::key_get("redshiftServer"), "/", "truven_mdcr"),
+        port = 5439,
+        user = keyring::key_get("redshiftUser"),
+        password = keyring::key_get("redshiftPassword"),
+        extraSettings = "ssl=true&sslfactory=com.amazon.redshift.ssl.NonValidatingFactory")
 
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
@@ -41,7 +39,7 @@ execute(connectionDetails = connectionDetails,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
         createCohorts = TRUE,
-        synthesizePositiveControls = TRUE,
+        synthesizePositiveControls = FALSE,
         runAnalyses = TRUE,
         packageResults = TRUE,
         maxCores = maxCores)
