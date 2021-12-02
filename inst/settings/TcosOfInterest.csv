@@ -1,4 +1,4 @@
-targetId,comparatorId,outcomeIds,excludedCovariateConceptIds,targetName,comparatorName
-101100000,201100000,538,NA,DPP4I main,GLP1RA main
-301100000,401100000,539,NA,SGLT2I main,SU main
-102100000,202100000,542,NA,DPP4I main ot2,GLP1RA main ot2
+targetId,comparatorId,outcomeIds,excludedCovariateConceptIds,includedCovariateConceptIds
+101100000,201100000,538,,
+301100000,401100000,539,,
+102100000,202100000,542,,

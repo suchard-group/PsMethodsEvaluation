@@ -1,12 +1,42 @@
-INSERT INTO  @target_database_schema.@target_cohort_table (cohort_definition_id, subject_id, cohort_start_date, cohort_end_date)
-SELECT negative_controls.cohort_id AS cohort_definition_id,
-	condition_occurrence.person_id AS subject_id,
-	MIN(condition_start_date) AS cohort_start_date,
-	MIN(condition_start_date) AS cohort_end_date
-FROM @cdm_database_schema.condition_occurrence
-INNER JOIN @cdm_database_schema.concept_ancestor
-	ON condition_concept_id = descendant_concept_id
-INNER JOIN #negative_controls negative_controls
-	ON ancestor_concept_id = negative_controls.concept_id
-GROUP BY negative_controls.cohort_id,
-	person_id;
+CREATE TABLE #Codesets (
+  ancestor_concept_id int NOT NULL,
+  concept_id int NOT NULL
+)
+;
+
+INSERT INTO #Codesets (ancestor_concept_id, concept_id)
+ SELECT ancestor_concept_id, descendant_concept_id
+ FROM @cdm_database_schema.CONCEPT_ANCESTOR
+ WHERE ancestor_concept_id IN (@outcome_ids)
+;
+
+{DEFAULT @cohort_id_field_name = 'cohort_definition_id'}
+
+INSERT INTO @target_database_schema.@target_cohort_table (
+	subject_id,
+	@cohort_id_field_name,
+	cohort_start_date,
+	cohort_end_date
+)
+SELECT
+	s.subject_id,
+	s.cohort_definition_id,
+	s.cohort_start_date,
+	s.cohort_start_date cohort_end_date
+FROM (
+    SELECT d.person_id subject_id,
+        c.ancestor_concept_id cohort_definition_id,
+        d.condition_start_date cohort_start_date
+FROM @cdm_database_schema.condition_occurrence d
+INNER JOIN #Codesets c ON c.concept_id = d.condition_concept_id
+UNION ALL
+SELECT d.person_id subject_id,
+        c.ancestor_concept_id cohort_definition_id,
+        d.procedure_date cohort_start_date
+FROM @cdm_database_schema.procedure_occurrence d
+INNER JOIN #Codesets c ON c.concept_id = d.procedure_concept_id
+) s
+;
+
+TRUNCATE TABLE #Codesets;
+DROP TABLE #Codesets;

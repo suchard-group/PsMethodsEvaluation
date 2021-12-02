@@ -57,9 +57,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -203,9 +200,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -347,9 +341,6 @@
       "stratified": true,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -446,9 +437,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -592,9 +580,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -736,9 +721,6 @@
       "stratified": true,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -835,9 +817,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -981,9 +960,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,
@@ -1125,9 +1101,6 @@
       "stratified": true,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,

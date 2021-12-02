@@ -35,7 +35,6 @@
       "removeSubjectsWithPriorOutcome": true,
       "priorOutcomeLookback": 99999,
       "minDaysAtRisk": 1,
-      "maxDaysAtRisk": 99999,
       "riskWindowStart": 1,
       "startAnchor": "cohort start",
       "riskWindowEnd": 9999,
@@ -57,9 +56,6 @@
       "stratified": false,
       "useCovariates": false,
       "inversePtWeighting": false,
-      "estimator": "ate",
-      "maxWeight": 0,
-      "profileBounds": [-2.3026, 2.3026],
       "prior": {
         "priorType": "laplace",
         "variance": 1,

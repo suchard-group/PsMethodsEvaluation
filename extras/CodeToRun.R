@@ -4,11 +4,11 @@ library(LegendT2dmTestCases)
 options(andromedaTempFolder = "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutputShort")
 
 # Maximum number of cores to be used:
-maxCores <- 2
+maxCores <- 1
 
 # The folder where the study intermediate and result files will be written:
 outputFolder <- "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutputShort"
-pathToDriver = "D:/Users/msuchard/Documents/Drivers"
+pathToDriver <- "D:/Users/msuchard/Documents/Drivers"
 
 # Details for connecting to the server from Legend T2dm:
 oracleTempSchema <- NULL
