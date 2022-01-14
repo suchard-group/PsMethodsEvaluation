@@ -5,6 +5,6 @@ atlasId,atlasName,cohortId,name
 401100000,SU main,401100000,ID401100000
 102100000,DPP4I main ot2,102100000,ID102100000
 202100000,GLP1RA main ot2,202100000,ID202100000
-538,3-point MACE,538,3pt_MACE
-539,4-point MACE,539,4pt_MACE
-542,Hospitalization with heart failre, 542,Hospitalization_with_heart_failure
+538,3-point MACE,1,3pt_MACE
+539,4-point MACE,2,4pt_MACE
+542,Hospitalization with heart failure,6,Hospitalization_with_heart_failure

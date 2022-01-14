@@ -1,13 +1,13 @@
 library(LegendT2dmTestCases)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
-options(andromedaTempFolder = "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutputLong")
+options(andromedaTempFolder = "D:/Users/msuchard/Documents/AndromedaTemp")
 
 # Maximum number of cores to be used:
-maxCores <- 1
+maxCores <- 2
 
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutputLong"
+outputFolder <- "D:/Users/msuchard/Documents/LegendT2dmTestCasesOutput_1"
 pathToDriver <- "D:/Users/msuchard/Documents/Drivers"
 
 # Details for connecting to the server from Legend T2dm:
