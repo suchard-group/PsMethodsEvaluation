@@ -1,106 +1,106 @@
 targetId, comparatorId, outcomeId,outcomeName,type
-101100000,201100000,439935,Abnormal posture,outcome
-101100000,201100000,443585,Abrasion and/or friction burn of multiple sites,outcome
-101100000,201100000,4092879,Absent kidney,outcome
-101100000,201100000,45757682,Anomaly of jaw size,outcome
-101100000,201100000,81878,Benign paroxysmal positional vertigo,outcome
-101100000,201100000,4216219,Bizarre personal appearance,outcome
-101100000,201100000,134765,Cachexia,outcome
-101100000,201100000,4201390,Colostomy present,outcome
-101100000,201100000,434675,Complication of gastrostomy,outcome
-101100000,201100000,436077,Developmental delay,outcome
-101100000,201100000,377910,Deviated nasal septum,outcome
-101100000,201100000,4170770,Epidermoid cyst,outcome
-101100000,201100000,437448,Exhaustion due to excessive exertion,outcome
-101100000,201100000,4092896,Feces contents abnormal,outcome
-101100000,201100000,374801,Foreign body in ear,outcome
-101100000,201100000,4096540,Foreskin deficient,outcome
-101100000,201100000,439788,Galactosemia,outcome
-101100000,201100000,40481632,Ganglion cyst,outcome
-101100000,201100000,4168318,Genetic disorder carrier,outcome
-101100000,201100000,374375,Impacted cerumen,outcome
-101100000,201100000,40481897,Inadequate sleep hygiene,outcome
-101100000,201100000,4265896,Jellyfish poisoning,outcome
-101100000,201100000,381021,Lagophthalmos,outcome
-101100000,201100000,4027782,Lipid storage disease,outcome
-101100000,201100000,433997,Lymphangioma,outcome
-101100000,201100000,4051630,Malingering,outcome
-101100000,201100000,258540,Marfan's syndrome,outcome
-101100000,201100000,432798,"Mechanical complication of internal orthopedic device, implant AND/OR graft",outcome
-101100000,201100000,439795,Minimal cognitive impairment,outcome
-101100000,201100000,4209423,Nicotine dependence,outcome
-101100000,201100000,40480893,Nonspecific tuberculin test reaction,outcome
-101100000,201100000,438130,Opioid abuse,outcome
-101100000,201100000,4299094,Opioid intoxication,outcome
-101100000,201100000,437092,Physiological development failure,outcome
-101100000,201100000,433951,Poisoning by tranquilizer,outcome
-101100000,201100000,46286594,Problem related to lifestyle,outcome
-101100000,201100000,4019836,Social exclusion,outcome
-101100000,201100000,432436,Symbolic dysfunction,outcome
-101100000,201100000,433244,Tooth loss,outcome
-101100000,201100000,436876,Toxic effect of lead compound,outcome
-101100000,201100000,440612,Toxic effect of tobacco and nicotine,outcome
-101100000,201100000,4201387,Tracheostomy present,outcome
-101100000,201100000,45757285,Unsatisfactory tooth restoration,outcome
-101100000,201100000,436409,Abnormal pupil,outcome
-101100000,201100000,199192,Abrasion and/or friction burn of trunk without infection,outcome
-101100000,201100000,4088290,Absence of breast,outcome
-101100000,201100000,75911,Acquired hallux valgus,outcome
-101100000,201100000,137951,Acquired keratoderma,outcome
-101100000,201100000,73241,Anal and rectal polyp,outcome
-101100000,201100000,133655,Burn of forearm,outcome
-101100000,201100000,73560,Calcaneal spur,outcome
-101100000,201100000,434327,Cannabis abuse,outcome
-101100000,201100000,140842,Changes in skin texture,outcome
-101100000,201100000,81378,Chondromalacia of patella,outcome
-101100000,201100000,432303,Cocaine abuse,outcome
-101100000,201100000,46269889,Complication due to Crohn's disease,outcome
-101100000,201100000,134438,Contact dermatitis,outcome
-101100000,201100000,78619,Contusion of knee,outcome
-101100000,201100000,201606,Crohn's disease,outcome
-101100000,201100000,76786,Derangement of knee,outcome
-101100000,201100000,4115402,Difficulty sleeping,outcome
-101100000,201100000,45757370,Disproportion of reconstructed breast,outcome
-101100000,201100000,433111,Effects of hunger,outcome
-101100000,201100000,433527,Endometriosis,outcome
-101100000,201100000,4092896,Feces contents abnormal,outcome
-101100000,201100000,259995,Foreign body in orifice,outcome
-101100000,201100000,40481632,Ganglion cyst,outcome
-101100000,201100000,433577,Hammer toe,outcome
-101100000,201100000,4231770,Hereditary thrombophilia,outcome
-101100000,201100000,4012570,High risk sexual behavior,outcome
-101100000,201100000,4012934,Homocystinuria,outcome
-101100000,201100000,374375,Impacted cerumen,outcome
-101100000,201100000,4344500,Impingement syndrome of shoulder region,outcome
-101100000,201100000,139099,Ingrowing nail,outcome
-101100000,201100000,444132,Injury of knee,outcome
-101100000,201100000,432593,Kwashiorkor,outcome
-101100000,201100000,434203,Late effect of contusion,outcome
-101100000,201100000,438329,Late effect of motor vehicle accident,outcome
-101100000,201100000,4083487,Macular drusen,outcome
-101100000,201100000,4103703,Melena,outcome
-101100000,201100000,4209423,Nicotine dependence,outcome
-101100000,201100000,377572,Noise effects on inner ear,outcome
-101100000,201100000,136368,Non-toxic multinodular goiter,outcome
-101100000,201100000,40480893,Nonspecific tuberculin test reaction,outcome
-101100000,201100000,438130,Opioid abuse,outcome
-101100000,201100000,4091513,Passing flatus,outcome
-101100000,201100000,4202045,Postviral fatigue syndrome,outcome
-101100000,201100000,373478,Presbyopia,outcome
-101100000,201100000,46286594,Problem related to lifestyle,outcome
-101100000,201100000,439790,Psychalgia,outcome
-101100000,201100000,81634,Ptotic breast,outcome
-101100000,201100000,380706,Regular astigmatism,outcome
-101100000,201100000,141932,Senile hyperkeratosis,outcome
-101100000,201100000,36713918,Somatic dysfunction of lumbar region,outcome
-101100000,201100000,443172,Splinter of face without major open wound,outcome
-101100000,201100000,81151,Sprain of ankle,outcome
-101100000,201100000,72748,Strain of rotator cuff capsule,outcome
-101100000,201100000,378427,Tear film insufficiency,outcome
-101100000,201100000,437264,Tobacco dependence syndrome,outcome
-101100000,201100000,140641,Verruca vulgaris,outcome
-101100000,201100000,4115367,Wrist joint pain,outcome
-101100000,201100000,440193,Wristdrop,outcome
+101100000,401100000,439935,Abnormal posture,outcome
+101100000,401100000,443585,Abrasion and/or friction burn of multiple sites,outcome
+101100000,401100000,4092879,Absent kidney,outcome
+101100000,401100000,45757682,Anomaly of jaw size,outcome
+101100000,401100000,81878,Benign paroxysmal positional vertigo,outcome
+101100000,401100000,4216219,Bizarre personal appearance,outcome
+101100000,401100000,134765,Cachexia,outcome
+101100000,401100000,4201390,Colostomy present,outcome
+101100000,401100000,434675,Complication of gastrostomy,outcome
+101100000,401100000,436077,Developmental delay,outcome
+101100000,401100000,377910,Deviated nasal septum,outcome
+101100000,401100000,4170770,Epidermoid cyst,outcome
+101100000,401100000,437448,Exhaustion due to excessive exertion,outcome
+101100000,401100000,4092896,Feces contents abnormal,outcome
+101100000,401100000,374801,Foreign body in ear,outcome
+101100000,401100000,4096540,Foreskin deficient,outcome
+101100000,401100000,439788,Galactosemia,outcome
+101100000,401100000,40481632,Ganglion cyst,outcome
+101100000,401100000,4168318,Genetic disorder carrier,outcome
+101100000,401100000,374375,Impacted cerumen,outcome
+101100000,401100000,40481897,Inadequate sleep hygiene,outcome
+101100000,401100000,4265896,Jellyfish poisoning,outcome
+101100000,401100000,381021,Lagophthalmos,outcome
+101100000,401100000,4027782,Lipid storage disease,outcome
+101100000,401100000,433997,Lymphangioma,outcome
+101100000,401100000,4051630,Malingering,outcome
+101100000,401100000,258540,Marfan's syndrome,outcome
+101100000,401100000,432798,"Mechanical complication of internal orthopedic device, implant AND/OR graft",outcome
+101100000,401100000,439795,Minimal cognitive impairment,outcome
+101100000,401100000,4209423,Nicotine dependence,outcome
+101100000,401100000,40480893,Nonspecific tuberculin test reaction,outcome
+101100000,401100000,438130,Opioid abuse,outcome
+101100000,401100000,4299094,Opioid intoxication,outcome
+101100000,401100000,437092,Physiological development failure,outcome
+101100000,401100000,433951,Poisoning by tranquilizer,outcome
+101100000,401100000,46286594,Problem related to lifestyle,outcome
+101100000,401100000,4019836,Social exclusion,outcome
+101100000,401100000,432436,Symbolic dysfunction,outcome
+101100000,401100000,433244,Tooth loss,outcome
+101100000,401100000,436876,Toxic effect of lead compound,outcome
+101100000,401100000,440612,Toxic effect of tobacco and nicotine,outcome
+101100000,401100000,4201387,Tracheostomy present,outcome
+101100000,401100000,45757285,Unsatisfactory tooth restoration,outcome
+101100000,401100000,436409,Abnormal pupil,outcome
+101100000,401100000,199192,Abrasion and/or friction burn of trunk without infection,outcome
+101100000,401100000,4088290,Absence of breast,outcome
+101100000,401100000,75911,Acquired hallux valgus,outcome
+101100000,401100000,137951,Acquired keratoderma,outcome
+101100000,401100000,73241,Anal and rectal polyp,outcome
+101100000,401100000,133655,Burn of forearm,outcome
+101100000,401100000,73560,Calcaneal spur,outcome
+101100000,401100000,434327,Cannabis abuse,outcome
+101100000,401100000,140842,Changes in skin texture,outcome
+101100000,401100000,81378,Chondromalacia of patella,outcome
+101100000,401100000,432303,Cocaine abuse,outcome
+101100000,401100000,46269889,Complication due to Crohn's disease,outcome
+101100000,401100000,134438,Contact dermatitis,outcome
+101100000,401100000,78619,Contusion of knee,outcome
+101100000,401100000,201606,Crohn's disease,outcome
+101100000,401100000,76786,Derangement of knee,outcome
+101100000,401100000,4115402,Difficulty sleeping,outcome
+101100000,401100000,45757370,Disproportion of reconstructed breast,outcome
+101100000,401100000,433111,Effects of hunger,outcome
+101100000,401100000,433527,Endometriosis,outcome
+101100000,401100000,4092896,Feces contents abnormal,outcome
+101100000,401100000,259995,Foreign body in orifice,outcome
+101100000,401100000,40481632,Ganglion cyst,outcome
+101100000,401100000,433577,Hammer toe,outcome
+101100000,401100000,4231770,Hereditary thrombophilia,outcome
+101100000,401100000,4012570,High risk sexual behavior,outcome
+101100000,401100000,4012934,Homocystinuria,outcome
+101100000,401100000,374375,Impacted cerumen,outcome
+101100000,401100000,4344500,Impingement syndrome of shoulder region,outcome
+101100000,401100000,139099,Ingrowing nail,outcome
+101100000,401100000,444132,Injury of knee,outcome
+101100000,401100000,432593,Kwashiorkor,outcome
+101100000,401100000,434203,Late effect of contusion,outcome
+101100000,401100000,438329,Late effect of motor vehicle accident,outcome
+101100000,401100000,4083487,Macular drusen,outcome
+101100000,401100000,4103703,Melena,outcome
+101100000,401100000,4209423,Nicotine dependence,outcome
+101100000,401100000,377572,Noise effects on inner ear,outcome
+101100000,401100000,136368,Non-toxic multinodular goiter,outcome
+101100000,401100000,40480893,Nonspecific tuberculin test reaction,outcome
+101100000,401100000,438130,Opioid abuse,outcome
+101100000,401100000,4091513,Passing flatus,outcome
+101100000,401100000,4202045,Postviral fatigue syndrome,outcome
+101100000,401100000,373478,Presbyopia,outcome
+101100000,401100000,46286594,Problem related to lifestyle,outcome
+101100000,401100000,439790,Psychalgia,outcome
+101100000,401100000,81634,Ptotic breast,outcome
+101100000,401100000,380706,Regular astigmatism,outcome
+101100000,401100000,141932,Senile hyperkeratosis,outcome
+101100000,401100000,36713918,Somatic dysfunction of lumbar region,outcome
+101100000,401100000,443172,Splinter of face without major open wound,outcome
+101100000,401100000,81151,Sprain of ankle,outcome
+101100000,401100000,72748,Strain of rotator cuff capsule,outcome
+101100000,401100000,378427,Tear film insufficiency,outcome
+101100000,401100000,437264,Tobacco dependence syndrome,outcome
+101100000,401100000,140641,Verruca vulgaris,outcome
+101100000,401100000,4115367,Wrist joint pain,outcome
+101100000,401100000,440193,Wristdrop,outcome
 301100000,401100000,439935,Abnormal posture,outcome
 301100000,401100000,443585,Abrasion and/or friction burn of multiple sites,outcome
 301100000,401100000,4092879,Absent kidney,outcome
@@ -203,105 +203,105 @@ targetId, comparatorId, outcomeId,outcomeName,type
 301100000,401100000,140641,Verruca vulgaris,outcome
 301100000,401100000,4115367,Wrist joint pain,outcome
 301100000,401100000,440193,Wristdrop3,outcome
-102100000,202100000,439935,Abnormal posture,outcome
-102100000,202100000,443585,Abrasion and/or friction burn of multiple sites,outcome
-102100000,202100000,4092879,Absent kidney,outcome
-102100000,202100000,45757682,Anomaly of jaw size,outcome
-102100000,202100000,81878,Benign paroxysmal positional vertigo,outcome
-102100000,202100000,4216219,Bizarre personal appearance,outcome
-102100000,202100000,134765,Cachexia,outcome
-102100000,202100000,4201390,Colostomy present,outcome
-102100000,202100000,434675,Complication of gastrostomy,outcome
-102100000,202100000,436077,Developmental delay,outcome
-102100000,202100000,377910,Deviated nasal septum,outcome
-102100000,202100000,4170770,Epidermoid cyst,outcome
-102100000,202100000,437448,Exhaustion due to excessive exertion,outcome
-102100000,202100000,4092896,Feces contents abnormal,outcome
-102100000,202100000,374801,Foreign body in ear,outcome
-102100000,202100000,4096540,Foreskin deficient,outcome
-102100000,202100000,439788,Galactosemia,outcome
-102100000,202100000,40481632,Ganglion cyst,outcome
-102100000,202100000,4168318,Genetic disorder carrier,outcome
-102100000,202100000,374375,Impacted cerumen,outcome
-102100000,202100000,40481897,Inadequate sleep hygiene,outcome
-102100000,202100000,4265896,Jellyfish poisoning,outcome
-102100000,202100000,381021,Lagophthalmos,outcome
-102100000,202100000,4027782,Lipid storage disease,outcome
-102100000,202100000,433997,Lymphangioma,outcome
-102100000,202100000,4051630,Malingering,outcome
-102100000,202100000,258540,Marfan's syndrome,outcome
-102100000,202100000,432798,"Mechanical complication of internal orthopedic device, implant AND/OR graft",outcome
-102100000,202100000,439795,Minimal cognitive impairment,outcome
-102100000,202100000,4209423,Nicotine dependence,outcome
-102100000,202100000,40480893,Nonspecific tuberculin test reaction,outcome
-102100000,202100000,438130,Opioid abuse,outcome
-102100000,202100000,4299094,Opioid intoxication,outcome
-102100000,202100000,437092,Physiological development failure,outcome
-102100000,202100000,433951,Poisoning by tranquilizer,outcome
-102100000,202100000,46286594,Problem related to lifestyle,outcome
-102100000,202100000,4019836,Social exclusion,outcome
-102100000,202100000,432436,Symbolic dysfunction,outcome
-102100000,202100000,433244,Tooth loss,outcome
-102100000,202100000,436876,Toxic effect of lead compound,outcome
-102100000,202100000,440612,Toxic effect of tobacco and nicotine,outcome
-102100000,202100000,4201387,Tracheostomy present,outcome
-102100000,202100000,45757285,Unsatisfactory tooth restoration,outcome
-102100000,202100000,436409,Abnormal pupil,outcome
-102100000,202100000,199192,Abrasion and/or friction burn of trunk without infection,outcome
-102100000,202100000,4088290,Absence of breast,outcome
-102100000,202100000,75911,Acquired hallux valgus,outcome
-102100000,202100000,137951,Acquired keratoderma,outcome
-102100000,202100000,73241,Anal and rectal polyp,outcome
-102100000,202100000,133655,Burn of forearm,outcome
-102100000,202100000,73560,Calcaneal spur,outcome
-102100000,202100000,434327,Cannabis abuse,outcome
-102100000,202100000,140842,Changes in skin texture,outcome
-102100000,202100000,81378,Chondromalacia of patella,outcome
-102100000,202100000,432303,Cocaine abuse,outcome
-102100000,202100000,46269889,Complication due to Crohn's disease,outcome
-102100000,202100000,134438,Contact dermatitis,outcome
-102100000,202100000,78619,Contusion of knee,outcome
-102100000,202100000,201606,Crohn's disease,outcome
-102100000,202100000,76786,Derangement of knee,outcome
-102100000,202100000,4115402,Difficulty sleeping,outcome
-102100000,202100000,45757370,Disproportion of reconstructed breast,outcome
-102100000,202100000,433111,Effects of hunger,outcome
-102100000,202100000,433527,Endometriosis,outcome
-102100000,202100000,4092896,Feces contents abnormal,outcome
-102100000,202100000,259995,Foreign body in orifice,outcome
-102100000,202100000,40481632,Ganglion cyst,outcome
-102100000,202100000,433577,Hammer toe,outcome
-102100000,202100000,4231770,Hereditary thrombophilia,outcome
-102100000,202100000,4012570,High risk sexual behavior,outcome
-102100000,202100000,4012934,Homocystinuria,outcome
-102100000,202100000,374375,Impacted cerumen,outcome
-102100000,202100000,4344500,Impingement syndrome of shoulder region,outcome
-102100000,202100000,139099,Ingrowing nail,outcome
-102100000,202100000,444132,Injury of knee,outcome
-102100000,202100000,432593,Kwashiorkor,outcome
-102100000,202100000,434203,Late effect of contusion,outcome
-102100000,202100000,438329,Late effect of motor vehicle accident,outcome
-102100000,202100000,4083487,Macular drusen,outcome
-102100000,202100000,4103703,Melena,outcome
-102100000,202100000,4209423,Nicotine dependence,outcome
-102100000,202100000,377572,Noise effects on inner ear,outcome
-102100000,202100000,136368,Non-toxic multinodular goiter,outcome
-102100000,202100000,40480893,Nonspecific tuberculin test reaction,outcome
-102100000,202100000,438130,Opioid abuse,outcome
-102100000,202100000,4091513,Passing flatus,outcome
-102100000,202100000,4202045,Postviral fatigue syndrome,outcome
-102100000,202100000,373478,Presbyopia,outcome
-102100000,202100000,46286594,Problem related to lifestyle,outcome
-102100000,202100000,439790,Psychalgia,outcome
-102100000,202100000,81634,Ptotic breast,outcome
-102100000,202100000,380706,Regular astigmatism,outcome
-102100000,202100000,141932,Senile hyperkeratosis,outcome
-102100000,202100000,36713918,Somatic dysfunction of lumbar region,outcome
-102100000,202100000,443172,Splinter of face without major open wound,outcome
-102100000,202100000,81151,Sprain of ankle,outcome
-102100000,202100000,72748,Strain of rotator cuff capsule,outcome
-102100000,202100000,378427,Tear film insufficiency,outcome
-102100000,202100000,437264,Tobacco dependence syndrome,outcome
-102100000,202100000,140641,Verruca vulgaris,outcome
-102100000,202100000,4115367,Wrist joint pain,outcome
-102100000,202100000,440193,Wristdrop,outcome
+102100000,402100000,439935,Abnormal posture,outcome
+102100000,402100000,443585,Abrasion and/or friction burn of multiple sites,outcome
+102100000,402100000,4092879,Absent kidney,outcome
+102100000,402100000,45757682,Anomaly of jaw size,outcome
+102100000,402100000,81878,Benign paroxysmal positional vertigo,outcome
+102100000,402100000,4216219,Bizarre personal appearance,outcome
+102100000,402100000,134765,Cachexia,outcome
+102100000,402100000,4201390,Colostomy present,outcome
+102100000,402100000,434675,Complication of gastrostomy,outcome
+102100000,402100000,436077,Developmental delay,outcome
+102100000,402100000,377910,Deviated nasal septum,outcome
+102100000,402100000,4170770,Epidermoid cyst,outcome
+102100000,402100000,437448,Exhaustion due to excessive exertion,outcome
+102100000,402100000,4092896,Feces contents abnormal,outcome
+102100000,402100000,374801,Foreign body in ear,outcome
+102100000,402100000,4096540,Foreskin deficient,outcome
+102100000,402100000,439788,Galactosemia,outcome
+102100000,402100000,40481632,Ganglion cyst,outcome
+102100000,402100000,4168318,Genetic disorder carrier,outcome
+102100000,402100000,374375,Impacted cerumen,outcome
+102100000,402100000,40481897,Inadequate sleep hygiene,outcome
+102100000,402100000,4265896,Jellyfish poisoning,outcome
+102100000,402100000,381021,Lagophthalmos,outcome
+102100000,402100000,4027782,Lipid storage disease,outcome
+102100000,402100000,433997,Lymphangioma,outcome
+102100000,402100000,4051630,Malingering,outcome
+102100000,402100000,258540,Marfan's syndrome,outcome
+102100000,402100000,432798,"Mechanical complication of internal orthopedic device, implant AND/OR graft",outcome
+102100000,402100000,439795,Minimal cognitive impairment,outcome
+102100000,402100000,4209423,Nicotine dependence,outcome
+102100000,402100000,40480893,Nonspecific tuberculin test reaction,outcome
+102100000,402100000,438130,Opioid abuse,outcome
+102100000,402100000,4299094,Opioid intoxication,outcome
+102100000,402100000,437092,Physiological development failure,outcome
+102100000,402100000,433951,Poisoning by tranquilizer,outcome
+102100000,402100000,46286594,Problem related to lifestyle,outcome
+102100000,402100000,4019836,Social exclusion,outcome
+102100000,402100000,432436,Symbolic dysfunction,outcome
+102100000,402100000,433244,Tooth loss,outcome
+102100000,402100000,436876,Toxic effect of lead compound,outcome
+102100000,402100000,440612,Toxic effect of tobacco and nicotine,outcome
+102100000,402100000,4201387,Tracheostomy present,outcome
+102100000,402100000,45757285,Unsatisfactory tooth restoration,outcome
+102100000,402100000,436409,Abnormal pupil,outcome
+102100000,402100000,199192,Abrasion and/or friction burn of trunk without infection,outcome
+102100000,402100000,4088290,Absence of breast,outcome
+102100000,402100000,75911,Acquired hallux valgus,outcome
+102100000,402100000,137951,Acquired keratoderma,outcome
+102100000,402100000,73241,Anal and rectal polyp,outcome
+102100000,402100000,133655,Burn of forearm,outcome
+102100000,402100000,73560,Calcaneal spur,outcome
+102100000,402100000,434327,Cannabis abuse,outcome
+102100000,402100000,140842,Changes in skin texture,outcome
+102100000,402100000,81378,Chondromalacia of patella,outcome
+102100000,402100000,432303,Cocaine abuse,outcome
+102100000,402100000,46269889,Complication due to Crohn's disease,outcome
+102100000,402100000,134438,Contact dermatitis,outcome
+102100000,402100000,78619,Contusion of knee,outcome
+102100000,402100000,201606,Crohn's disease,outcome
+102100000,402100000,76786,Derangement of knee,outcome
+102100000,402100000,4115402,Difficulty sleeping,outcome
+102100000,402100000,45757370,Disproportion of reconstructed breast,outcome
+102100000,402100000,433111,Effects of hunger,outcome
+102100000,402100000,433527,Endometriosis,outcome
+102100000,402100000,4092896,Feces contents abnormal,outcome
+102100000,402100000,259995,Foreign body in orifice,outcome
+102100000,402100000,40481632,Ganglion cyst,outcome
+102100000,402100000,433577,Hammer toe,outcome
+102100000,402100000,4231770,Hereditary thrombophilia,outcome
+102100000,402100000,4012570,High risk sexual behavior,outcome
+102100000,402100000,4012934,Homocystinuria,outcome
+102100000,402100000,374375,Impacted cerumen,outcome
+102100000,402100000,4344500,Impingement syndrome of shoulder region,outcome
+102100000,402100000,139099,Ingrowing nail,outcome
+102100000,402100000,444132,Injury of knee,outcome
+102100000,402100000,432593,Kwashiorkor,outcome
+102100000,402100000,434203,Late effect of contusion,outcome
+102100000,402100000,438329,Late effect of motor vehicle accident,outcome
+102100000,402100000,4083487,Macular drusen,outcome
+102100000,402100000,4103703,Melena,outcome
+102100000,402100000,4209423,Nicotine dependence,outcome
+102100000,402100000,377572,Noise effects on inner ear,outcome
+102100000,402100000,136368,Non-toxic multinodular goiter,outcome
+102100000,402100000,40480893,Nonspecific tuberculin test reaction,outcome
+102100000,402100000,438130,Opioid abuse,outcome
+102100000,402100000,4091513,Passing flatus,outcome
+102100000,402100000,4202045,Postviral fatigue syndrome,outcome
+102100000,402100000,373478,Presbyopia,outcome
+102100000,402100000,46286594,Problem related to lifestyle,outcome
+102100000,402100000,439790,Psychalgia,outcome
+102100000,402100000,81634,Ptotic breast,outcome
+102100000,402100000,380706,Regular astigmatism,outcome
+102100000,402100000,141932,Senile hyperkeratosis,outcome
+102100000,402100000,36713918,Somatic dysfunction of lumbar region,outcome
+102100000,402100000,443172,Splinter of face without major open wound,outcome
+102100000,402100000,81151,Sprain of ankle,outcome
+102100000,402100000,72748,Strain of rotator cuff capsule,outcome
+102100000,402100000,378427,Tear film insufficiency,outcome
+102100000,402100000,437264,Tobacco dependence syndrome,outcome
+102100000,402100000,140641,Verruca vulgaris,outcome
+102100000,402100000,4115367,Wrist joint pain,outcome
+102100000,402100000,440193,Wristdrop,outcome
