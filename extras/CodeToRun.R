@@ -12,8 +12,8 @@ pathToDriver <- "D:/Users/msuchard/Documents/Drivers"
 
 # Details for connecting to the server from Legend T2dm:
 oracleTempSchema <- NULL
-cdmDatabaseSchema <- "cdm_truven_mdcr_v1838" # MAS: I just updated to most recent
-#serverSuffix <- "truven_mdcr"
+cdmDatabaseSchema <- "cdm_truven_mdcr_v1838"
+serverSuffix <- "truven_mdcr"
 cohortDatabaseSchema <- "scratch_msuchard"
 cohortTable <- "legendt2dm_testcases"
 
@@ -23,7 +23,7 @@ databaseDescription <- "IBM Health MarketScan® Medicare Supplemental and Coordi
 
 connectionDetails <- DatabaseConnector::createConnectionDetails(
         dbms = "redshift",
-        server = paste0(keyring::key_get("redshiftServer"), "/", "truven_mdcr"),
+        server = paste0(keyring::key_get("redshiftServer"), "/", !!serverSuffix),
         port = 5439,
         user = keyring::key_get("redshiftUser"),
         password = keyring::key_get("redshiftPassword"),
@@ -50,9 +50,4 @@ dataFolder <- file.path(outputFolder, "shinyData")
 
 # You can inspect the results if you want:
 prepareForEvidenceExplorer(resultsZipFile = resultsZipFile, dataFolder = dataFolder)
-launchEvidenceExplorer(dataFolder = dataFolder, blind = TRUE, launch.browser = FALSE)
-
-# Upload the results to the OHDSI SFTP server:
-privateKeyFileName <- ""
-userName <- ""
-uploadResults(outputFolder, privateKeyFileName, userName)
+launchEvidenceExplorer(dataFolder = dataFolder, blind = FALSE, launch.browser = FALSE)

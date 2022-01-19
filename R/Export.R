@@ -167,7 +167,6 @@ exportOutcomes <- function(outputFolder, exportFolder) {
   fileName <- file.path(exportFolder, "outcome_of_interest.csv")
   readr::write_csv(outcomeOfInterest, fileName) 
   
-  
   ParallelLogger::logInfo("- negative_control_outcome table")
   pathToCsv <- system.file("settings", "NegativeControls.csv", package = "LegendT2dmTestCases")
   negativeControls <- read.csv(pathToCsv)
