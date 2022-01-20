@@ -51,3 +51,14 @@ dataFolder <- file.path(outputFolder, "shinyData")
 # You can inspect the results if you want:
 prepareForEvidenceExplorer(resultsZipFile = resultsZipFile, dataFolder = dataFolder)
 launchEvidenceExplorer(dataFolder = dataFolder, blind = FALSE, launch.browser = FALSE)
+
+# Grab estimates to compare with main LEGEND-T2DM
+library(dplyr)
+
+analysisSummary <- read.csv(file.path(outputFolder, "analysisSummary.csv"))
+rbind(
+  analysisSummary %>% filter(outcomeId == 1) %>% 
+    select(analysisId, rr) %>% arrange(analysisId),
+  analysisSummary %>% filter(outcomeId == 6, analysisId %in% c(1,2,3)) %>% 
+    mutate(analysisId = analysisId + 6) %>% select(analysisId, rr) %>% arrange(analysisId)
+)
