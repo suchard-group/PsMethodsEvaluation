@@ -1,4 +1,4 @@
-targetId,comparatorId,outcomeIds,excludedCovariateConceptIds,includedCovariateConceptIds
-101100000,401100000,1,,
-301100000,401100000,2,,
-102100000,402100000,6,,
+targetId,comparatorId,outcomeIds
+201100000,101100000,538
+201100000,101100000,539
+201100000,101100000,541

@@ -136,15 +136,31 @@ addAnalysisDescription <- function(data, IdColumnName = "analysisId", nameColumn
 createTcos <- function(outputFolder) {
   pathToCsv <- system.file("settings", "TcosOfInterest.csv", package = "LegendT2dmTestCases")
   tcosOfInterest <- read.csv(pathToCsv, stringsAsFactors = FALSE)
-  allControls <- getAllControls(outputFolder)
+  allControls <- getAllControls(outputFolder) %>% unique() %>%
+    distinct(outcomeId, .keep_all = TRUE)
   tcs <- unique(rbind(tcosOfInterest[, c("targetId", "comparatorId")],
                       allControls[, c("targetId", "comparatorId")]))
   createTco <- function(i) {
     targetId <- tcs$targetId[i]
     comparatorId <- tcs$comparatorId[i]
     outcomeIds <- as.character(tcosOfInterest$outcomeIds[tcosOfInterest$targetId == targetId & tcosOfInterest$comparatorId == comparatorId])
-    outcomeIds <- as.numeric(strsplit(outcomeIds, split = ";")[[1]])
-    outcomeIds <- c(outcomeIds, allControls$outcomeId[allControls$targetId == targetId & allControls$comparatorId == comparatorId])
+    outcomeIds <- as.numeric(strsplit(outcomeIds, split = ";"))
+    
+    allControls <- allControls %>% filter(targetId == targetId & comparatorId == comparatorId)
+    
+    outcomeOfInterest <- lapply(outcomeIds,
+                                function(x)CohortMethod::createOutcome(outcomeId = x,
+                                                                       outcomeOfInterest = TRUE))
+    
+    controlOutcomes <- mapply(
+      function(outcomeId, trueEffectSize)CohortMethod::createOutcome(outcomeId = outcomeId,
+                                                                     outcomeOfInterest = FALSE,
+                                                                     trueEffectSize = trueEffectSize),
+      allControls$outcomeId,
+      allControls$trueEffectSize,
+      SIMPLIFY = FALSE
+    )
+    
     excludeConceptIds <- as.character(tcosOfInterest$excludedCovariateConceptIds[tcosOfInterest$targetId == targetId & tcosOfInterest$comparatorId == comparatorId])
     if (length(excludeConceptIds) == 1 && is.na(excludeConceptIds)) {
       excludeConceptIds <- c()
@@ -157,9 +173,11 @@ createTcos <- function(outputFolder) {
     } else if (length(includeConceptIds) > 0) {
       includeConceptIds <- as.numeric(strsplit(excludeConceptIds, split = ";")[[1]])
     }
+    
     tco <- CohortMethod::createTargetComparatorOutcomes(targetId = targetId,
                                                         comparatorId = comparatorId,
-                                                        outcomeIds = outcomeIds,
+                                                        outcomes = append(outcomeOfInterest,
+                                                                          controlOutcomes),
                                                         excludedCovariateConceptIds = excludeConceptIds,
                                                         includedCovariateConceptIds = includeConceptIds)
     return(tco)

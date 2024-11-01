@@ -3,52 +3,9 @@
 	"PrimaryCriteria" : {
 		"CriteriaList" : [
 			{
-				"VisitOccurrence" : {
-					"CorrelatedCriteria" : {
-						"Type" : "ALL",
-						"CriteriaList" : [
-							{
-								"Criteria" : {
-									"ConditionOccurrence" : {
-										"CodesetId" : 1,
-										"ConditionTypeExclude" : false
-									}
-								},
-								"StartWindow" : {
-									"Start" : {
-										"Days" : 0,
-										"Coeff" : -1
-									},
-									"End" : {
-										"Coeff" : 1
-									},
-									"UseEventEnd" : false
-								},
-								"EndWindow" : {
-									"Start" : {
-										"Coeff" : -1
-									},
-									"End" : {
-										"Days" : 0,
-										"Coeff" : 1
-									},
-									"UseIndexEnd" : true,
-									"UseEventEnd" : false
-								},
-								"RestrictVisit" : false,
-								"IgnoreObservationPeriod" : false,
-								"Occurrence" : {
-									"Type" : 2,
-									"Count" : 1,
-									"IsDistinct" : false
-								}
-							}
-						],
-						"DemographicCriteriaList" : [],
-						"Groups" : []
-					},
-					"CodesetId" : 0,
-					"VisitTypeExclude" : false
+				"ConditionOccurrence" : {
+					"CodesetId" : 8,
+					"ConditionTypeExclude" : false
 				}
 			}
 		],
@@ -60,9 +17,53 @@
 			"Type" : "All"
 		}
 	},
+	"AdditionalCriteria" : {
+		"Type" : "ANY",
+		"CriteriaList" : [
+			{
+				"Criteria" : {
+					"VisitOccurrence" : {
+						"CodesetId" : 2,
+						"VisitTypeExclude" : false
+					}
+				},
+				"StartWindow" : {
+					"Start" : {
+						"Coeff" : -1
+					},
+					"End" : {
+						"Days" : 0,
+						"Coeff" : 1
+					},
+					"UseIndexEnd" : false,
+					"UseEventEnd" : false
+				},
+				"EndWindow" : {
+					"Start" : {
+						"Days" : 0,
+						"Coeff" : -1
+					},
+					"End" : {
+						"Coeff" : 1
+					},
+					"UseIndexEnd" : false,
+					"UseEventEnd" : true
+				},
+				"RestrictVisit" : false,
+				"IgnoreObservationPeriod" : false,
+				"Occurrence" : {
+					"Type" : 2,
+					"Count" : 1,
+					"IsDistinct" : false
+				}
+			}
+		],
+		"DemographicCriteriaList" : [],
+		"Groups" : []
+	},
 	"ConceptSets" : [
 		{
-			"id" : 0,
+			"id" : 2,
 			"name" : "Inpatient or ER visit",
 			"expression" : {
 				"items" : [
@@ -121,36 +122,53 @@
 			}
 		},
 		{
-			"id" : 1,
-			"name" : "[LEGEND-T2DM] Heart Failure ",
+			"id" : 8,
+			"name" : "Acute Renal Failure",
 			"expression" : {
 				"items" : [
 					{
 						"concept" : {
-							"CONCEPT_ID" : 315295,
-							"CONCEPT_NAME" : "Congestive rheumatic heart failure",
+							"CONCEPT_ID" : 197320,
+							"CONCEPT_NAME" : "Acute renal failure syndrome",
 							"STANDARD_CONCEPT" : "S",
 							"STANDARD_CONCEPT_CAPTION" : "Standard",
 							"INVALID_REASON" : "V",
 							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "82523003",
+							"CONCEPT_CODE" : "14669001",
 							"DOMAIN_ID" : "Condition",
 							"VOCABULARY_ID" : "SNOMED",
 							"CONCEPT_CLASS_ID" : "Clinical Finding"
 						},
-						"isExcluded" : true,
+						"isExcluded" : false,
 						"includeDescendants" : true,
 						"includeMapped" : false
 					},
 					{
 						"concept" : {
-							"CONCEPT_ID" : 316139,
-							"CONCEPT_NAME" : "Heart failure",
+							"CONCEPT_ID" : 432961,
+							"CONCEPT_NAME" : "Acute renal papillary necrosis with renal failure",
 							"STANDARD_CONCEPT" : "S",
 							"STANDARD_CONCEPT_CAPTION" : "Standard",
 							"INVALID_REASON" : "V",
 							"INVALID_REASON_CAPTION" : "Valid",
-							"CONCEPT_CODE" : "84114007",
+							"CONCEPT_CODE" : "298015003",
+							"DOMAIN_ID" : "Condition",
+							"VOCABULARY_ID" : "SNOMED",
+							"CONCEPT_CLASS_ID" : "Clinical Finding"
+						},
+						"isExcluded" : false,
+						"includeDescendants" : true,
+						"includeMapped" : false
+					},
+					{
+						"concept" : {
+							"CONCEPT_ID" : 444044,
+							"CONCEPT_NAME" : "Acute tubular necrosis",
+							"STANDARD_CONCEPT" : "S",
+							"STANDARD_CONCEPT_CAPTION" : "Standard",
+							"INVALID_REASON" : "V",
+							"INVALID_REASON_CAPTION" : "Valid",
+							"CONCEPT_CODE" : "35455006",
 							"DOMAIN_ID" : "Condition",
 							"VOCABULARY_ID" : "SNOMED",
 							"CONCEPT_CLASS_ID" : "Clinical Finding"
@@ -164,7 +182,7 @@
 		}
 	],
 	"QualifiedLimit" : {
-		"Type" : "First"
+		"Type" : "All"
 	},
 	"ExpressionLimit" : {
 		"Type" : "All"
@@ -172,14 +190,14 @@
 	"InclusionRules" : [],
 	"EndStrategy" : {
 		"DateOffset" : {
-			"DateField" : "EndDate",
-			"Offset" : 0
+			"DateField" : "StartDate",
+			"Offset" : 30
 		}
 	},
 	"CensoringCriteria" : [],
 	"CollapseSettings" : {
 		"CollapseType" : "ERA",
-		"EraPad" : 7
+		"EraPad" : 30
 	},
 	"CensorWindow" : {}
 }
