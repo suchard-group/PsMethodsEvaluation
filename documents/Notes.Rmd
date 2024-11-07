@@ -1,0 +1,93 @@
+---
+title: "Notes for reference and research questions"
+author: "Kelly Li"
+date: "2024-11-06"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(tidyverse)
+library(kableExtra)
+```
+
+### Motivations 
+
+  - In existing OHDSI empirical evaluations, IPTW underperforms compared to PS matching and stratification (https://hdsr.mitpress.mit.edu/pub/fxz7kr65/release/7), but others predominantly use IPTW and do not run into the same problem.
+  - When encountering extreme PS, researchers do a variety of undocumented things on the fly (clipping, ways to "stabilize PS", etc.), and we need a more standardized way to handle those issues.
+
+### Research questions and proposals
+Why are others using IPTW?
+
+  - Others are evaluating PS methods using simulations (OHDSI's empirical evaluation runs into more problems than simulations do)
+    * **Proposal**: We can simulate some data with incorporating error into the PS model... Perhaps through a Bayesian approach to IPTW?
+  - Large-scale PS models produce smoother PS distributions, including scores close to 0 and 1, so extreme weights are encountered more often than in PS models with only 10-20 variables chosen by hand.
+    * **Proposal**: In evaluation of PS methods, include some small (10-20 variable) models as one comparison (Kelly)
+    * Issues: May be non-reproducible and non-scalable, i.e. applying to 100 negative controls requires handpicking 100 sets of variables to include
+  - Stratification vs IPTW: stratification assumes constant equal PS within each stratum, while IPTW retains the individual level PS, so theoretically, IPTW should be a "better" confounding adjustor.
+    * Comparing matching to IPTW is not necessarily fair: dropping patients from the cohort when matching changes the variance when comparing treatment effects.
+    * Regardless of variance, matching vs IPTW vs stratification should all have nominal coverage, and HR estimates are mostly roughly equivalent... so it's at least worth it to compare.
+  - IPTW makes double robustness easier with high-enough prevalence or can pull in censoring adjustment.
+    * Majority of double robustness literature is on binary outcomes
+    * **Proposal**: Work on rare/survival outcome double-robustness (Linying?)
+  - OHDSI's kitchen-sink approach for covariates could render a good study design to still have poor equipoise, while others tend to manually select covariates
+    * **Proposal**: Begin to answer this problem using the small PS models (10-20 variables by hand) mentioned above
+  
+**Proposal**: Small-sample impact of LSPS-matching vs IPTW
+
+### Additional notes
+  - Others often use sandwich estimator; Cyclops uses likelihood profiling.
+    The sandwich estimator has better properties than Cyclops, but IPTW still falls short to matching (Martijn).
+    
+### A brief summary of "Propensity Score Methods Evaluation" (to be renamed)'s protocol
+
+We plan to compare varying propensity score adjustment methods against each other and their bias-variance trade-off using negative and positive controls in a similar fashion to Martijn's `MethodsEvaluation` paper.
+The cross-product of methods to be examined is listed in the table below.
+The current test cohorts are the class-vs-class comparisons implemented by `LegendT2dm`
+
+```{r}
+baseline1 <- c("Unadjusted")
+matching1 <- c("Matching 1:1", "Matching 1:1", "Matching 1:5", "Matching 1:10", "Matching variable-ratio")
+strat1 <- c("Stratification (5 groups)", "Stratification (10 groups)")
+weight1 <- c("IPTW", "Overlap weights")
+
+lsps <- tibble(method = c(baseline1, matching1, strat1, weight1),
+               stratified = "Y")
+
+lsps$stratified[c(1:2, 9:10)] <- "N"
+lsps$model <- "Large-scale"
+
+lsps$model[1] <- "None"
+
+matching2 <- c("Matching 1:1", "Matching variable-ratio")
+strat2 <- c("Stratification (5 groups)")
+weight2 <- c("IPTW")
+
+ssps <- tibble(method = c(matching2, strat2, weight2),
+               stratified = "Y")
+ssps$stratified <- "N"
+ssps$stratified[3] <- "Y"
+ssps$model <- "Small-scale (10-20 covariates)"
+
+data1 <- rbind(lsps, ssps)
+table1 <- kbl(data1,
+              booktabs = T,
+              col.names = c("PS adjustment",
+                            "Stratified outcome",
+                            "Model type"),
+              align = "lcc",
+              linesep = "") %>% 
+    kable_styling(latex_options = "striped",
+                full_width = F) 
+
+```
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: "New-user cohort method analysis variants of propensity score adjustment and outcome model specifications"
+table1
+```
+
+### Some papers on IPTW of interest:
+  - Peter Austin recommends matching/IPTW for survival outcomes: https://pubmed.ncbi.nlm.nih.gov/23239115
+  
