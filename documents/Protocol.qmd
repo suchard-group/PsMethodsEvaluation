@@ -109,31 +109,35 @@ We will conduct an evaluation of a list of varying specifications for fitting an
 Our evaluation focuses on the differences in PS adjustment and outcome model specification strategies. Each analysis uses a Cox proportional hazards model and all PS adjustments use a caliper of 0.2 standard deviations on the standardized logit scale.
 
 ```{r}
-baseline1 <- c("No PS", "N")
-baseline2 <- c("1-to-1 matching", "N")
-baseline3 <- c("IPTW", "N")
+baseline1 <- c("Unadjusted")
+matching1 <- c("Matching 1:1", "Matching 1:1", "Matching 1:5", "Matching 1:10", "Matching variable-ratio")
+strat1 <- c("Stratification (5 groups)", "Stratification (10 groups)")
+weight1 <- c("IPTW", "Overlap weights")
 
-psMethods <- c("1-to-1 matching",
-               "1-to-2 matching",
-               "1-to-4 matching",
-               "Variable ratio matching",
-               "Stratification")
+lsps <- tibble(method = c(baseline1, matching1, strat1, weight1),
+               stratified = "Y")
 
-cross1 <- tibble(method = psMethods,
-                 stratified = "Y")
-cross1 <- rbind(baseline1, baseline2, cross1, baseline3)
+lsps$stratified[c(1:2, 9:10)] <- "N"
+lsps$model <- "Large-scale"
 
-cross2 <- rbind(cross1, cross1)
-cross2$addCovs <- c(rep("Y", nrow(cross2)/2), rep('N', nrow(cross2)/2))
-cross2 <- cross2 %>% arrange(method)
-cross3 <- cross2 %>%
-  slice(11, 12, 1, 3, 4, 6, 8, 15, 16, 10, 14)
+lsps$model[1] <- "None"
 
-table1 <- kbl(cross3,
+matching2 <- c("Matching 1:1", "Matching variable-ratio")
+strat2 <- c("Stratification (5 groups)")
+weight2 <- c("IPTW")
+
+ssps <- tibble(method = c(matching2, strat2, weight2),
+               stratified = "Y")
+ssps$stratified <- "N"
+ssps$stratified[3] <- "Y"
+ssps$model <- "Small-scale (10-20 covariates)"
+
+data1 <- rbind(lsps, ssps)
+table1 <- kbl(data1,
               booktabs = T,
-              col.names = c("PS Adjustment",
+              col.names = c("PS adjustment",
                             "Stratified outcome",
-                            "Include covariates"),
+                            "Model type"),
               align = "lcc",
               linesep = "") %>% 
     kable_styling(latex_options = "striped",
