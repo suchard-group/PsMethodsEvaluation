@@ -1,0 +1,226 @@
+---
+title: "OHDSI propensity score matching evaluation study protocol"
+number-sections: true
+format: pdf
+editor: visual
+toc: true
+header-includes:
+  - \usepackage{longtable}
+  - \usepackage{unicode-math}
+  - \LTcapwidth=.95\textwidth
+  - \linespread{1.05}
+  - \usepackage{hyperref}
+  - \numberwithin{equation}{section}
+  - \usepackage{float}
+  - \floatplacement{figure}{H}
+  - \floatplacement{table}{H}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
+library(tidyverse)
+library(bayesbridger)
+library(reticulate)
+library(Matrix)
+library(MatrixModels)
+library(knitr)
+library(patchwork)
+library(ggpubr)
+library(wesanderson)
+library(ggplot2)
+library(kableExtra)
+options(knitr.kable.NA = '')
+options(knitr.table.format = "latex")
+
+# Uncomment below if you want code captions
+# oldSource <- knitr::knit_hooks$get("source")
+# knitr::knit_hooks$set(source = function(x, options) {
+#   x <- oldSource(x, options)
+#   x <- ifelse(!is.null(options$code.cap), paste0(x, "\\captionof{chunk}{", options$code.cap,"}"), x)
+#   ifelse(!is.null(options$ref), paste0(x, "\\label{", options$ref,"}"), x)
+# })
+# Add `chunkcaption: TRUE` to YAML as well.
+```
+
+\newpage
+
+## List of abbreviations
+
+```{r}
+abbrevs <- rbind(c("CDM", "Common data model"),
+                  c("DPP4", "Dipeptidyl peptidase-4"),
+                 c("GLP1", "Glucagon-like peptide-1"),
+                 c("SGLT2", "Sodium-glucose co-transporter-2"),
+                 c("SU", "Sulfanylurea"),
+                 c("LEGEND", "Large-scale Evidence Generation and Evaluation across a Network of Databases"),
+                 c("MACE", "Major adverse cardiovascular event"),
+                 c("OHDSI", "Observational Health Data Science and Informatics"),
+                 c("PS", "Propensity score"))
+
+abbrevtbl <- kbl(abbrevs,
+                 booktabs = T,
+                 align = "ll",
+                 linesep = "",
+                 col.names = NULL) %>%
+      kable_styling(latex_options = "striped",
+                full_width = F) 
+```
+
+```{r}
+abbrevtbl
+```
+
+## Abstract
+
+## Rationale and Background
+
+The new-user cohort method attempts to emulate randomized clinical trials for observational data. However, observational studies suffer from baseline differences between groups initiating different treatments. One solution of interest is to compute the propensity score (PS), the baseline probability that a patient will receive one treatment over another. The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. By matching, stratifying, and weighting on propensity scores, researchers aim to achieve balance in the measured covariates between treatment groups.
+
+Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. However, since each patient's subsequent matches beyond their first will be less similar to them and less optimal, going beyond one-to-one matching may result in increased bias. \[\@?\] suggest variable ratio matching, which reduce bias compared to techniques with fixed ratios, where each patient in the treated group is matched with a variable number of patients in the control group. This is due to the fact that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a treated subject only matches to one control, but fixed-ratio $1:3$ matching requires three matches to be included in the study). While the literature has existing recommendations and insights for the bias-variance trade-off of varying propensity score matching techniques, a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world. We seek to apply the methods and evaluate them in a large-scale real world study comparing classes of second-line T2DM agents for relative risks of safety outcomes.
+
+Here we apply different combinations of propensity score matching/stratifying/trimming methods and evaluate the variance-bias tradeoff of each method. Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. The benchmark consists of a large set of using negative controls as outcomes, whose null hypothesis expects them to have no treatment effect, and also synthetic positive controls with predetermined "true" treatment effects.
+
+## Objectives
+
+### Research questions
+
+How do varying techniques of adjusting by propensity scores, including stratifying, weighting, and multiple types of matching, affect the bias and precision of population-level effect estimation in the OHDSI Methods Library?
+
+### Objectives
+
+To measure the bias-variance trade-off of the various propensity score adjustment methods in the OHDSI Methods Library using large-scale LEGEND-T2DM data.
+
+## Methods
+
+### Study Design
+
+#### CohortMethod
+
+We plan to evaluate the new-user cohort method, which attempts to emulate a randomized clinical trial using observational data \[\@?\]. Subjects who are observed to initiate a treatment of interest (the target) are compared to subjects initiating another treatment (the comparator) and are followed for a pre-specified amount of time following treatment initiation. One main difference between a randomized clinical trial and the cohort method is that there is no randomization of subjects between target and comparator, and hence patients receiving the target may systematically differ from patients receiving the comparator treatment. To adjust for estimation confounding as a result of the lack of randomization, we choose to use propensity score models. The propensity score (PS) for any given patient is the probability that they received the target treatment vs. the comparator, and is computed by fitting a large-scale regularized binary model (in this case, logistic regression) using a large subset of generic patient characteristics \[\@?\]. These generic characteristics may include items such as demographic information, medical diagnoses, drug exposures, and much more.
+
+The PS is used for confounding by matching patients with similar scores between the target and comparator groups, stratifying the entire population of patients by score, or computing weights and weighting patients using Inverse Probability of Treatment Weighing. Since propensity scores fall on a range of 0 to 1, exact matching or stratifying based on score is rarely possible. \[\@?\] recommend a "caliper" of 0.2 standard deviations on the logit scale, where patients are able to be matched together if their scores fall within this given amount. There has been interest in different ways to match a patients initiating the target to those initiating the comparator. While patients could be directly matched 1-to-1, we could benefit from using more information by matching patients 1-to-many, where one target patient could be matched to $n \geq 1$ comparator. Fixed-ratio matching will find a specific $n$ such that each target attempts to match with $n$ comparators. Variable-ratio matching allows a variable number of comparators to be matched per target subjects. Previous studies indicate that one-to-many matching may increase the bias of the eventual outcome model's estimations; meanwhile, variable-ratio matching increases the bias while simultaneously increasing the precision of the estimates \[\@?\].
+
+Another choice for adjusting for confounding is to include additional covariates in the outcome model. Typically, the outcome model with the propensity score is conditioned only on the propensity score and the treatment initiated. When outcomes are more rare, there may be a lack of data to fit an elaborate model. We can make the choice to add the same variables used in the PS model into the outcome model to adjust for the same variables two times in total, but with different methods.
+
+#### Analysis settings
+
+We will conduct an evaluation of a list of varying specifications for fitting and using a propensity score model on pairwise comparisons for two second-line T2DM drug classes. For each analysis set, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair and some outcomes of interest described in @sec-tcos. To measure the bias trade-off and address residual confounding, we utilize a large set of negative control outcome experiments. In the negative control outcomes, we assume true the null hypothesis of no effect, where we don't believe that exposure to the target or the comparator are will cause the outcome. In this study, we utilize the same ones as in the LEGEND-T2DM study, which validated approximately 100 negative controls. These negative controls were generated using a data-rich algorithm that draws upon literature, product labels, and spontaneous reports. In addition, we are able to generate synthetic positive controls by adding simulated outcomes to an existing negative control until a desired incidence rate is reached. Due to real positive controls having existing issues as stated in \[\@?\], we choose to only utilize synthetic positive controls to allow further bias estimation.
+
+Our evaluation focuses on the differences in PS adjustment and outcome model specification strategies. Each analysis uses a Cox proportional hazards model and all PS adjustments use a caliper of 0.2 standard deviations on the standardized logit scale.
+
+```{r}
+baseline1 <- c("Unadjusted")
+matching1 <- c("Matching 1:1", "Matching 1:1", "Matching 1:5", "Matching 1:10", "Matching variable-ratio")
+strat1 <- c("Stratification (5 groups)", "Stratification (10 groups)")
+weight1 <- c("IPTW", "Overlap weights")
+
+lsps <- tibble(method = c(baseline1, matching1, strat1, weight1),
+               stratified = "Y")
+
+lsps$stratified[c(1:2, 9:10)] <- "N"
+lsps$model <- "Large-scale"
+
+lsps$model[1] <- "None"
+
+matching2 <- c("Matching 1:1", "Matching variable-ratio")
+strat2 <- c("Stratification (5 groups)")
+weight2 <- c("IPTW")
+
+ssps <- tibble(method = c(matching2, strat2, weight2),
+               stratified = "Y")
+ssps$stratified <- "N"
+ssps$stratified[3] <- "Y"
+ssps$model <- "Small-scale (10-20 covariates)"
+
+data1 <- rbind(lsps, ssps)
+table1 <- kbl(data1,
+              booktabs = T,
+              col.names = c("PS adjustment",
+                            "Stratified outcome",
+                            "Model type"),
+              align = "lcc",
+              linesep = "") %>% 
+    kable_styling(latex_options = "striped",
+                full_width = F) 
+
+```
+
+```{r}
+#| label: tbl-1
+#| tbl-cap: "New-user cohort method analysis variants of propensity score adjustment and outcome model specifications"
+table1
+```
+
+@tbl-1 lists each variant of the new-user cohort method to be evaluated. Stratifying the outcome model means the model is conditioned on the matched groups/stratified sets and is required for all matched sets greater than 2 patients. When performing IPTW, we also trim to counter the effect of extreme weights on the model.
+
+### Data sources
+
+We will evaluate the propensity score models across a series of administraitive claims and electronic health records (EHR) data through OHDSI's data partners. The models are conveniently run across differing database types as a result of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and the OHDSI Methods Library.
+
+@tbl-datasources lists the 5 data sources that will be utilized in this evaluation, with a brief description and population size, along with information on the data capturing process for its patients and its start date.
+
+```{r}
+#| label: tbl-datasources
+#| tbl-cap: "Committed data sources and their covered populations"
+
+data_sources <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
+  Data source ; Population ; Patients ; History ; Data capture process and short description
+  IBM MarketScan Commercial Claims and Encounters (CCAE) ; Commercially insured, < 65 years ; 142M ; 2000 -- ; Adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy)  from large employers and health plans who provide private healthcare coverage to employees, their spouses and dependents.
+  IBM MarketScan Medicare Supplemental Database (MDCR)  ; Commercially insured, 65+ years ; 10M ; 2000 -- ; Adjudicated health insurance claims of retirees with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service or capitated health plans.
+  IBM MarketScan Multi-State Medicaid Database (MDCD) ; Medicaid enrollees, racially diverse ; 26M ; 2006 -- ; Adjudicated health insurance claims for Medicaid enrollees from multiple states and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims.
+  Optum Electronic Health Records (OptumEHR) ; US, general ; 93M ; 2006 -- ; Clinical information, prescriptions, lab results, vital signs, body measurements, diagnoses and procedures derived from clinical notes using natural language processing.
+",
+show_col_types = FALSE)
+tab <- kable(data_sources, booktabs = TRUE, linesep = "") %>%
+  kable_styling(bootstrap_options = "striped", latex_options = "striped") %>%
+  pack_rows("Administrative claims", 1, 3, latex_align = "c", indent = FALSE) %>%
+  pack_rows("Electronic health records (EHRs)", 4, 5, latex_align = "c", indent = FALSE)
+
+if (knitr::is_latex_output()) {
+  tab %>%
+    column_spec(1, width = "6em") %>%
+    column_spec(2, width = "6em") %>%
+    column_spec(5, width = "20em")
+} else {
+  tab
+}
+
+```
+
+### Target, comparator, and outcome specifications {#sec-tcos}
+
+#### Exposure comparators
+
+We utilize four exposure cohorts for new-users of any drug ingredient wihin the four traditionally second-line drug classes for type-2-diabetes mellitus (T2DM) treatment: DPP4, GLP1, SGLT2, and SU. The index date for each patient is their first observed exposure to any drug ingredient for the four second-line drug classes. \[APPENDIX\] reports the complete OHDSI `ATLAS` cohort descriptions for new-users of each drug class. The description includes complete specification of cohort entry events, inclusion criteria, cohort exit events, and all associated OMOP-CDM concept codes used in the definition of the cohort. For each data source presented in @tbl-datasources, we then execute pairwise class comparisons for each $C \binom{4}{2} = 6$ pair.
+
+#### Outcomes
+
+The three main outcomes of interest are defined using manually crafted rule-based definitions using a combination of diagnosis concept codes in the OMOP-CDM:
+
+-   3-point major adverse cardiovascular events (MACE), including acute myocardial infarction, stroke, and sudden cardiac death, and
+-   4-point MACE that additionally includes heart failure hospitalization.
+-   Acute renal failure
+
+These outcome definitions have been previously implemented and validated in the `LEGEND-T2DM` study \[\@?\]. The formal `ATLAS` definitions of the outcomes are found below.
+
+## Sample Size and Study Power
+
+Within each database, the minimum detectable relative risk (MDRR) will be computed for each control as a typical proxy for power. We inspect the distributions of the PS estimates to evaluate population generalizability and cohort balance before and after adjustment. Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions.
+
+## Strengths and Limitations
+
+### Strengths
+
+We aim to conduct an empirical evaluation of a wide combination of propensity score adjustment methods to population-level estimation across databases containing large-scale administrative claims and EHR data. The existence of a large set of real-world negative controls and synthetic positive controls allow for quantification of unmeasured and systemic bias inherent in observational studies.
+
+### Limitations
+
+While the study uses a wide range of US health data, some operating characteristics will depend on the choice of database, and hence generalization may be difficult for databases outside of this study. In addition, the use of real-world negative control outcomes does not imply that the true confounding structure between treatments and outcomes is known. We utilize a large set of negative controls that represent a wide range of confounding structures, such that one method leading to reduced bias and higher precision for many structures implies those positive effects on the eventual effect estimates. On the other hand, synthetic positive controls only reflect measured bias, due to the use of injected outcomes based on negative controls. Finally, the use of real-world data contains certain issues, including limited and variable observed follow-up times, and missing visit/care episodes for patients. We believe such bias from using a real-world data source will likely be towards the null.
+
+## Protection of Human Subjects
+
+This study uses human data collected during routine healthcare provision, and all data is de-identified within the data source. Study reports and collaboration among researchers shares only analysis code and aggregate data that does not identify individual patients or physicians.
+
+## Plans for Disseminating and Communicating Study Results
+
+One paper describing the study and its results will be written and submitted for publication to a peer-reviewed journal.
