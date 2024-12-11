@@ -170,7 +170,6 @@ exportOutcomes <- function(outputFolder, exportFolder) {
   ParallelLogger::logInfo("- negative_control_outcome table")
   pathToCsv <- system.file("settings", "NegativeControls.csv", package = "LegendT2dmTestCases")
   negativeControls <- read.csv(pathToCsv)
-  negativeControls <- negativeControls[tolower(negativeControls$type) == "outcome", ]
   negativeControls <- negativeControls[, c("outcomeId", "outcomeName")]
   colnames(negativeControls) <- SqlRender::camelCaseToSnakeCase(colnames(negativeControls))
   fileName <- file.path(exportFolder, "negative_control_outcome.csv")

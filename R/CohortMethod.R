@@ -57,6 +57,13 @@ runCohortMethod <- function(connectionDetails,
   cmAnalysisList <- CohortMethod::loadCmAnalysisList(cmAnalysisListFile)
   tcosList <- createTcos(outputFolder = outputFolder)
   outcomesOfInterest <- getOutcomesOfInterest()
+  multiThreadingSettings <- CohortMethod::createMultiThreadingSettings(getDbCohortMethodDataThreads = min(3, maxCores),
+                                                          createStudyPopThreads = min(3, maxCores),
+                                                          createPsThreads = max(1, round(maxCores/10)),
+                                                          psCvThreads = min(10, maxCores),
+                                                          trimMatchStratifyThreads = min(10, maxCores),
+                                                          fitOutcomeModelThreads = max(1, round(maxCores/4)),
+                                                          outcomeCvThreads = min(4, maxCores))
   results <- CohortMethod::runCmAnalyses(connectionDetails = connectionDetails,
                                          cdmDatabaseSchema = cdmDatabaseSchema,
                                          exposureDatabaseSchema = cohortDatabaseSchema,
@@ -64,22 +71,13 @@ runCohortMethod <- function(connectionDetails,
                                          outcomeDatabaseSchema = cohortDatabaseSchema,
                                          outcomeTable = cohortTable,
                                          outputFolder = cmOutputFolder,
-                                         oracleTempSchema = oracleTempSchema,
                                          cmAnalysisList = cmAnalysisList,
                                          targetComparatorOutcomesList = tcosList,
-                                         getDbCohortMethodDataThreads = min(3, maxCores),
-                                         createStudyPopThreads = min(3, maxCores),
-                                         createPsThreads = max(1, round(maxCores/10)),
-                                         psCvThreads = min(10, maxCores),
-                                         trimMatchStratifyThreads = min(10, maxCores),
-                                         fitOutcomeModelThreads = max(1, round(maxCores/4)),
-                                         outcomeCvThreads = min(4, maxCores),
                                          refitPsForEveryOutcome = FALSE,
-                                         outcomeIdsOfInterest = outcomesOfInterest)
+                                         multiThreadingSettings = multiThreadingSettings)
   
   ParallelLogger::logInfo("Summarizing results")
-  analysisSummary <- CohortMethod::summarizeAnalyses(referenceTable = results, 
-                                                     outputFolder = cmOutputFolder)
+  analysisSummary <- readRDS(file.path(outputFolder, "cmOutput", "resultsSummary.rds"))
   analysisSummary <- addCohortNames(analysisSummary, "targetId", "targetName")
   analysisSummary <- addCohortNames(analysisSummary, "comparatorId", "comparatorName")
   analysisSummary <- addCohortNames(analysisSummary, "outcomeId", "outcomeName")

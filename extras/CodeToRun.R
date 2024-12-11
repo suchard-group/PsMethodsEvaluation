@@ -7,7 +7,7 @@ options(andromedaTempFolder = "E:/Li_R/temp")
 maxCores <- 6
 
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "E:/Li_R/t2dmPsTrial1"
+outputFolder <- "E:/Li_R/t2dmPsTrial2"
 
 # Details for connecting to the server:
 dbms <- "redshift"
@@ -41,6 +41,8 @@ databaseDescription <- "IBM MarketScan® Medicare Supplemental and Coordination 
 # For some database platforms (e.g. Oracle): define a schema that can be used to emulate temp tables:
 options(sqlRenderTempEmulationSchema = NULL)
 
+createAnalysesDetails(outputFolder = "E:/Li_R/LegendT2dmTestCases/inst/settings")
+
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
         cohortDatabaseSchema = cohortDatabaseSchema,
@@ -49,11 +51,10 @@ execute(connectionDetails = connectionDetails,
         databaseId = databaseId,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
-        verifyDependencies = FALSE,
-        createCohorts = TRUE,
+        createCohorts = FALSE,
         synthesizePositiveControls = TRUE,
-        runAnalyses = FALSE,
-        packageResults = FALSE,
+        runAnalyses = TRUE,
+        packageResults = TRUE,
         maxCores = maxCores)
 
 
@@ -61,7 +62,7 @@ resultsZipFile <- file.path(outputFolder, "export", paste0("Results_", databaseI
 dataFolder <- file.path(outputFolder, "shinyData")
 # You can inspect the results if you want:
 LegendT2dm::prepareForEvidenceExplorer(resultsZipFile = resultsZipFile, dataFolder = dataFolder)
-LegendT2dmEvidenceExplorer::launchEvidenceExplorer(dataFolder = dataFolder, blind = TRUE, launch.browser = FALSE)
+LegendT2dmEvidenceExplorer::launchEvidenceExplorer(dataFolder = dataFolder, blind = FALSE, launch.browser = FALSE)
 
 # # Grab estimates to compare with main LEGEND-T2DM
 # library(dplyr)
