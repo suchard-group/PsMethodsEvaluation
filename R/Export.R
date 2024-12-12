@@ -424,20 +424,7 @@ exportMainResults <- function(outputFolder,
   
   
   ParallelLogger::logInfo("- cohort_method_result table")
-  analysesSum <- readr::read_csv(file.path(outputFolder, "analysisSummary.csv"), col_types = readr::cols())
-  allControls <- getAllControls(outputFolder)
-  ParallelLogger::logInfo("  Performing empirical calibration on main effects")
-  cluster <- ParallelLogger::makeCluster(min(4, maxCores))
-  subsets <- split(analysesSum,
-                   paste(analysesSum$targetId, analysesSum$comparatorId, analysesSum$analysisId))
-  rm(analysesSum)  # Free up memory
-  results <- ParallelLogger::clusterApply(cluster,
-                                          subsets,
-                                          calibrate,
-                                          allControls = allControls)
-  ParallelLogger::stopCluster(cluster)
-  rm(subsets)  # Free up memory
-  results <- do.call("rbind", results)
+  results <- readr::read_csv(file.path(outputFolder, "analysisSummary.csv"), col_types = readr::cols())
   results$databaseId <- databaseId
   results <- enforceMinCellValue(results, "targetSubjects", minCellCount)
   results <- enforceMinCellValue(results, "comparatorSubjects", minCellCount)
@@ -495,19 +482,6 @@ exportMainResults <- function(outputFolder,
                               .progress = "text")
   interactions <- bind_rows(interactions)
   if (nrow(interactions) > 0) {
-    ParallelLogger::logInfo("  Performing empirical calibration on interaction effects")
-    allControls <- getAllControls(outputFolder)
-    negativeControls <- allControls[allControls$targetEffectSize == 1, ]
-    cluster <- ParallelLogger::makeCluster(min(4, maxCores))
-    subsets <- split(interactions,
-                     paste(interactions$targetId, interactions$comparatorId, interactions$analysisId))
-    interactions <- ParallelLogger::clusterApply(cluster,
-                                                 subsets,
-                                                 calibrateInteractions,
-                                                 negativeControls = negativeControls)
-    ParallelLogger::stopCluster(cluster)
-    rm(subsets)  # Free up memory
-    interactions <- bind_rows(interactions)
     interactions$databaseId <- databaseId
     
     interactions <- enforceMinCellValue(interactions, "targetSubjects", minCellCount)
@@ -520,84 +494,6 @@ exportMainResults <- function(outputFolder,
     rm(interactions)  # Free up memory
   }
 }
-
-calibrate <- function(subset, allControls) {
-  ncs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize == 1], ]
-  ncs <- ncs[!is.na(ncs$seLogRr), ]
-  if (nrow(ncs) > 5) {
-    null <- EmpiricalCalibration::fitMcmcNull(ncs$logRr, ncs$seLogRr)
-    calibratedP <- EmpiricalCalibration::calibrateP(null = null,
-                                                    logRr = subset$logRr,
-                                                    seLogRr = subset$seLogRr)
-    subset$calibratedP <- calibratedP$p
-  } else {
-    subset$calibratedP <- rep(NA, nrow(subset))
-  }
-  pcs <- subset[subset$outcomeId %in% allControls$outcomeId[allControls$targetEffectSize != 1], ]
-  pcs <- pcs[!is.na(pcs$seLogRr), ]
-  if (nrow(pcs) > 5) {
-    controls <- merge(subset, allControls[, c("targetId", "comparatorId", "outcomeId", "targetEffectSize")])
-    model <- EmpiricalCalibration::fitSystematicErrorModel(logRr = controls$logRr,
-                                                           seLogRr = controls$seLogRr,
-                                                           trueLogRr = log(controls$targetEffectSize),
-                                                           estimateCovarianceMatrix = FALSE)
-    calibratedCi <- EmpiricalCalibration::calibrateConfidenceInterval(logRr = subset$logRr,
-                                                                      seLogRr = subset$seLogRr,
-                                                                      model = model)
-    subset$calibratedRr <- exp(calibratedCi$logRr)
-    subset$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
-    subset$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
-    subset$calibratedLogRr <- calibratedCi$logRr
-    subset$calibratedSeLogRr <- calibratedCi$seLogRr
-  } else {
-    subset$calibratedRr <- rep(NA, nrow(subset))
-    subset$calibratedCi95Lb <- rep(NA, nrow(subset))
-    subset$calibratedCi95Ub <- rep(NA, nrow(subset))
-    subset$calibratedLogRr <- rep(NA, nrow(subset))
-    subset$calibratedSeLogRr <- rep(NA, nrow(subset))
-  }
-  subset$i2 <- rep(NA, nrow(subset))
-  subset <- subset[, c("targetId",
-                       "comparatorId",
-                       "outcomeId",
-                       "analysisId",
-                       "rr",
-                       "ci95Lb",
-                       "ci95Ub",
-                       "p",
-                       "i2",
-                       "logRr",
-                       "seLogRr",
-                       "targetSubjects",
-                       "comparatorSubjects",
-                       "targetDays",
-                       "comparatorDays",
-                       "targetOutcomes",
-                       "comparatorOutcomes",
-                       "calibratedP",
-                       "calibratedRr",
-                       "calibratedCi95Lb",
-                       "calibratedCi95Ub",
-                       "calibratedLogRr",
-                       "calibratedSeLogRr")]
-  return(subset)
-}
-
-calibrateInteractions <- function(subset, negativeControls) {
-  ncs <- subset[subset$outcomeId %in% negativeControls$outcomeId, ]
-  ncs <- ncs[!is.na(pull(ncs, .data$seLogRrr)), ]
-  if (nrow(ncs) > 5) {
-    null <- EmpiricalCalibration::fitMcmcNull(ncs$logRrr, ncs$seLogRrr)
-    calibratedP <- EmpiricalCalibration::calibrateP(null = null,
-                                                    logRr = subset$logRrr,
-                                                    seLogRr = subset$seLogRrr)
-    subset$calibratedP <- calibratedP$p
-  } else {
-    subset$calibratedP <- rep(NA, nrow(subset))
-  }
-  return(subset)
-}
-
 
 exportDiagnostics <- function(outputFolder,
                               exportFolder,

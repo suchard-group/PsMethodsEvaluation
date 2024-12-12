@@ -2,6 +2,7 @@ library(LegendT2dmTestCases)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
 options(andromedaTempFolder = "E:/Li_R/temp")
+Sys.setenv(DATABASECONNECTOR_JAR_FOLDER = "E:/Li_R/Drivers")
 
 # Maximum number of cores to be used:
 maxCores <- 6
@@ -10,17 +11,12 @@ maxCores <- 6
 outputFolder <- "E:/Li_R/t2dmPsTrial2"
 
 # Details for connecting to the server:
-dbms <- "redshift"
-user <- Sys.getenv("username")
-pw <- Sys.getenv("password")
-server <- "ohda-prod-1.cldcoxyrkflo.us-east-1.redshift.amazonaws.com/truven_mdcr"
-port <- 5439
 
-connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = dbms,
-                                                                server = server,
-                                                                user = user,
-                                                                password = pw,
-                                                                port = port)
+connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "redshift",
+                                                                server = keyring::key_get("mdcr_server"),
+                                                                user = keyring::key_get("user", "kli69"),
+                                                                password = keyring::key_get("password", "kli69"),
+                                                                port = 5439)
 # Add the database containing the OMOP CDM data
 cdmDatabaseSchema <- "cdm_truven_mdcr_v2755"
 # Add a sharebale name for the database containing the OMOP CDM data
@@ -52,7 +48,7 @@ execute(connectionDetails = connectionDetails,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
         createCohorts = FALSE,
-        synthesizePositiveControls = TRUE,
+        synthesizePositiveControls = FALSE,
         runAnalyses = TRUE,
         packageResults = TRUE,
         maxCores = maxCores)

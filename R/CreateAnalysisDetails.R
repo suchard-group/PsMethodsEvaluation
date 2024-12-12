@@ -199,7 +199,7 @@ createAnalysesDetails <- function(outputFolder,
     caliper = 0.2,
     caliperScale = "standardized logit",
     allowReverseMatch = FALSE,
-    maxRatio = 100)
+    maxRatio = 99999)
   
   stratifyByPsArgsFive <- CohortMethod::createStratifyByPsArgs(
     numberOfStrata = 5,
