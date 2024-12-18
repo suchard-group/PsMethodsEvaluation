@@ -201,6 +201,12 @@ createAnalysesDetails <- function(outputFolder,
     allowReverseMatch = FALSE,
     maxRatio = 99999)
   
+  matchOnPsArgsOneToTwentyFive <- CohortMethod::createMatchOnPsArgs(
+    caliper = 0.2,
+    caliperScale = "standardized logit",
+    allowReverseMatch = FALSE,
+    maxRatio = 25)
+  
   stratifyByPsArgsFive <- CohortMethod::createStratifyByPsArgs(
     numberOfStrata = 5,
     baseSelection = "all")
@@ -367,6 +373,25 @@ createAnalysesDetails <- function(outputFolder,
     createPsArgs = createPsArgs,
     trimByPsArgs = trimByPsArgs,
     fitOutcomeModelArgs = fitOutcomeModelArgsIptw)
+  
+  cmAnalysis17 <- CohortMethod::createCmAnalysis(
+    analysisId = getId(17, removeSubjectsWithPriorOutcome),
+    description = getDescription("Matching 1:25, stratified", removeSubjectsWithPriorOutcome),
+    getDbCohortMethodDataArgs = getDbCmDataArgs,
+    createStudyPopArgs = createStudyPopArgsItt,
+    createPsArgs = createPsArgs,
+    matchOnPsArgs = matchOnPsArgsOneToTwentyFive,
+    fitOutcomeModelArgs = fitOutcomeModelArgsIptw)
+  
+  cmAnalysis18 <- CohortMethod::createCmAnalysis(
+    analysisId = getId(18, removeSubjectsWithPriorOutcome),
+    description = getDescription("Matching 1:25, stratified, small-scale", removeSubjectsWithPriorOutcome),
+    getDbCohortMethodDataArgs = getDbCmDataArgsSmall,
+    createStudyPopArgs = createStudyPopArgsItt,
+    createPsArgs = createPsArgs,
+    matchOnPsArgs = matchOnPsArgsOneToTwentyFive,
+    fitOutcomeModelArgs = fitOutcomeModelArgsIptw)
+  
  
   if (asUnitTest) {
     CohortMethod::saveCmAnalysisList(list(cmAnalysis1, cmAnalysis2, cmAnalysis3,
@@ -380,7 +405,7 @@ createAnalysesDetails <- function(outputFolder,
                                           cmAnalysis7, cmAnalysis8, cmAnalysis9,
                                           cmAnalysis10, cmAnalysis11, cmAnalysis12,
                                           cmAnalysis13, cmAnalysis14, cmAnalysis15,
-                                          cmAnalysis16),
+                                          cmAnalysis16, cmAnalysis17, cmAnalysis18),
                                      file.path(outputFolder, "cmAnalysisList.json"))
   }
 }

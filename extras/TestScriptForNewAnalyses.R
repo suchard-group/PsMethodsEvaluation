@@ -199,3 +199,84 @@ cmData <- getDbCohortMethodData(
   outcomeTable = cohortTable,
   covariateSettings = cs1
 )
+
+
+
+## Empirical Calibration debugging
+getEc <- function (group) 
+{
+  ncs <- group[group$trueEffectSize == 1 & !is.na(group$seLogRr), 
+  ]
+  pcs <- group[!is.na(group$trueEffectSize) & group$trueEffectSize != 
+                 1 & !is.na(group$seLogRr), ]
+  if (nrow(ncs) >= 5) {
+    null <- EmpiricalCalibration::fitMcmcNull(logRr = ncs$logRr, 
+                                              seLogRr = ncs$seLogRr)
+    ease <- EmpiricalCalibration::computeExpectedAbsoluteSystematicError(null)
+    calibratedP <- EmpiricalCalibration::calibrateP(null = null, 
+                                                    logRr = group$logRr, seLogRr = group$seLogRr)
+    calibratedOneSidedP <- EmpiricalCalibration::calibrateP(null = null, 
+                                                            logRr = group$logRr, seLogRr = group$seLogRr, twoSided = FALSE, 
+                                                            upper = TRUE)
+    if (nrow(pcs) >= 5) {
+      model <- EmpiricalCalibration::fitSystematicErrorModel(logRr = c(ncs$logRr, 
+                                                                       pcs$logRr), seLogRr = c(ncs$seLogRr, pcs$seLogRr), 
+                                                             trueLogRr = log(c(ncs$trueEffectSize, pcs$trueEffectSize)), 
+                                                             estimateCovarianceMatrix = FALSE)
+    }
+    else {
+      model <- EmpiricalCalibration::convertNullToErrorModel(null)
+    }
+    calibratedCi <- EmpiricalCalibration::calibrateConfidenceInterval(model = model, 
+                                                                      logRr = group$logRr, seLogRr = group$seLogRr)
+    group$calibratedRr <- exp(calibratedCi$logRr)
+    group$calibratedCi95Lb <- exp(calibratedCi$logLb95Rr)
+    group$calibratedCi95Ub <- exp(calibratedCi$logUb95Rr)
+    group$calibratedP <- calibratedP$p
+    group$calibratedOneSidedP <- calibratedOneSidedP$p
+    group$calibratedLogRr <- calibratedCi$logRr
+    group$calibratedSeLogRr <- calibratedCi$seLogRr
+    group$ease <- ease$ease
+  }
+  else {
+    group$calibratedRr <- NA
+    group$calibratedCi95Lb <- NA
+    group$calibratedCi95Ub <- NA
+    group$calibratedP <- NA
+    group$calibratedOneSidedP <- NA
+    group$calibratedLogRr <- NA
+    group$calibratedSeLogRr <- NA
+    group$ease <- NA
+  }
+  return(group)
+}
+
+estimates <- readRDS(file.path(outputFolder, "cmOutput", "resultsSummary.rds"))
+estimates <- split(estimates, estimates$analysisId)
+
+control <- estimates[[2]]
+problem <- estimates[[4]]
+
+pcsControl <- control[!is.na(control$trueEffectSize) & control$trueEffectSize != 
+                        1 & !is.na(control$seLogRr), ] %>%
+  select(outcomeId, trueEffectSize, rr, seLogRr)
+pcsProblem <- problem[!is.na(problem$trueEffectSize) & problem$trueEffectSize != 
+                        1 & !is.na(problem$seLogRr), ] %>%
+  select(outcomeId, trueEffectSize, rr, seLogRr) %>%
+  rename(problemRr = rr,
+         problemSeLogRr = seLogRr)
+
+check <- inner_join(pcsControl, pcsProblem, by = c("outcomeId", "trueEffectSize")) %>%
+  mutate(diff = rr - problemRr) %>%
+  arrange(-abs(diff))
+
+plot4 <- estimates[[4]] %>% filter(!is.na(seLogRr))
+plot(x = plot4$trueEffectSize,
+     y = plot4$rr)
+points(x = plot2$trueEffectSize,
+       y = plot2$rr,
+       col = "red")
+
+plot2 <- estimates[[2]] %>% filter(!is.na(seLogRr))
+plot(x = plot2$trueEffectSize,
+     y = plot2$rr)
