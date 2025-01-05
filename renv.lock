@@ -1598,17 +1598,14 @@
     },
     "textshaping": {
       "Package": "textshaping",
-      "Version": "0.4.0",
+      "Version": "0.4.1",
       "Source": "CRAN",
       "Repository": "CRAN",
       "RemoteType": "standard",
       "RemotePkgRef": "textshaping",
       "RemoteRef": "textshaping",
       "RemoteRepos": "https://cloud.r-project.org",
-      "RemoteReposName": "CRAN",
-      "RemotePkgPlatform": "x86_64-w64-mingw32",
-      "RemoteSha": "0.4.0",
-      "Hash": "5142f8bc78ed3d819d26461b641627ce"
+      "RemoteReposName": "CRAN"
     },
     "tibble": {
       "Package": "tibble",
