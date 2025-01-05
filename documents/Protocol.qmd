@@ -126,13 +126,26 @@ abbrevtbl
 
 ## Abstract
 
+<!-- MAS: add abstract ASAP -->
+
 ## Rationale and Background
 
-The new-user cohort method attempts to emulate randomized clinical trials for observational data. However, observational studies suffer from baseline differences between groups initiating different treatments. One solution of interest is to compute the propensity score (PS), the baseline probability that a patient will receive one treatment over another. The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. By matching, stratifying, and weighting on propensity scores, researchers aim to achieve balance in the measured covariates between treatment groups.
+The new-user cohort method attempts to emulate randomized clinical trials for observational data. 
+However, observational studies may suffer from baseline differences between patient groups initiating different treatments. 
+One solution of interest is to compute the propensity score (PS), the baseline probability that a patient will receive one treatment over another. 
+The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. 
+By matching, stratifying, and weighting on propensity scores, researchers aim to achieve balance in the measured covariates between treatment groups.
 
-Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. However, since each patient's subsequent matches beyond their first will be less similar to them and less optimal, going beyond one-to-one matching may result in increased bias. [@rassenOnetomanyPropensityScore2012] suggest variable ratio matching, which reduce bias compared to techniques with fixed ratios, where each patient in the treated group is matched with a variable number of patients in the control group. This is due to the fact that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a treated subject only matches to one control, but fixed-ratio $1:3$ matching requires three matches to be included in the study). While the literature has existing recommendations and insights for the bias-variance trade-off of varying propensity score matching techniques, a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world. We seek to apply the methods and evaluate them in a large-scale real world study comparing classes of second-line T2DM agents for relative risks of safety outcomes.
+Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. 
+However, since each patient's subsequent matches beyond their first will be less similar to them and less optimal, going beyond one-to-one matching may result in increased bias.
+[@rassenOnetomanyPropensityScore2012] suggest variable ratio matching, which reduce bias compared to techniques with fixed ratios, where each patient in the treated group is matched with a variable number of patients in the control group. 
+This is due to the fact that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a treated subject only matches to one control, but fixed-ratio $1:3$ matching requires three matches to be included in the study). 
+While the literature has existing recommendations and insights for the bias-variance trade-off of varying propensity score matching techniques, a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world. 
+We seek to apply the methods and evaluate them in a large-scale real world study comparing classes of second-line T2DM agents for relative risks of safety outcomes.
 
-Here we apply different combinations of propensity score matching/stratifying/trimming methods and evaluate the variance-bias tradeoff of each method. Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. The benchmark consists of a large set of using negative controls as outcomes, whose null hypothesis expects them to have no treatment effect, and also synthetic positive controls with predetermined treatment effects.
+Here we apply different combinations of propensity score matching/stratifying/trimming methods and evaluate the variance-bias tradeoff of each method. 
+Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. 
+The benchmark consists of a large set of using negative controls as outcomes, whose null hypothesis expects them to have no treatment effect, and also synthetic positive controls with predetermined treatment effects.
 
 ## Objectives
 
@@ -150,9 +163,18 @@ To measure the bias-variance trade-off and other performance operating character
 
 #### CohortMethod
 
-We plan to evaluate the new-user cohort method, which attempts to emulate a randomized clinical trial using observational data [@hernanUsingBigData2016a]. Subjects who are observed to initiate a treatment of interest (the target) are compared to subjects initiating another treatment (the comparator) and are followed for a pre-specified amount of time following treatment initiation. One main difference between a randomized clinical trial and the cohort method is that there is no randomization of subjects between target and comparator, and hence patients receiving the target may systematically differ from patients receiving the comparator treatment. To adjust for estimation confounding as a result of the lack of randomization, we choose to use propensity score models. The propensity score (PS) for any given patient is the probability that they received the target treatment vs. the comparator, and is computed by fitting a large-scale regularized binary model (in this case, logistic regression) using a large subset of generic patient characteristics [@rosenbaumCentralRolePropensity1983; @austinIntroductionPropensityScore2011]. These generic characteristics may include items such as demographic information, medical diagnoses, drug exposures, and much more.
+We plan to evaluate the new-user cohort method, which attempts to emulate a randomized clinical trial using observational data [@hernanUsingBigData2016a]. 
+Subjects who are observed to initiate a treatment of interest (the target) are compared to subjects initiating another treatment (the comparator) and are followed for a pre-specified amount of time following treatment initiation. 
+One main difference between a randomized clinical trial and the cohort method is that there is no randomization of subjects between target and comparator, and hence patients receiving the target may systematically differ from patients receiving the comparator treatment. 
+To adjust for estimation confounding as a result of the lack of randomization, we choose to use propensity score models. The propensity score (PS) for any given patient is the probability that they received the target treatment vs. the comparator, and is computed by fitting a large-scale regularized binary model (in this case, logistic regression) using a large subset of generic patient characteristics [@rosenbaumCentralRolePropensity1983; @austinIntroductionPropensityScore2011]. 
+These generic characteristics may include items such as demographic information, medical diagnoses, drug exposures, and much more.
 
-The PS is used for confounding by matching patients with similar scores between the target and comparator groups, stratifying the entire population of patients by score, or computing weights and weighting patients using Inverse Probability of Treatment Weighing. Since propensity scores fall on a range of 0 to 1, exact matching or stratifying based on score is rarely possible. @rosenbaumCentralRolePropensity1983;@cochranControllingBiasObservational1973 recommend a "caliper" of 0.2 standard deviations on the logit scale, where patients are able to be matched together if their scores fall within this given amount. There has been interest in different ways to match a patients initiating the target to those initiating the comparator. While patients could be directly matched 1-to-1, we could benefit from using more information by matching patients 1-to-many, where one target patient could be matched to $n \geq 1$ comparator. Fixed-ratio matching will find a specific $n$ such that each target attempts to match with $n$ comparators. Variable-ratio matching allows a variable number of comparators to be matched per target subjects.
+The PS is used for confounding by matching patients with similar scores between the target and comparator groups, stratifying the entire population of patients by score, or computing weights and weighting patients using Inverse Probability of Treatment Weighing. 
+Since propensity scores fall on a range of 0 to 1, exact matching or stratifying based on score is rarely possible. 
+@rosenbaumCentralRolePropensity1983;@cochranControllingBiasObservational1973 recommend a "caliper" of 0.2 standard deviations on the logit scale, where patients are able to be matched together if their scores fall within this given amount. 
+There has been interest in different ways to match a patients initiating the target to those initiating the comparator. 
+While patients could be directly matched 1-to-1, we could benefit from using more information by matching patients 1-to-many, where one target patient could be matched to $n \geq 1$ comparator. 
+Fixed-ratio matching will find a specific $n$ such that each target attempts to match with $n$ comparators. Variable-ratio matching allows a variable number of comparators to be matched per target subjects.
 
 <!-- Previous studies indicate that one-to-many matching may increase the bias of the eventual outcome model's estimations with a little or negative effect on precision; meanwhile, variable-ratio matching increases the bias while simultaneously increasing the precision of the estimates [@]. -->
 
@@ -160,9 +182,16 @@ The PS is used for confounding by matching patients with similar scores between 
 
 #### Analysis settings
 
-We will conduct an evaluation of a list of varying specifications for fitting and using a propensity score model on pairwise comparisons for two second-line T2DM drug classes. For each analysis set, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair and some outcomes of interest described in @sec-tcos. To measure the bias trade-off and address residual confounding, we utilize a large set of negative control outcome experiments. In the negative control outcomes, we assume true the null hypothesis of no effect, where we don't believe that exposure to the target or the comparator will cause the outcome. In this study, we utilize the same negative controls as those in the LEGEND-T2DM study, which validated approximately 100 negative controls [@kheraLargescaleEvidenceGeneration2022]. These negative controls were generated using a data-rich algorithm that draws upon literature, product labels, and spontaneous reports. In addition, we choose to generate synthetic positive controls with target effect sizes of \[1.5, 2, 4\] by adding generated outcomes to an existing negative control until the desired effect is reached [@colomaReferenceStandardEvaluation2013].
+We will conduct an evaluation of a list of varying specifications for fitting and using a propensity score model on pairwise comparisons for two second-line T2DM drug classes. 
+For each analysis set, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair and some outcomes of interest described in @sec-tcos. 
+To measure the bias trade-off and address residual confounding, we utilize a large set of negative control outcome experiments. 
+In the negative control outcomes, we assume true the null hypothesis of no effect, where we don't believe that exposure to the target or the comparator will cause the outcome. 
+In this study, we utilize the same negative controls as those in the LEGEND-T2DM study, which validated approximately 100 negative controls [@kheraLargescaleEvidenceGeneration2022]. 
+These negative controls were generated using a data-rich algorithm that draws upon literature, product labels, and spontaneous reports. 
+In addition, we choose to generate synthetic positive controls with target effect sizes of \[1.5, 2, 4\] by adding generated outcomes to an existing negative control until the desired effect is reached [@colomaReferenceStandardEvaluation2013].
 
-Our evaluation focuses on the differences in PS adjustment and outcome model specification strategies. Each analysis uses a Cox proportional hazards model and all PS adjustments use a recommended caliper of 0.2 standard deviations on the standardized logit scale [@cochranControllingBiasObservational1973].
+Our evaluation focuses on the differences in PS adjustment and outcome model specification strategies. 
+Each analysis uses a Cox proportional hazards model and all PS adjustments use a recommended caliper of 0.2 standard deviations on the standardized logit scale [@cochranControllingBiasObservational1973].
 
 ```{r}
 baseline1 <- c("Unadjusted")
@@ -207,13 +236,19 @@ table1 <- kbl(data1,
 table1
 ```
 
-@tbl-1 lists each variant of the new-user cohort method to be evaluated. When performing IPTW, we trim to counter the effect of extreme weights on the model. Stratifying the outcome model means the model is conditioned on the matched groups/stratified sets and is required for all matched sets greater than 2 patients.
+@tbl-1 lists each variant of the new-user cohort method to be evaluated. 
+When performing IPTW, we trim to counter the effect of extreme weights on the model. 
+Stratifying the outcome model means the model is conditioned on the matched groups/stratified sets and is required for all matched sets greater than 2 patients.
 
-Large-scale propensity score models utilize OHDSI's "kitchen-sink" approach to covariates, which selects a large subset of patient characteristics. <!-- Question for Marc: Should I include list of things included in the PS model (i.e., drug_era 365 days...)? I don't see it in the LEGEND protocol --> We also implement small-scale propensity score models, where roughly $50$ hand-picked covariates are utilized for the propensity score model. Existing literature often uses smaller models with handpicked variables, so we aim to generate a comparable small-scale model using OHDSI's toolstack. @sec-ssps lists the chosen covariates of interest. <!-- TODO?: frequency / characterization for the small-scale covariates, like in Graham's paper -->
+Large-scale propensity score models utilize OHDSI's "kitchen-sink" approach to covariates, which selects a large subset of patient characteristics. <!-- Question for Marc: Should I include list of things included in the PS model (i.e., drug_era 365 days...)? I don't see it in the LEGEND protocol --> 
+We also implement small-scale propensity score models, where roughly $50$ hand-picked covariates are utilized for the propensity score model. 
+Existing literature often uses smaller models with handpicked variables, so we aim to generate a comparable small-scale model using OHDSI's toolstack. 
+@sec-ssps lists the chosen covariates of interest. <!-- TODO?: frequency / characterization for the small-scale covariates, like in Graham's paper -->
 
 ### Data sources
 
-We will evaluate the propensity score models across a series of administraitive claims and electronic health records (EHR) data through OHDSI's data partners. The models are conveniently run across differing database types as a result of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and the OHDSI Methods Library.
+We will evaluate the propensity score models across a series of administraitive claims and electronic health records (EHR) data through OHDSI's data partners. 
+The models are conveniently run across differing database types as a result of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and the OHDSI Methods Library.
 
 @tbl-datasources lists the 5 data sources that will be utilized in this evaluation, with a brief description and population size, along with information on the data capturing process for its patients and its start date.
 
@@ -249,7 +284,10 @@ if (knitr::is_latex_output()) {
 
 #### Exposure comparators
 
-We utilize four exposure cohorts for new-users of any drug ingredient wihin the four traditionally second-line drug classes for type-2-diabetes mellitus (T2DM) treatment: DPP4, GLP1, SGLT2, and SU. <!-- The index date for each patient is their first observed exposure to any drug ingredient for the four second-line drug classes.  --> @sec-cohortdefs reports the complete OHDSI `ATLAS` cohort descriptions for new-users of each drug class. The description includes complete specification of cohort entry events, inclusion criteria, cohort exit events, and all associated OMOP-CDM concept codes used in the definition of the cohort. For each data source presented in @tbl-datasources, we then execute pairwise class comparisons for each $C \binom{4}{2} = 6$ pairs.
+We utilize four exposure cohorts for new-users of any drug ingredient wihin the four traditionally second-line drug classes for type-2-diabetes mellitus (T2DM) treatment: DPP4, GLP1, SGLT2, and SU. <!-- The index date for each patient is their first observed exposure to any drug ingredient for the four second-line drug classes.  --> 
+@sec-cohortdefs reports the complete OHDSI `ATLAS` cohort descriptions for new-users of each drug class. 
+The description includes complete specification of cohort entry events, inclusion criteria, cohort exit events, and all associated OMOP-CDM concept codes used in the definition of the cohort. 
+For each data source presented in @tbl-datasources, we then execute pairwise class comparisons for each $C \binom{4}{2} = 6$ pairs.
 
 ```{r}
 #| label: tbl-cohortcounts
@@ -275,7 +313,8 @@ kbl(counts,
 
 #### Outcomes
 
-The chosen negative control concepts are reported in @sec-ncs. For each negative control, synthetic outcomes with expected hazard ratio $[1.5, 2, 4]$ are generated to act as positive controls.
+The chosen negative control concepts are reported in @sec-ncs. 
+For each negative control, synthetic outcomes with expected hazard ratio $[1.5, 2, 4]$ are generated to act as positive controls.
 
 <!-- The three main outcomes of interest are defined using manually crafted rule-based definitions using a combination of diagnosis concept codes in the OMOP-CDM: -->
 
@@ -291,21 +330,29 @@ The chosen negative control concepts are reported in @sec-ncs. For each negative
 
 <!-- from MethodEvaluation: Within each database, the minimum detectable relative risk (MDRR) will be computed for each control as a typical proxy for power.  -->
 
-We inspect the distributions of the PS estimates to evaluate population generalizability and cohort balance before and after adjustment. Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions.
+We inspect the distributions of the PS estimates to evaluate population generalizability and cohort balance before and after adjustment. 
+Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions.
 
 ## Strengths and Limitations
 
 ### Strengths
 
-We aim to conduct an empirical evaluation of a wide combination of propensity score adjustment methods to population-level estimation across databases containing large-scale administrative claims and EHR data. The existence of a large set of real-world negative controls and synthetic positive controls allow for quantification of unmeasured and systemic bias inherent in observational studies.
+We aim to conduct an empirical evaluation of a wide combination of propensity score adjustment methods to population-level estimation across databases containing large-scale administrative claims and EHR data. 
+The existence of a large set of real-world negative controls and synthetic positive controls allow for quantification of unmeasured and systemic bias inherent in observational studies.
 
 ### Limitations
 
-While the study uses a wide range of US health data, some operating characteristics will depend on the choice of database, and hence generalization may be difficult for databases outside of this study. In addition, the use of real-world negative control outcomes does not imply that the true confounding structure between treatments and outcomes is known. We utilize a large set of negative controls that represent a wide range of confounding structures, such that one method leading to reduced bias and higher precision for many structures implies those positive effects on the eventual effect estimates. On the other hand, synthetic positive controls only reflect measured bias, due to the use of injected outcomes based on negative controls. Finally, the use of real-world data contains certain issues, including limited and variable observed follow-up times, and missing visit/care episodes for patients. We believe such bias from using a real-world data source will likely be towards the null.
+While the study uses a wide range of US health data, some operating characteristics will depend on the choice of database, and hence generalization may be difficult for databases outside of this study. 
+In addition, the use of real-world negative control outcomes does not imply that the true confounding structure between treatments and outcomes is known. 
+We utilize a large set of negative controls that represent a wide range of confounding structures, such that one method leading to reduced bias and higher precision for many structures implies those positive effects on the eventual effect estimates. 
+On the other hand, synthetic positive controls only reflect measured bias, due to the use of injected outcomes based on negative controls. 
+Finally, the use of real-world data contains certain issues, including limited and variable observed follow-up times, and missing visit/care episodes for patients. 
+We believe such bias from using a real-world data source will likely be towards the null.
 
 ## Protection of Human Subjects
 
-This study uses human data collected during routine healthcare provision, and all data is de-identified within the data source. Study reports and collaboration among researchers shares only analysis code and aggregate data that does not identify individual patients or physicians.
+This study uses human data collected during routine healthcare provision, and all data is de-identified within the data source. 
+Study reports and collaboration among researchers shares only analysis code and aggregate data that does not identify individual patients or physicians.
 
 ## Sample results table
 
@@ -362,7 +409,8 @@ metricsCali %>%
 
 ### Cohort definitions {#sec-cohortdefs}
 
-The following is an example class cohort definition for DPP4-inhibitors. Cohort definitions for other classes are very similar.
+The following is an example class cohort definition for DPP4-inhibitors. 
+Cohort definitions for other classes are very similar.
 
 ```{r,  echo=FALSE, results="asis", warning=FALSE, message=FALSE}
 source("./PrettyOutput.R")
