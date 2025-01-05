@@ -7,6 +7,8 @@ format:
   html:
     toc: true
     html-math-method: katex
+    grid:
+      margin-width: 200px
 editor: visual
 appendix-style: plain
 toc: true
@@ -124,38 +126,47 @@ abbrevtbl <- kbl(abbrevs,
 abbrevtbl
 ```
 
+[MAS: where is the Responsible Parties section? please follow https://ohdsi-studies.github.io/LegendT2dm/Protocol.html#2_Responsible_Parties]{.aside}
+
+
 ## Abstract
 
-<!-- MAS: add abstract ASAP -->
+[MAS: please add ASAP]{.aside}
 
 ## Rationale and Background
 
 The new-user cohort method attempts to emulate randomized clinical trials for observational data. 
-However, observational studies may suffer from baseline differences between patient groups initiating different treatments. 
-One solution of interest is to compute the propensity score (PS), the baseline probability that a patient will receive one treatment over another. 
-The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. 
-By matching, stratifying, and weighting on propensity scores, researchers aim to achieve balance in the measured covariates between treatment groups.
+[MAS: George does not like sentences that begin with "However $\ldots$" Fixed here; but please fix elsewhere]{.aside}
+Observational studies, however, may suffer from baseline differences between patient groups initiating different treatments that affect relative outcome risk estimation. [MAS: add citation?]{.aside}
+One solution of interest is to estimate a propensity score (PS), the baseline probability that a patient will receive one treatment over the other, across both patient groups. 
+The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. [MAS: please fix.  PS models are generally small, using which? specific covariates.  alternatively, they may be large-scale.  also add citations to "both" approaches]{.aside}
+By matching, stratifying, or weighting patients based on their propensity scores, researchers aim to achieve balance in the measured covariates between treatment groups. [MAS: not really; they aim to remove bias in the outcome risk estimate.]{.aside}
 
-Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. 
-However, since each patient's subsequent matches beyond their first will be less similar to them and less optimal, going beyond one-to-one matching may result in increased bias.
-[@rassenOnetomanyPropensityScore2012] suggest variable ratio matching, which reduce bias compared to techniques with fixed ratios, where each patient in the treated group is matched with a variable number of patients in the control group. 
+Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. [MAS: citation?  and smaller than what?]{.aside}
+However, since each patient's subsequent matches beyond their first may be less similar to them and less optimal, going beyond one-to-one matching may result in increased bias.
+[@rassenOnetomanyPropensityScore2012] suggest variable ratio matching,
+where each patient in the treated group is matched with a random number of patients in the control group, reduces bias compared to techniques with fixed ratios. [MAS: citation is not formatted correctly in-text]{.aside} [MAS: target and control need to be introduced before here.]{.aside}
 This is due to the fact that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a treated subject only matches to one control, but fixed-ratio $1:3$ matching requires three matches to be included in the study). 
-While the literature has existing recommendations and insights for the bias-variance trade-off of varying propensity score matching techniques, a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world. 
-We seek to apply the methods and evaluate them in a large-scale real world study comparing classes of second-line T2DM agents for relative risks of safety outcomes.
+While the literature has existing recommendations and insights for the bias-variance trade-off of varying propensity score matching techniques, a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world, where residual systematic error persists. 
+[MAS: you also need to introduce stratification and ALL other approaches (different weighing schemes) we are comparing.]{.aside}
+[MAS: maybe also some discussion that different PS schemes leads to slightly different effect estimates, i.e. ATT, ATE, ATO, etc.]{.aside}
 
-Here we apply different combinations of propensity score matching/stratifying/trimming methods and evaluate the variance-bias tradeoff of each method. 
-Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. 
-The benchmark consists of a large set of using negative controls as outcomes, whose null hypothesis expects them to have no treatment effect, and also synthetic positive controls with predetermined treatment effects.
+Here we seek to evaluate the bias-variance trade-offs of different PS adjustment techniques in a large-scale real world study across multiple data sources, in this case comparing the effectiveness and safety of initiating 2nd-line T2DM treatment across different drug classes.
+Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. [MAS: `CohortMethod` comes from `HADES` (we no longer use OHDSI Methods Library) and HADES has a citation.  Fix here and elsewhere]{.aside}
+[MAS: more importantly, do not use "options implemented" (that sounds lazy); instead enumerate the choices: matching with differing numbers of controls, stratifying, weighing, etc.]{.aside}
+To measure performance, our benchmark examines a large set of negative control outcomes, where we believe the true relative treatment effect is 1, and also using imputed positive control outcomes with predetermined treatment effects > 1.
 
-## Objectives
+[MAS: please see Martijn's introduction in his benchmark study for a guide on how to draft your background; if you write it well now, that you save you much time when putting the manuscript / thesis together]{.aside}
+
+## Study Objectives
 
 ### Research questions
 
-How do varying techniques of adjusting by propensity scores, including stratifying, weighting, and multiple types of matching, affect the bias and precision of population-level effect estimation in the OHDSI Methods Library?
+How do various PS adjustment techniques, including stratifying, weighting, and multiple types of matching, affect the bias and variance of population-level effect estimation under the new-user cohort method?
 
 ### Objectives
 
-To measure the bias-variance trade-off and other performance operating characteristics of the various propensity score adjustment methods in the OHDSI Methods Library using large-scale LEGEND-T2DM data.
+To measure the bias-variance trade-off and other performance operating characteristics of the various propensity score adjustment methods in the OHDSI Methods Library using large-scale LEGEND-T2DM data. [MAS: what is new in this subsection compared to the "Research questions" about? ... please follow https://ohdsi-studies.github.io/LegendT2dm/Protocol.html#7_Study_Objectives]{.aside}
 
 ## Methods
 
@@ -163,18 +174,26 @@ To measure the bias-variance trade-off and other performance operating character
 
 #### CohortMethod
 
-We plan to evaluate the new-user cohort method, which attempts to emulate a randomized clinical trial using observational data [@hernanUsingBigData2016a]. 
+We plan to evaluate the new-user cohort method that attempts to emulate a randomized clinical trial using observational data [@hernanUsingBigData2016a]. 
 Subjects who are observed to initiate a treatment of interest (the target) are compared to subjects initiating another treatment (the comparator) and are followed for a pre-specified amount of time following treatment initiation. 
 One main difference between a randomized clinical trial and the cohort method is that there is no randomization of subjects between target and comparator, and hence patients receiving the target may systematically differ from patients receiving the comparator treatment. 
-To adjust for estimation confounding as a result of the lack of randomization, we choose to use propensity score models. The propensity score (PS) for any given patient is the probability that they received the target treatment vs. the comparator, and is computed by fitting a large-scale regularized binary model (in this case, logistic regression) using a large subset of generic patient characteristics [@rosenbaumCentralRolePropensity1983; @austinIntroductionPropensityScore2011]. 
+To adjust for confounding between target and comparator differences at initiation and outcome risk as a result of the lack of randomization, we considere here the use of propensity score models. 
+The propensity score (PS) for any given patient is the unknown probability that they may receive the target treatment instead of the comparator, regardless of which treatment they actually received.
+PS models are popularly built using logistic regression [MAS: citations?]{.aside} with debate continuing around which patient features known before treatment initation to include in the model.[MAS: LSPS citations, Yuxi, Lingying, maybe some in support of small models]{.aside}
+and is computed by fitting a large-scale regularized [MAS: this is not true .. and are we not comparing small-scale vs large-scale?]{.aside}
+[MAS: you need to describe feature choice for small scale models as well]{.aside}
+[MAS: then describe LSPS, regularization (with Cyclops citations) and all the features]{.aside}
+binary model (in this case, logistic regression) using a large subset of generic patient characteristics [@rosenbaumCentralRolePropensity1983; @austinIntroductionPropensityScore2011]. 
 These generic characteristics may include items such as demographic information, medical diagnoses, drug exposures, and much more.
 
-The PS is used for confounding by matching patients with similar scores between the target and comparator groups, stratifying the entire population of patients by score, or computing weights and weighting patients using Inverse Probability of Treatment Weighing. 
-Since propensity scores fall on a range of 0 to 1, exact matching or stratifying based on score is rarely possible. 
+PS estimates are used to adjust for potential confouding in multiple ways, including: matching patients with similar scores between the target and comparator groups, stratifying the entire population of patients by score, or re-weighting patients using Inverse Probability of Treatment Weighing. 
+Since propensity scores fall on a range of 0 to 1, exact matching or stratifying based on score is rarely possible. [MAS: i do not understand why a bounded-range implies exact matching or stratifying is not possible]{.aside}
 @rosenbaumCentralRolePropensity1983;@cochranControllingBiasObservational1973 recommend a "caliper" of 0.2 standard deviations on the logit scale, where patients are able to be matched together if their scores fall within this given amount. 
 There has been interest in different ways to match a patients initiating the target to those initiating the comparator. 
 While patients could be directly matched 1-to-1, we could benefit from using more information by matching patients 1-to-many, where one target patient could be matched to $n \geq 1$ comparator. 
-Fixed-ratio matching will find a specific $n$ such that each target attempts to match with $n$ comparators. Variable-ratio matching allows a variable number of comparators to be matched per target subjects.
+Fixed-ratio matching will find a specific $n$ such that each target attempts to match with $n$ comparators. 
+Variable-ratio matching allows a variable number of comparators to be matched per target subjects.
+[MAS: what about the different weighting schemes?]{.aside}
 
 <!-- Previous studies indicate that one-to-many matching may increase the bias of the eventual outcome model's estimations with a little or negative effect on precision; meanwhile, variable-ratio matching increases the bias while simultaneously increasing the precision of the estimates [@]. -->
 
@@ -182,48 +201,61 @@ Fixed-ratio matching will find a specific $n$ such that each target attempts to 
 
 #### Analysis settings
 
-We will conduct an evaluation of a list of varying specifications for fitting and using a propensity score model on pairwise comparisons for two second-line T2DM drug classes. 
-For each analysis set, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair and some outcomes of interest described in @sec-tcos. 
-To measure the bias trade-off and address residual confounding, we utilize a large set of negative control outcome experiments. 
-In the negative control outcomes, we assume true the null hypothesis of no effect, where we don't believe that exposure to the target or the comparator will cause the outcome. 
-In this study, we utilize the same negative controls as those in the LEGEND-T2DM study, which validated approximately 100 negative controls [@kheraLargescaleEvidenceGeneration2022]. 
-These negative controls were generated using a data-rich algorithm that draws upon literature, product labels, and spontaneous reports. 
-In addition, we choose to generate synthetic positive controls with target effect sizes of \[1.5, 2, 4\] by adding generated outcomes to an existing negative control until the desired effect is reached [@colomaReferenceStandardEvaluation2013].
+[MAS: describe the list of varying PS adjustment schemes FIRST, then SECOND describe the 2 * 6 ordered pairs for the 4 classes, then THIRD the negative controls]{.aside}
 
-Our evaluation focuses on the differences in PS adjustment and outcome model specification strategies. 
-Each analysis uses a Cox proportional hazards model and all PS adjustments use a recommended caliper of 0.2 standard deviations on the standardized logit scale [@cochranControllingBiasObservational1973].
+We will evaluate of an extensive list of varying PS adjustment schemes on pairwise comparisons for two second-line T2DM drug classes. [MAS: we want all 2 * 6 ordered pairs for the 4 classes?]{.aside}
+For each analysis set, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair and some outcomes of interest described in @sec-tcos. 
+
+To measure the bias trade-off in the presence of residual systematic error, we utilize a large set of negative control outcome experiments. 
+In the negative control outcomes, we assume true the null hypothesis of no effect, where we do not believe that exposure to the target or the comparator will cause the outcome. 
+In this study, we utilize the same negative controls as those in the LEGEND-T2DM study, which validated approximately 100 negative controls [@kheraLargescaleEvidenceGeneration2022]. [MAS: Patrick added more negative controls into `Glp1Dili` that JnJ calls their "universal controls"; we should use all of these, and describe how they were generated.]{.aside}
+These negative controls were generated using a data-rich algorithm that draws upon literature, product labels, and spontaneous reports. 
+
+For each negative control, we further generate synthetic positive controls with target effect sizes of \[1.5, 2, 4\] by adding simulated outcomes to the existing negative control until the desired effect is reached [@colomaReferenceStandardEvaluation2013]. 
+
+Our evaluation focuses on the differences in PS adjustment techniques applied to an outcome model and its included patients to estimate a relative effect.
+@tbl-1 lists each variant to be evaluated. 
 
 ```{r}
 baseline1 <- c("Unadjusted")
-matching1 <- c("Matching 1:1", "Matching 1:1", "Matching 1:5", "Matching 1:10", "Matching 1:25", "Matching variable-ratio")
-strat1 <- c("Stratification (5 groups)", "Stratification (10 groups)")
-weight1 <- c("IPTW", "Overlap weights")
+matching1 <- c("Matching (1:1)", "Matching (1:1)", "Matching (1:5)", "Matching (1:10)", "Matching (variable-ratio)")
+strat1 <- c("Stratification (5 groups)", "Stratification (10 groups)", "Stratification (20 groups)")
+weight1 <- c("IPTW", "Overlap weighing")
 
-lsps <- tibble(method = c(baseline1, matching1, strat1, weight1),
+lsps <- tibble(method = c(matching1, strat1, weight1),
                stratified = "Y")
 
-lsps$stratified[c(1:2, 9:10)] <- "N"
-lsps$model <- "Large-scale"
+lsps$stratified[c(1, 9:10)] <- "N"
+lsps$model <- "LSPS"
+lsps$id <- c(10:19)
 
-lsps$model[1] <- "None"
+# lsps$model[1] <- "None"
 
-matching2 <- c("Matching 1:1", "Matching 1:5", "Matching variable-ratio")
-strat2 <- c("Stratification (5 groups)")
-weight2 <- c("IPTW")
+# matching2 <- c("Matching (1:1)", "Matching (1:5)", "Matching (variable-ratio)")
+# strat2 <- c("Stratification (5 groups)")
+# weight2 <- c("IPTW")
+# 
+# ssps <- tibble(method = c(matching2, strat2, weight2),
+#                stratified = "Y")
+# ssps$stratified <- "N"
+# ssps$stratified[3] <- "Y"
+ssps <- lsps
+ssps$model <- "SSPS"
+ssps$id <- c(20:29)
 
-ssps <- tibble(method = c(matching2, strat2, weight2),
-               stratified = "Y")
-ssps$stratified <- "N"
-ssps$stratified[3] <- "Y"
-ssps$model <- "Small-scale (10-20 covariates)"
+base <- tibble(id = 1, method = "Unadjusted",
+               stratified = "N",
+               model = "None")
 
-data1 <- rbind(lsps, ssps)
+data1 <- rbind(base, lsps, ssps)
+
 table1 <- kbl(data1,
               booktabs = T,
-              col.names = c("PS adjustment",
-                            "Stratified outcome",
-                            "Model type"),
-              align = "lcc",
+              col.names = c("ID",
+                            "PS adjustment variant",
+                            "Conditional outcome model",
+                            "PS model type"),
+              align = "rlcc",
               linesep = "") %>% 
     kable_styling(latex_options = "striped",
                 full_width = F) 
@@ -232,22 +264,27 @@ table1 <- kbl(data1,
 
 ```{r}
 #| label: tbl-1
-#| tbl-cap: "New-user cohort method analysis variants of propensity score adjustment and outcome model specifications"
+#| tbl-cap: "New-user cohort method analysis variants of propensity score (PS) adjustment of outcome model, its conditioning and patient usage. DEFINE LSPS, SSPS, etc. here"
 table1
 ```
 
-@tbl-1 lists each variant of the new-user cohort method to be evaluated. 
-When performing IPTW, we trim to counter the effect of extreme weights on the model. 
-Stratifying the outcome model means the model is conditioned on the matched groups/stratified sets and is required for all matched sets greater than 2 patients.
+Each variant assumes a popular Cox proportional hazards approach to model time-to-event until first outcome or censuring after treatment initiation with a single treatment-indicator covariate.
+Variants further condition (or not) the Cox model to have independent baseline hazard functions across matched-set and strata.
+When matching PS scores, we use a recommended caliper of 0.2 standard deviations on the standardized logit scale [@cochranControllingBiasObservational1973].
+[MAS: insert what the 5 or 10 or 20 means for stratification. based on quantitles?]{.aside}
+When performing IPTW, we trim [MAS: at what values?]{.aside} to counter the effect of extreme weights on the model. 
 
-Large-scale propensity score models utilize OHDSI's "kitchen-sink" approach to covariates, which selects a large subset of patient characteristics. <!-- Question for Marc: Should I include list of things included in the PS model (i.e., drug_era 365 days...)? I don't see it in the LEGEND protocol --> 
-We also implement small-scale propensity score models, where roughly $50$ hand-picked covariates are utilized for the propensity score model. 
+Finally, variants consider both large-scale propensity score (LSPS) and small-scale propensity score (SSPS) models.
+LSPS models utilize a data-driven approach to covariates, which selects a large subset of patient characteristics. [MAS: you can provide a better description by taking text for recent papers]{.aside}
+<!-- Question for Marc: Should I include list of things included in the PS model (i.e., drug_era 365 days...)? I don't see it in the LEGEND protocol : YES --> 
+Our SSPS models include roughly $50$ hand-picked covariates. [MAS: how? why where those picked?]{.aside} 
 Existing literature often uses smaller models with handpicked variables, so we aim to generate a comparable small-scale model using OHDSI's toolstack. 
-@sec-ssps lists the chosen covariates of interest. <!-- TODO?: frequency / characterization for the small-scale covariates, like in Graham's paper -->
+@sec-ssps lists the chosen covariates of interest. 
+<!-- TODO?: frequency / characterization for the small-scale covariates, like in Graham's paper : at least a description of _why_ these were picked -->
 
 ### Data sources
 
-We will evaluate the propensity score models across a series of administraitive claims and electronic health records (EHR) data through OHDSI's data partners. 
+We will evaluate all PS variants for all comparisons across a series of administraitive claims and electronic health records (EHR) data through the OHDSI Evidence Network. 
 The models are conveniently run across differing database types as a result of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and the OHDSI Methods Library.
 
 @tbl-datasources lists the 5 data sources that will be utilized in this evaluation, with a brief description and population size, along with information on the data capturing process for its patients and its start date.
@@ -288,6 +325,7 @@ We utilize four exposure cohorts for new-users of any drug ingredient wihin the 
 @sec-cohortdefs reports the complete OHDSI `ATLAS` cohort descriptions for new-users of each drug class. 
 The description includes complete specification of cohort entry events, inclusion criteria, cohort exit events, and all associated OMOP-CDM concept codes used in the definition of the cohort. 
 For each data source presented in @tbl-datasources, we then execute pairwise class comparisons for each $C \binom{4}{2} = 6$ pairs.
+[MAS: since there is 1:5, etc. matching, you need to consider _all_ 12 ordered T/C pairs]{.aside}
 
 ```{r}
 #| label: tbl-cohortcounts
@@ -326,12 +364,14 @@ For each negative control, synthetic outcomes with expected hazard ratio $[1.5, 
 
 <!-- These outcome definitions have been previously implemented and validated in the `LEGEND-T2DM` study \[\@?\]. The formal `ATLAS` definitions of the outcomes are found below. -->
 
+[MAS: missing an IMPORTANT section on the performance metrics you will compute for each variant. what will you report out? also, how will you decide which is best (if possible)?  did you look at the EUMAEUS and BETTER protocols? https://suchard-group.github.io/Better/Protocol.html#84_Metrics]{.aside}
+
 ## Sample Size and Study Power
 
 <!-- from MethodEvaluation: Within each database, the minimum detectable relative risk (MDRR) will be computed for each control as a typical proxy for power.  -->
 
 We inspect the distributions of the PS estimates to evaluate population generalizability and cohort balance before and after adjustment. 
-Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions.
+Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions. [MAS: these two sentences have nothing to do with sample size or power]{.aside}
 
 ## Strengths and Limitations
 
@@ -353,6 +393,8 @@ We believe such bias from using a real-world data source will likely be towards 
 
 This study uses human data collected during routine healthcare provision, and all data is de-identified within the data source. 
 Study reports and collaboration among researchers shares only analysis code and aggregate data that does not identify individual patients or physicians.
+
+[MAS: what about IRB approval if necessary?]{.aside}
 
 ## Sample results table
 
@@ -404,6 +446,8 @@ metricsCali %>%
 <!-- ## Plans for Disseminating and Communicating Study Results -->
 
 <!-- One paper describing the study and its results will be written and submitted for publication to a peer-reviewed journal. -->
+
+[MAS: see https://suchard-group.github.io/Better/Protocol.html#12_Plans_for_Disseminating_and_Communicating_Study_Results]{.aside}
 
 ## Appendix
 
