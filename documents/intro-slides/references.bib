@@ -233,19 +233,81 @@
   keywords = {*Observational Studies as Topic/methods/standards,*Propensity Score,*Research Design/standards/statistics & numerical data,Algorithms,Bias,Confounding Factors Epidemiologic,Humans,Logistic Models,Sample Size}
 }
 
-@article{graham2015,
+@article{grahamCardiovascularBleedingMortality2015,
   title = {Cardiovascular, {{Bleeding}}, and {{Mortality Risks}} in {{Elderly Medicare Patients Treated With Dabigatran}} or {{Warfarin}} for {{Nonvalvular Atrial Fibrillation}}},
   author = {Graham, David J. and Reichman, Marsha E. and Wernecke, Michael and Zhang, Rongmei and Southworth, Mary Ross and Levenson, Mark and Sheu, Ting-Chang and Mott, Katrina and Goulding, Margie R. and Houstoun, Monika and MaCurdy, Thomas E. and Worrall, Chris and Kelman, Jeffrey A.},
-  date = {2015-01-13},
-  journaltitle = {Circulation},
-  shortjournal = {Circulation},
+  year = {2015},
+  month = jan,
+  journal = {Circulation},
   volume = {131},
   number = {2},
   pages = {157--164},
   publisher = {American Heart Association},
   doi = {10.1161/CIRCULATIONAHA.114.012061},
-  url = {https://doi.org/10.1161/CIRCULATIONAHA.114.012061},
   urldate = {2025-01-16}
+}
+
+@article{austinRelativeAbilityDifferent2009,
+  title = {The Relative Ability of Different Propensity Score Methods to Balance Measured Covariates between Treated and Untreated Subjects in Observational Studies.},
+  author = {Austin, Peter C.},
+  year = {2009},
+  journal = {Medical decision making : an international journal of the Society for Medical Decision Making},
+  volume = {29},
+  number = {6},
+  pages = {661--677},
+  address = {United States},
+  issn = {1552-681X 0272-989X},
+  doi = {10.1177/0272989X09341755},
+  abstract = {The propensity score is a balancing score: conditional on the propensity score, treated and untreated subjects have the same distribution of observed baseline  characteristics. Four methods of using the propensity score have been described  in the literature: stratification on the propensity score, propensity score  matching, inverse probability of treatment weighting using the propensity score,  and covariate adjustment using the propensity score. However, the relative  ability of these methods to reduce systematic differences between treated and  untreated subjects has not been examined. The authors used an empirical case  study and Monte Carlo simulations to examine the relative ability of the 4  methods to balance baseline covariates between treated and untreated subjects.  They used standardized differences in the propensity score matched sample and in  the weighted sample. For stratification on the propensity score, within-quintile  standardized differences were computed comparing the distribution of baseline  covariates between treated and untreated subjects within the same quintile of the  propensity score. These quintile-specific standardized differences were then  averaged across the quintiles. For covariate adjustment, the authors used the  weighted conditional standardized absolute difference to compare balance between  treated and untreated subjects. In both the empirical case study and in the Monte  Carlo simulations, they found that matching on the propensity score and weighting  using the inverse probability of treatment eliminated a greater degree of the  systematic differences between treated and untreated subjects compared with the  other 2 methods. In the Monte Carlo simulations, propensity score matching tended  to have either comparable or marginally superior performance compared with  propensity-score weighting.},
+  langid = {english},
+  pmid = {19684288},
+  keywords = {Adrenergic beta-Antagonists/*therapeutic use,Aged,Aged 80 and over,Angiotensin-Converting Enzyme Inhibitors/*therapeutic use,Female,Heart Failure/*drug therapy,Humans,Male,Monte Carlo Method,Probability}
+}
+
+@article{pirracchioEvaluationPropensityScore2012,
+  title = {Evaluation of the {{Propensity}} Score Methods for Estimating Marginal Odds Ratios in Case of Small Sample Size},
+  author = {Pirracchio, Romain and {Resche-Rigon}, Matthieu and Chevret, Sylvie},
+  year = {2012},
+  month = may,
+  journal = {BMC Medical Research Methodology},
+  volume = {12},
+  number = {1},
+  pages = {70},
+  issn = {1471-2288},
+  doi = {10.1186/1471-2288-12-70},
+  abstract = {Propensity score (PS) methods are increasingly used, even when sample sizes are small or treatments are seldom used. However, the relative performance of the two mainly recommended PS methods, namely PS-matching or inverse probability of treatment weighting (IPTW), have not been studied in the context of small sample sizes.}
+}
+
+@article{luncefordStratificationWeightingPropensity2004,
+  title = {Stratification and Weighting via the Propensity Score in Estimation of Causal Treatment Effects: A Comparative Study},
+  author = {Lunceford, Jared K. and Davidian, Marie},
+  year = {2004},
+  month = oct,
+  journal = {Statistics in Medicine},
+  volume = {23},
+  number = {19},
+  pages = {2937--2960},
+  publisher = {John Wiley \& Sons, Ltd},
+  issn = {0277-6715},
+  doi = {10.1002/sim.1903},
+  urldate = {2025-01-16},
+  abstract = {Abstract Estimation of treatment effects with causal interpretation from observational data is complicated because exposure to treatment may be confounded with subject characteristics. The propensity score, the probability of treatment exposure conditional on covariates, is the basis for two approaches to adjusting for confounding: methods based on stratification of observations by quantiles of estimated propensity scores and methods based on weighting observations by the inverse of estimated propensity scores. We review popular versions of these approaches and related methods offering improved precision, describe theoretical properties and highlight their implications for practice, and present extensive comparisons of performance that provide guidance for practical use. Copyright ? 2004 John Wiley \& Sons, Ltd.},
+  keywords = {covariate balance,double robustness,inverse-probability-of-treatment-weighted-estimator,observational data}
+}
+
+@article{schuemieHowConfidentAre2020,
+  title = {How Confident Are We about Observational Findings in Healthcare: {{A}} Benchmark Study},
+  author = {Schuemie, Martijn J and Cepeda, M Soledad and Suchard, Marc A and Yang, Jianxiao and Tian, Yuxi and Schuler, Alejandro and Ryan, Patrick B and Madigan, David and Hripcsak, George},
+  year = {2020},
+  month = jan,
+  journal = {Harv. Data Sci. Rev.},
+  volume = {2},
+  number = {1},
+  publisher = {MIT Press - Journals},
+  issn = {2688-8513},
+  doi = {10.1162/99608f92.147cc28e},
+  abstract = {Healthcare professionals increasingly rely on observational healthcare data, such as administrative claims and electronic health records, to estimate the causal effects of interventions. However, limited prior studies raise concerns about the real-world performance of the statistical and epidemiological methods that are used. We present the "OHDSI Methods Benchmark" that aims to evaluate the performance of effect estimation methods on real data. The benchmark comprises a gold standard, a set of metrics, and a set of open source software tools. The gold standard is a collection of real negative controls (drug-outcome pairs where no causal effect appears to exist) and synthetic positive controls (drug-outcome pairs that augment negative controls with simulated causal effects). We apply the benchmark using four large healthcare databases to evaluate methods commonly used in practice: the new-user cohort, self-controlled cohort, case-control, case-crossover, and self-controlled case series designs. The results confirm the concerns about these methods, showing that for most methods the operating characteristics deviate considerably from nominal levels. For example, in most contexts, only half of the 95\% confidence intervals we calculated contain the corresponding true effect size. We previously developed an "empirical calibration" procedure to restore these characteristics and we also evaluate this procedure. While no one method dominates, self-controlled methods such as the empirically calibrated self-controlled case series perform well across a wide range of scenarios.},
+  keywords = {causal effect estimation,evaluation,methods,observational research}
 }
 
 

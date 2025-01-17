@@ -136,14 +136,13 @@ abbrevtbl
 ## Rationale and Background
 
 The new-user cohort method attempts to emulate randomized clinical trials for observational data. 
-[MAS: George does not like sentences that begin with "However $\ldots$" Fixed here; but please fix elsewhere]{.aside}
 Observational studies, however, may suffer from baseline differences between patient groups initiating different treatments that affect relative outcome risk estimation. [MAS: add citation?]{.aside}
 One solution of interest is to estimate a propensity score (PS), the baseline probability that a patient will receive one treatment over the other, across both patient groups. 
 The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. [MAS: please fix.  PS models are generally small, using which? specific covariates.  alternatively, they may be large-scale.  also add citations to "both" approaches]{.aside}
-By matching, stratifying, or weighting patients based on their propensity scores, researchers aim to achieve balance in the measured covariates between treatment groups. [MAS: not really; they aim to remove bias in the outcome risk estimate.]{.aside}
+By matching, stratifying, or weighting patients based on their propensity scores, researchers aim to remove bias in the outcome risk estimate while achieving balance in the measured covariates between treatment groups.
 
 Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. [MAS: citation?  and smaller than what?]{.aside}
-However, since each patient's subsequent matches beyond their first may be less similar to them and less optimal, going beyond one-to-one matching may result in increased bias.
+The resulting trade-off when going beyond one-to-one matching is increased bias: each patient's subsequent matches beyond their first may be less similar to them, and therefore, less optimal.
 [@rassenOnetomanyPropensityScore2012] suggest variable ratio matching,
 where each patient in the treated group is matched with a random number of patients in the control group, reduces bias compared to techniques with fixed ratios. [MAS: citation is not formatted correctly in-text]{.aside} [MAS: target and control need to be introduced before here.]{.aside}
 This is due to the fact that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a treated subject only matches to one control, but fixed-ratio $1:3$ matching requires three matches to be included in the study). 

@@ -1,0 +1,243 @@
+---
+title: Evaluating OHDSI's propensity score adjustment methods
+format: 
+  ohdsiquarto-revealjs:
+    self-contained: true
+    reference-location: document
+title-slide-attributes: 
+  data-background-image: _extensions/ohdsiquarto/ucla.png, _extensions/ohdsiquarto/logo_title_page.png
+  data-background-size: 30%, 15%
+  data-background-position: 2% 98%, 99% 98%
+  data-background-color: white
+html-math-method: mathjax
+include-after-body: _extensions/ohdsiquarto/RemoveLogoTitlePage.txt
+author: Kelly Li
+institute: University of California, Los Angeles
+date: 1/15/2025
+bibliography: references.bib
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, echo=FALSE}
+library(tidyverse)
+library(Matrix)
+library(MatrixModels)
+library(ggplot2)
+library(matrixStats)
+library(gridExtra)
+library(latex2exp)
+library(wesanderson)
+library(kableExtra)
+library(patchwork)
+library(ggpubr)
+library(DT)
+library(formattable)
+
+```
+
+## The need for propensity score adjustment
+
+### The [Cohort Method design]{.alert} emulates randomized-clinical trial for comparing two treatments (target vs comparator) on an outcome
+- Subjects observed to initiate target treatment are compared to comparator for some specified time-at-risk
+- Characteristics of subjects captured prior to initiation
+- How do we deal with [systematic differences]{.alert} between patients receiving the target and comparator?
+
+![](figures/cohortmethod.png){width="120%" fig-align="center"}
+
+## Propensity scores
+- Randomized trials do what observational studies cannot: assign patients to treatment group by coin toss... so two groups should not differ by design
+- Solution for observational data: compute [propensity score]{.alert}: probability a patient receives target treatment against comparator
+- Fit a logistic regression model that uses treatment as outcome with some patient covariates
+- Match, weight, stratify
+- Evaluated by group covariate balance
+
+### Matching example: Bob has an a priori probability of 0.8 for receiving the target, and he received the target. Bib has an a priori probability of 0.8 for the target as well, but he received the comparator. Comparing Bob and Bib is like a mini-randomized trial with respect to their measured confounders.
+
+## Factors to consider in PS adjustment
+- Variable selection: what features go into the PS model?
+- Types of adjustment: matching with different ratios, stratifying, weighting
+
+
+## Variable selection
+
+:::: {.columns}
+::: {.column width="50%"}
+### Hand-picked covariates
+- Most existing models in literature utilize 20-50 manually selected characteristics (i.e. @grahamCardiovascularBleedingMortality2015)
+- True causal structure is rarely known - different researchers identify different "correct" covariates to include in model
+- Irreproducible
+
+:::
+::: {.column width="50%"}
+### OHDSI's "kitchen-sink" approach
+- OHDSI utilizes many generic characteristics (10,000 ~ 100,000) including demographics, diagnoses, drug exposures, medical procedures...
+- "Data-driven" characteristic selection
+- Evaluation of PS models (balance, negative controls, etc.) identifies most causal problems for colliders/instrumental variables
+
+:::
+::::
+
+## Adjustment types
+- Matching ("greedy", "nearest neighbor")
+  - Fixed matching ratios (1-to-1, 1-to-n)
+  - Variable ratio
+- Stratification (recommended quintiles)
+- Inverse propensity score treatment weighting (IPTW)
+  - Overlap weights down-weight tails to emphasize target population with lots of characteristic overlap
+  - Trimming (typically 5%) removes extreme weights
+  
+## Measuring performance of propensity scores
+### The bias-variance trade-off
+- Existing studies utilize simulated cohorts of patients and small subsets of characteristics: bias and variance are simple to measure
+- We utilize [real-world data]{.alert} via negative/positive controls:
+  - Each T/C pair has a list of real-world negative controls (believed to not be influenced by either treatment) drawn from literature and expert opinion
+  - From negative controls, generate positive controls with pre-specified effect size
+- Measurements of success computed from controls:
+  - AUC, Type-I, type-II error
+  - 95% CI inclusion 
+  - Variance, MSE on effect size
+  
+## Adjustment types: hypotheses 
+- [IPTW]{.alert} on paper has a lot of nice properties
+  - Retains data from all study participants (stratification assumes the same PS across all individuals in one stratum)
+  - Has some work on doubly-robust estimators for binary outcomes
+  - Cannot handle extreme weights (fixed via overlap/trimming)
+- [Matching]{.alert} beyond 1-1 can yield lower variance due to utilizing more control-group data points, but higher bias since subsequent matches are of lower quality
+  - Sequential vs. "greedy" matching
+  - Matching tends to drop patients who who do not have enough matches for 1-n matching (fixed via VR)
+- [Stratification]{.alert} preserves more data points than matching
+
+## Adjustment types: overview
+- [Many existing studies outline IPTW as the preferred method]{.alert} for propensity score adjustment [@austinRelativeAbilityDifferent2009;@pirracchioEvaluationPropensityScore2012; @luncefordStratificationWeightingPropensity2004]
+  - The majority of applied studies utilizing PS adjustments utilize IPTW
+- [OHDSI's benchmark sees IPTW underperforming]{.alert} relative to all other methods [@schuemieHowConfidentAre2020] - high variance, similar bias, low 95% CI coverage
+  - Simulated data vs empirical calibration
+  - Small covariate set vs large
+
+## Adjustment types: IPTW supporters
+- @austinRelativeAbilityDifferent2009 conduct a simulation and an empirical study on two cardiovascular drugs and measure the balance of treatment groups before and after adjustment
+  - IPTW $=$ matching $>$ stratification 
+  - Matching $\geq$ IPTW $>$ stratification in simulated data of size 1000 with 6 covariates
+- @pirracchioEvaluationPropensityScore2012 report IPTW has superior bias/variance performance over matching for simulated data from sample sizes 40 to 1000 with 4 covariates
+- @luncefordStratificationWeightingPropensity2004 report IPTW has superior bias/variance performance over stratification for simulated data of sample size 1000, 5000 with 8 covariates
+  
+## Adjustment types: Matching supporters
+- @rassenOnetomanyPropensityScore2012 utilize compare different matching ratios and methods
+  - Simulations of size 50,000 with 8 covariates
+  - Recommend variable-ratio matching, citing low variance with only a small bias cost
+  - One application to real-world data evaluates standardized difference between group confounders
+- OHDSI's current benchmark [@schuemieHowConfidentAre2020] compares 1-1, VR, stratification, IPTW.
+  - 1-1 / VR have highest 95% CI coverage, with VR greatly increasing bias
+  - IPTW has low 95% CI coverage and high bias
+
+## A summary of the ranking so far
+### Searching for the 'best' adjustment method...
+- 1st place: A fair amount of literature has lead IPTW to be the industry standard. OHDSI disagrees.
+- 2nd place: Some simulations recommend VR over 1-1 or 1-n matching for low variance with a small bias increase as a trade-off
+- 3rd place: It seems stratification does not retain enough individual-level information and does not compare well to the others
+- We want to know how different methods perform in a [large-scale]{.alert} scenario for adjusting for [bias in the outcome model]{.alert}, along with covariate balance
+
+## LEGEND-T2DM: our applied problem
+We conduct a comparative study comparing 4 classes of T2DM drugs (SGLT2, GLP-1, DPP4, SU)
+
+- Existing and expert-approved cohort definitions and negative controls
+- Existing HR estimates for some PS model specifications 
+- ${4\choose 2}* 2$ T/C pairs for multiple results
+
+### Proposal: Conduct varying specifications of a propensity-score adjustment model for the target-comparator pairs of LEGEND-T2DM and its negative controls + simulated positive controls. Evaluate performance with MSE, variance, Type-I/II errors, and 95% CI coverage.
+
+## Analysis specifications
+```{r}
+baseline1 <- c("Unadjusted")
+matching1 <- c("Matching (1:1)", "Matching (1:1)", "Matching (1:10)", "Matching (1:25)", "Matching (variable-ratio)")
+strat1 <- c("Stratification (5 groups)", "Stratification (10 groups)", "Stratification (20 groups)")
+weight1 <- c("IPTW", "Overlap weighing")
+
+lsps <- tibble(method = c(matching1, strat1, weight1),
+               stratified = "Y")
+
+lsps$stratified[c(1, 9:10)] <- "N"
+lsps$model <- "LSPS"
+lsps$id <- c(1:nrow(lsps)) + 1
+
+# lsps$model[1] <- "None"
+
+# matching2 <- c("Matching (1:1)", "Matching (1:5)", "Matching (variable-ratio)")
+# strat2 <- c("Stratification (5 groups)")
+# weight2 <- c("IPTW")
+# 
+# ssps <- tibble(method = c(matching2, strat2, weight2),
+#                stratified = "Y")
+# ssps$stratified <- "N"
+# ssps$stratified[3] <- "Y"
+ssps <- lsps
+ssps$model <- "SSPS"
+ssps$id <- lsps$id + nrow(lsps)
+
+base <- tibble(id = 1, method = "Unadjusted",
+               stratified = "N",
+               model = "None")
+
+data1 <- rbind(base, lsps, ssps)
+
+datatable(data1,
+          colnames = c("Analysis ID",
+                       "PS adjustment <br> variant",
+                       "Conditional <br> outcome model",
+                       "PS model <br> type"),
+          rownames = FALSE,
+          options = list(columnDefs = 
+                           list(list(className = 'dt-center', 
+                                     targets = "_all")),
+                         pageLength = 8),
+          escape = F)
+```
+
+## Sample results table
+```{r}
+metrics <- readRDS("../figures/metricsPreCali.rds")
+metrics %>%
+  mutate(
+    auc = color_bar("lightpink")(auc),
+    coverage = color_bar("lightpink")(coverage),
+    meanP = color_bar("lightpink")(meanP),
+    mse = color_bar("lightblue")(mse),
+    type1 =color_bar("lightblue")(type1),
+    type2 = color_bar("lightblue")(type2),
+    nonEstimable = color_bar("lightgreen")(nonEstimable)
+  ) %>%
+  select(analysisDescription, auc, coverage, meanP,
+         mse, type1, type2, nonEstimable) %>%
+  datatable(colnames = c("Description",
+                         "AUC",
+                         "95% coverage",
+                         "Precision",
+                         "MSE",
+                         "Type-I",
+                         "Type-II",
+                         "% Non-estimable"),
+            options = list(
+              pageLength = 4),
+            escape = F)
+```
+
+## Roadmap for 'PropensityScoreMethodsEvaluation'
+![](figures/workflow.jpg){width="100%" fig-align="center"}
+
+## Final summary
+We seek to [evaluate varying forms of propensity-score adjustment methods]{.alert} (weighting, matching, stratifying) in a large database setting for their [bias-variance trade-off]{.alert} in producing the effect estimates of interest.
+
+- Produce a detailed benchmark of methods using [real-world data]{.alert} 
+- Answer the discrepancy of IPTW performance between OHDSI's benchmarks and the rest of the industry
+
+## Some interesting further directions...
+- Simulate data and incorporate error into the IPTW model... perhaps through Bayesian methods?
+- IPTW in high prevalence situations or w/ censoring adjustments and double robustness
+- What happens in small sample size / small databases?
+- When encountering extreme PS values, researchers tend to "wing it." (Trimming, overlap weights, dropping patients, etc.). Can we recommend a better-documented standard?
+- Choosing 100 negative controls is non-reproducible and non-scalable
+
+## References
+
