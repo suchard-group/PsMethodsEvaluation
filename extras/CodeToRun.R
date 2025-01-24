@@ -11,7 +11,7 @@ maxCores <- 6
 outputFolder <- "E:/Li_R/t2dmPsTrial2"
 
 # Details for connecting to the server:
-
+server <- "mdcr_server_name"
 connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "redshift",
                                                                 server = keyring::key_get("mdcr_server"),
                                                                 user = keyring::key_get("user", "kli69"),

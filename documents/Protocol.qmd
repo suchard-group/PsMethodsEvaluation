@@ -1,27 +1,34 @@
 ---
-title: "OHDSI propensity score matching evaluation study protocol"
+title: "| RESEARCH PROTOCOL\n| \n| OHDSI propensity score matching evaluation study protocol\n  ? SPARTA: ? Survey of Propenstiy-score Adjustment Routes for Treatment-effect Analyses"
+fontsize: 12pt
+geometry: margin=1in
+mainfont: Arial
 bibliography: references.bib
 csl: american-statistical-association.csl
 number-sections: true
 format: 
   html:
     toc: true
+    toc-location: left
     html-math-method: katex
     grid:
       margin-width: 200px
+    css: style.css
+    # include-in-header:
+    #   text: |
+    #     \usepackage{longtable}
+    #     \usepackage{unicode-math}
+    #     \linespread{1.05}
+    #     \usepackage{hyperref}
+    #     \numberwithin{equation}{section}
+    #     \usepackage{float}
+    #     \floatplacement{figure}{H}
+    #     \floatplacement{table}{H}
 editor: visual
 appendix-style: plain
 toc: true
-# header-includes:
-#   - \usepackage{longtable}
-#   - \usepackage{unicode-math}
-#   - \LTcapwidth=.95\textwidth
-#   - \linespread{1.05}
-#   - \usepackage{hyperref}
-#   - \numberwithin{equation}{section}
-#   - \usepackage{float}
-#   - \floatplacement{figure}{H}
-#   - \floatplacement{table}{H}
+
+# TODO: Add back PDF rendering... colored table breaks with PDF
 ---
 
 ```{r setup, include=FALSE}
@@ -98,6 +105,7 @@ printCohortDefinitionFromNameAndJson <- function(name, json = NULL, obj = NULL,
 # Add `chunkcaption: TRUE` to YAML as well.
 ```
 
+
 \newpage
 
 ## List of abbreviations
@@ -126,12 +134,59 @@ abbrevtbl <- kbl(abbrevs,
 abbrevtbl
 ```
 
-[MAS: where is the Responsible Parties section? please follow https://ohdsi-studies.github.io/LegendT2dm/Protocol.html#2_Responsible_Parties]{.aside}
+## Responsible parties
 
+### Investigators
+```{r parties, echo=FALSE, message=FALSE}
+parties <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
+  Investigator; Institution/Affiliation
+  Kelly Li *; Department of Biostatistics, University of California, Los Angeles, Los Angeles, CA, USA
+  Yong Chen; Department of Biostatistics, University of Pennsylvania, Philadelphia, PA, USA
+  George Hripcsack; Department of Biomedical Informatics, Columbia University, New York, NY, USA
+  Aki Nishimura; Department of Biostatistics, Johns Hopkins University, Baltimore, MD, USA
+  Nicole Pratt; Department of Biostatistics, University of South Australia, Adelaide, SA, AU
+  Patrick B. Ryan; Observational Health Data Analytics, Janssen Research and Development, Titusville, NJ, USA
+  Martijn J. Schuemie; Observational Health Data Analytics, Janssen Research and Development, Titusville, NJ, USA
+  Linying Zhang; Institute for Informatics, Data Science, & Biostatistics, Washington University, St. Louis, MO, USA
+  Marc A. Suchard *; Department of Biostatistics, University of California, Los Angeles, Los Angeles, CA, USA
+")
+
+tab <- kable(parties, booktabs = TRUE, linesep = "") %>%
+  column_spec(1, width = "10em") %>%
+  column_spec(2, width = "35em") %>%
+  footnote(general = "* Principal Investigator", general_title = "")
+
+if (knitr::is_latex_output()) {
+  tab %>% kable_styling(latex_options = c("striped", "hold_position"),
+                        font_size = latex_table_font_size)
+} else {
+  tab %>% kable_styling(bootstrap_options = "striped")
+}
+```
+
+### Disclosures
+This study is undertaken within Observational Health Data Sciences and Informatics (OHDSI), an open collaboration.
+**MJS** and **PBR** are employees of Janssen Research and Development and shareholders in John & Johnson.
+**GH** receives grant funding from the US National Institutes of Health and the US Food & Drug Administration and contracts from Janssen Research and Development.
+**HMK** receives grants from the US Food & Drug Administration, Medtronics and Janssen Research and Development, is co-founder of HugoHealth and chairs the Cardiac Scientific Advisory Board for UnitedHealth.
+**MAS** receives grant funding from the US National Institutes of Health, the US Department of Veterans Affairs and the US Food & Drug Administration and contracts from Janssen Research and Development and IQVIA.
+<!-- To be added... other collaborators -->
 
 ## Abstract
 
-[MAS: please add ASAP]{.aside}
+The new-user cohort method is utilized on observational data to estimate effects between groups. 
+However, baseline differences between patient groups can introduce bias in treatment effect estimates. 
+Propensity score (PS) models seek to address this issue to reduce bias in the overall outcome model. 
+There is a variety of PS adjustment techniques, including matching, stratification, and weighting. 
+Much research is needed to benchmark and study the bias-variance trade-off of these different techniques, particularly on large-scale PS models that can utilize up to $10^5 ~ 10^6$ covariates in the model. 
+Much of the existing evidence is either based on simulations that may not fully capture the complexities of real-world data, or utilizing small-scale PS models with only 10-20 hand-picked covariates. 
+This study aims to evaluate the performance of different PS adjustment strategies in a large-scale, real-world cohort of patients with type 2 diabetes mellitus (T2DM) initiating second-line treatment.
+
+We specifically compare several PS adjustment methods, including 1-to-1 and 1-to-many matching, variable-ratio matching, stratification with 5, 10, and 20 groups, inverse probability of treatment weighting (IPTW), and overlap weighting.
+In addition, we consider both large-scale propensity score (LSPS) models, utilizing OHDSI's standard sets of $10^5 ~ 10^6$ covariates and small-scale propensity score (SSPS) models, utilizing roughly 20-30 handpicked variables. 
+To assess the bias-variance trade-offs of these techniques, we use a set of negative control outcomes, and a set of synthetic positive controls with predetermined effect sizes.
+We aim to conduct a comprehensive evaluation of the trade-offs of utilizing different PS adjustment strategies.
+The insights gained from this analysis on propensity score techniques are expected to guide decision-making in future studies utilizing observational healthcare data.
 
 ## Rationale and Background
 
@@ -323,8 +378,7 @@ if (knitr::is_latex_output()) {
 We utilize four exposure cohorts for new-users of any drug ingredient wihin the four traditionally second-line drug classes for type-2-diabetes mellitus (T2DM) treatment: DPP4, GLP1, SGLT2, and SU. <!-- The index date for each patient is their first observed exposure to any drug ingredient for the four second-line drug classes.  --> 
 @sec-cohortdefs reports the complete OHDSI `ATLAS` cohort descriptions for new-users of each drug class. 
 The description includes complete specification of cohort entry events, inclusion criteria, cohort exit events, and all associated OMOP-CDM concept codes used in the definition of the cohort. 
-For each data source presented in @tbl-datasources, we then execute pairwise class comparisons for each $C \binom{4}{2} = 6$ pairs.
-[MAS: since there is 1:5, etc. matching, you need to consider _all_ 12 ordered T/C pairs]{.aside}
+For each data source presented in @tbl-datasources, we then execute pairwise class comparisons, where in each pair, each class has one opportunity to serve as the target and the other as the comparator. This results in $C \binom{4}{2} * 2 = 12$ combinations to execute.
 
 ```{r}
 #| label: tbl-cohortcounts
@@ -363,14 +417,31 @@ For each negative control, synthetic outcomes with expected hazard ratio $[1.5, 
 
 <!-- These outcome definitions have been previously implemented and validated in the `LEGEND-T2DM` study \[\@?\]. The formal `ATLAS` definitions of the outcomes are found below. -->
 
-[MAS: missing an IMPORTANT section on the performance metrics you will compute for each variant. what will you report out? also, how will you decide which is best (if possible)?  did you look at the EUMAEUS and BETTER protocols? https://suchard-group.github.io/Better/Protocol.html#84_Metrics]{.aside}
+### Metrics
+Each propensity score adjustment method will be applied to one analysis estimating the treatment effects on the negative and positive controls.
+We assume that each analysis will produce an effect size estimate for each control, uncertainty of the estimate expressed as a 95% confidence interval, and a two-sided p-value for the null hypothesis of no effect.
+Prior work shows that the p-value and confidence intervals can be empirically calibrated to restore their operating characteristics to near-nominal values using the observed distribution of estimates for the negative and positive controls [@schuemieEmpiricalConfidenceInterval2018;@schuemieInterpretingObservationalStudies2014].
 
-## Sample Size and Study Power
+We will apply empirical calibration before computing and reporting the performance metrics adopted from previous research [@schuemieHowConfidentAre2020]:
 
-<!-- from MethodEvaluation: Within each database, the minimum detectable relative risk (MDRR) will be computed for each control as a typical proxy for power.  -->
+  - Coverage: How often is the true effect size within the 95% confidence interval for each control?
+  - Non-estimable: How many controls was the method unable to produce an estimate? This can be for many reasons, e.g. Not enough subjects left after PS adjustment.
+  - Mean precision: computed as $\frac{1}{SE^2}$, where higher precision implies lower variance and narrower confidence intervals.
+  - Mean squared error (MSE): mean squared difference between the estimated effect size and the true effect size
+  - Type I error: For negative controls, how often was the null rejected ($\alpha = .05$)? This is equivalent to the false positive rate and 1 - specificity.
+  - Type II error: For positive controls, how often was the null not rejected? ($\alpha = .05$)? This is equivalent to the false negative rate and 1 - sensitivity.
+  - Sensitivity and specificity according to the previous definitions for Type I / II error.
+  - AUC: How well can we discriminate between positive and negative controls?
 
-We inspect the distributions of the PS estimates to evaluate population generalizability and cohort balance before and after adjustment. 
-Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions. [MAS: these two sentences have nothing to do with sample size or power]{.aside}
+The metrics will be computed overall, and also stratified by the true effect size, especially for the positive controls.
+We will evaluate each adjustment method primarily for its bias-variance trade-off by examining the MSE and precision of the treatment effect estimates, before we take into consideration the other performance metrics.
+
+<!-- ## Sample Size and Study Power -->
+
+<!-- <!-- from MethodEvaluation: Within each database, the minimum detectable relative risk (MDRR) will be computed for each control as a typical proxy for power.  --> -->
+
+<!-- We inspect the distributions of the PS estimates to evaluate population generalizability and cohort balance before and after adjustment.  -->
+<!-- Finally, Kaplan-Meier plots are utilized to examine hazard ratio proportionality assumptions. [MAS: these two sentences have nothing to do with sample size or power]{.aside} -->
 
 ## Strengths and Limitations
 
@@ -391,9 +462,11 @@ We believe such bias from using a real-world data source will likely be towards 
 ## Protection of Human Subjects
 
 This study uses human data collected during routine healthcare provision, and all data is de-identified within the data source. 
-Study reports and collaboration among researchers shares only analysis code and aggregate data that does not identify individual patients or physicians.
+All data partners executing the analyses within their data sources will have received institutional review board (IRB) approval or waiver for participation in accordance to their institutional governance prior to execution.
+PME executes across a federated and distributed data network, where participating data partners only receive analysis code and return aggregate summary statistics, with no sharing of patient-level data between organizations.
 
-[MAS: what about IRB approval if necessary?]{.aside}
+<!-- todo: table 10.1, per EUMAEUS / BETTER protocol -->
+
 
 ## Sample results table
 
@@ -442,11 +515,25 @@ metricsCali %>%
                       "MSE", "Type-I Error", "Type-II Error", "Non-estimable (%)"))
 ```
 
-<!-- ## Plans for Disseminating and Communicating Study Results -->
+## Plans for Disseminating and Communicating Study Results
 
-<!-- One paper describing the study and its results will be written and submitted for publication to a peer-reviewed journal. -->
+Open science aims to make scientific research, including its data processing, software, and dissemination, accessible to all levels of an inquiring society [@woelfleOpenScienceResearch2011].
+Open science delivers reproducible, transparent, and reliable evidence.
+All aspects of PME (except private patient data) will be open and we will actively encourage other interested researchers, clinicians, and patients to participate.
+This differs fundamentally from traditional studies that rarely open their analytic tools or share all result artifacts, informing the community about hard-to-verify conclusions at completion.
 
-[MAS: see https://suchard-group.github.io/Better/Protocol.html#12_Plans_for_Disseminating_and_Communicating_Study_Results]{.aside}
+### Transparent and re-usable research tools
+We plan to publicly register this protocol and announce its availability for feedback from stakeholders, the OHDSI community, and within clinical professional societies.
+This protocol will link to open source code for all the steps utilized to generate diagnostic measurements, effect estimates, figures, and tables. 
+Such transparency is possible because we construct our studies on top of the OHDSI toolstack of open source software tools that are community developed and rigorously tested [@Schuemie2020How].
+We will publicly host PME source code at *github.com/pme*, allowing public contribution and review, and free re-use for anybody's future research.
+
+### Scientifc meetings and publications
+We will deliver multiple presentations at scientific venues and will also prepare publications for clinical, informatics, and statistical journals.
+
+### General public
+We believe in sharing our findings that will guide observational health data research with the general public.
+With dedicated support from the OHDSI communications specialist, we will deliver regular press releases at key project stages, distributed via the extensive media networks of UCLA and Columbia.
 
 ## Appendix
 
