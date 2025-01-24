@@ -190,33 +190,68 @@ The insights gained from this analysis on propensity score techniques are expect
 
 ## Rationale and Background
 
-The new-user cohort method attempts to emulate randomized clinical trials for observational data. 
-Observational studies, however, may suffer from baseline differences between patient groups initiating different treatments that affect relative outcome risk estimation. [MAS: add citation?]{.aside}
-One solution of interest is to estimate a propensity score (PS), the baseline probability that a patient will receive one treatment over the other, across both patient groups. 
-The PS is modeled using a large-scale model of between 10,000 \~ 100,000 baseline patient characteristics. [MAS: please fix.  PS models are generally small, using which? specific covariates.  alternatively, they may be large-scale.  also add citations to "both" approaches]{.aside}
+### The cohort method and propensity scores
+The new-user cohort method attempts to emulate randomized clinical trials for observational data [@hernanUsingBigData2016a]. 
+Subjects who are observed to initiate a treatment of interest (the target) are compared to subjects initiating another treatment (the comparator) and are followed for a pre-specified amount of time following treatment initiation. 
+One main difference between a randomized clinical trial and the cohort method is that there is no randomization of subjects between target and comparator, and hence patients receiving the target may systematically differ from patients receiving the comparator treatment [@rosenbaumCentralRolePropensity1983;@austinIntroductionPropensityScore2011].
+Our solution of interest is to estimate a propensity score (PS), the baseline probability that a patient will receive one treatment over the other, across both patient groups. 
 By matching, stratifying, or weighting patients based on their propensity scores, researchers aim to remove bias in the outcome risk estimate while achieving balance in the measured covariates between treatment groups.
 
-Previous work indicates that propensity score matching at ratios of one-to-many $n$, with either fixed or variable values for $n$, can yield smaller variance in the eventual treatment effect estimation. [MAS: citation?  and smaller than what?]{.aside}
-The resulting trade-off when going beyond one-to-one matching is increased bias: each patient's subsequent matches beyond their first may be less similar to them, and therefore, less optimal.
-[@rassenOnetomanyPropensityScore2012] suggest variable ratio matching,
-where each patient in the treated group is matched with a random number of patients in the control group, reduces bias compared to techniques with fixed ratios. [MAS: citation is not formatted correctly in-text]{.aside} [MAS: target and control need to be introduced before here.]{.aside}
-This is due to the fact that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a treated subject only matches to one control, but fixed-ratio $1:3$ matching requires three matches to be included in the study). 
-While the literature has existing recommendations and insights for the bias-variance trade-off of varying propensity score matching techniques, a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world, where residual systematic error persists. 
-[MAS: you also need to introduce stratification and ALL other approaches (different weighing schemes) we are comparing.]{.aside}
-[MAS: maybe also some discussion that different PS schemes leads to slightly different effect estimates, i.e. ATT, ATE, ATO, etc.]{.aside}
+### Variable selection
+The PS is typically modeled using a binary model, such as logistic regression, applied to baseline patient characteristics.
+The choice of characteristics going into the model can vary.
+Some researchers opt to hand-pick a small set (between 10-50) of characteristics that may be related to the outcome.
+Some recent examples of this are seen in a comparative safety study of anticoagulants [@grahamCardiovascularBleedingMortality2015], a comparison of diets in chronic kidney disease patients [@calabreseReviewPracticalExcursus2023], and a study of the effect of loneliness on unemployment [@morrishUnderstandingEffectLoneliness2022].
+In practice, it may be very difficult to accurately classify a patient's baseline characteristics for whether or not they affect only the outcome, or exposure, or any combination of factors. 
+In fact, many baseline covariates are likely to affect both the treatment assignment and the outcome.
+@austinIntroductionPropensityScore2011 note that in many settings, researchers can safely include all measured baseline characteristics in the propensity score model.
+OHDSI takes this larger approach, where the PS is modeled using a large-scale logistic regression model that utilizes between 10,000 and 100,000 baseline patient characteristics [@ohdsiBookOHDSIObservational2019;@tianEvaluatingLargescalePropensity2018].
+These patient characteristics are generic, implying that they are not selected based on the treatment or outcomes of interest, and include demographics, as well as all diagnoses, drug exposures, measurement, and medical procedures.
+This approach requires additional model fitting strategies due to its sheer dimension to prevent sparse data bias or even non-convergent estimates, and are typically fit using large-scale regularized regression via OHDSI's collection of open-source data analytics tools [@suchardMassiveParallelizationSerial2013;@schuemieHealthAnalyticsDataEvidence2024].
+In this study, we plan to compare both small-scale propensity score models (SSPS) with a small set of hand-picked covariates and large-scale propensity score models (LSPS) utilizing a set of order $10^5$ generic patient characteristics.
 
-Here we seek to evaluate the bias-variance trade-offs of different PS adjustment techniques in a large-scale real world study across multiple data sources, in this case comparing the effectiveness and safety of initiating 2nd-line T2DM treatment across different drug classes.
-Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. [MAS: `CohortMethod` comes from `HADES` (we no longer use OHDSI Methods Library) and HADES has a citation.  Fix here and elsewhere]{.aside}
-[MAS: more importantly, do not use "options implemented" (that sounds lazy); instead enumerate the choices: matching with differing numbers of controls, stratifying, weighing, etc.]{.aside}
-To measure performance, our benchmark examines a large set of negative control outcomes, where we believe the true relative treatment effect is 1, and also using imputed positive control outcomes with predetermined treatment effects > 1.
+### Adjustment types
+Another factor to consider once the covariates for the model are chosen is in the types of adjustment conducted after the model is fit. 
+Researchers can choose to match, stratify, or weigh the patients based on their propensity scores.
+There is a sizable amount of research that compares these different PS adjustment methods, but we note that a large amount of its conclusions are drawn from simulations which have an unclear relationship with the real world, where residual systematic error persists. 
+In addition, the majority of them utilize simulated data on a smaller scale model with only a few ($\leq 100$) covariates.
+We would like to compare those existing results with a large-scale model utilizing real-world data to evaluate the trade-offs of each adjustment method.
 
-[MAS: please see Martijn's introduction in his benchmark study for a guide on how to draft your background; if you write it well now, that you save you much time when putting the manuscript / thesis together]{.aside}
+There are a few different ways to match patients on their PS; the options are fixed ratio, where each subject receiving the treatment of interest are matched to a fixed number of controls (one-to-one or one-to-many), or variable ratio (VR), where each subject receives a variable number of matches.
+For matching, @rosenbaumCentralRolePropensity1983;@cochranControllingBiasObservational1973 recommend a "caliper" of 0.2 standard deviations on the logit scale, where patients are able to be matched together if their scores fall within this given amount. 
+It is hypothesized that matching a target subject to more than one comparator will reduce the variance of the eventual treatment effect estimate, because more patient data is able to be utilized in the overall effect estimation.
+On the other hand, this might yield a higher bias, since each subsequent match for the patient will be of lower quality than the first initial one.
+@rassenOnetomanyPropensityScore2012 recommend VR matching among all of the matching options.
+They found that in a simulation of size 50,000 patients and 8 covariates, VR matching had the highest precision with only a small bias trade-off cost when compared to fixed-ratio matching for one-to-one and one-to-n with varying n.
+This is because that variable ratio matching retains treated subjects who do not meet the criteria of fixed number matches (i.e. a target patient only matches to one comparator, but fixed-ratio $1:3$ matching requires that same target patient to have three matches in order to be included in the study). 
+
+In addition to matching, researchers can choose to stratify or weigh patients based on their PS. 
+@rosenbaumReducingBiasObservational1984 recommend stratifying patients into 5 quintiles with the same caliper as matching, 0.2 standard deviations on the logit scale.
+Weighting is conducted using inverse propensity score treatment weighting (IPTW), where patients are assigned weights based on the inverse of their propensity score.
+One common issue with IPTW is that it does not handle extreme weights well: patients who are very unlikely to be assigned the target treatment with low PS will have very heavy inverse weights.
+There are two ways to handle this; the first is by trimming the upper and lower extremes, typically 5%, of the PS estimates.
+The second is via overlap weights, which down-weights the tails of the distribution of weights such that the population in the middle, who have a lot of characteristic overlap, will be emphasized [@thomasOverlapWeightingPropensity2020;@liAddressingExtremePropensity2019].
+@austinRelativeAbilityDifferent2009 compares IPTW with trimming to stratification and one-to-one matching on a small-scale (1000 patients and 6 covariates) simulation, along with a real-world empirical study on two cardiovascular drugs with a small hand-picked covariate set and finds that IPTW and one-to-one matching performed the best at balancing treatment groups.
+In a comparison of just stratification and IPTW, @luncefordStratificationWeightingPropensity2004 find that IPTW outperforms stratification in a small-scale simulation (1000-5000 patients with 8 covariates) on both bias and precision.
+Finally, @pirracchioEvaluationPropensityScore2012 report that IPTW outperforms matching on both bias and precision when sample sizes are very small on simulated data from 1000 patients all the way down to 40 patients with 4 covariates.
+Again, we note that these existing benchmarks 
+
+When comparing varying PS adjustment methods in LSPS within the OHDSI framework, @schuemieHowConfidentAre2020 finds that, in comparison to matching and stratification, IPTW drastically underperforms across almost all metrics of success on an analysis utilizing real-world data with order $10^5$ covariates.
+In the LSPS study, arguments can be made for one-to-one and VR matching as the optimal adjustment methods based on their precision and bias measurements [@schuemieHowConfidentAre2020].
+We note this as a stark contrast to existing benchmarks [@austinRelativeAbilityDifferent2009;@luncefordStratificationWeightingPropensity2004;@pirracchioEvaluationPropensityScore2012], which seem to promote IPTW as the recommended method.
+We hypothesize that this is because they are all mostly based on simulated data and models that utilize very small covariate sets, while @schuemieHowConfidentAre2020 applied the methods to real-world data with a very large covariate set in comparison.
+In this study, we hope to conduct a comprehensive evaluation of many of the choices that go into a PS model.
+We will investigate the impact of both small-scale models with hand-picked covariates and large-scale models with many generic characteristics, along with the trade-offs of the different adjustment methods, including fixed-ratio and variable-ratio matching, IPTW with trimming and overlap weights, and stratification into varying strata counts.
+We hope that the insights gained from this analysis on propensity score techniques will help guide decision-making in future studies utilizing observational healthcare data.
+
+<!-- [MAS: maybe also some discussion that different PS schemes leads to slightly different effect estimates, i.e. ATT, ATE, ATO, etc.]{.aside} -->
 
 ## Study Objectives
 
 ### Research questions
 
 How do various PS adjustment techniques, including stratifying, weighting, and multiple types of matching, affect the bias and variance of population-level effect estimation under the new-user cohort method?
+How does variable selection for the PS model affect the results of those adjustment techniques?
 
 ### Objectives
 
@@ -228,26 +263,10 @@ To measure the bias-variance trade-off and other performance operating character
 
 #### CohortMethod
 
-We plan to evaluate the new-user cohort method that attempts to emulate a randomized clinical trial using observational data [@hernanUsingBigData2016a]. 
-Subjects who are observed to initiate a treatment of interest (the target) are compared to subjects initiating another treatment (the comparator) and are followed for a pre-specified amount of time following treatment initiation. 
-One main difference between a randomized clinical trial and the cohort method is that there is no randomization of subjects between target and comparator, and hence patients receiving the target may systematically differ from patients receiving the comparator treatment. 
-To adjust for confounding between target and comparator differences at initiation and outcome risk as a result of the lack of randomization, we considere here the use of propensity score models. 
-The propensity score (PS) for any given patient is the unknown probability that they may receive the target treatment instead of the comparator, regardless of which treatment they actually received.
-PS models are popularly built using logistic regression [MAS: citations?]{.aside} with debate continuing around which patient features known before treatment initation to include in the model.[MAS: LSPS citations, Yuxi, Lingying, maybe some in support of small models]{.aside}
-and is computed by fitting a large-scale regularized [MAS: this is not true .. and are we not comparing small-scale vs large-scale?]{.aside}
-[MAS: you need to describe feature choice for small scale models as well]{.aside}
-[MAS: then describe LSPS, regularization (with Cyclops citations) and all the features]{.aside}
-binary model (in this case, logistic regression) using a large subset of generic patient characteristics [@rosenbaumCentralRolePropensity1983; @austinIntroductionPropensityScore2011]. 
-These generic characteristics may include items such as demographic information, medical diagnoses, drug exposures, and much more.
-
-PS estimates are used to adjust for potential confouding in multiple ways, including: matching patients with similar scores between the target and comparator groups, stratifying the entire population of patients by score, or re-weighting patients using Inverse Probability of Treatment Weighing. 
-Since propensity scores fall on a range of 0 to 1, exact matching or stratifying based on score is rarely possible. [MAS: i do not understand why a bounded-range implies exact matching or stratifying is not possible]{.aside}
-@rosenbaumCentralRolePropensity1983;@cochranControllingBiasObservational1973 recommend a "caliper" of 0.2 standard deviations on the logit scale, where patients are able to be matched together if their scores fall within this given amount. 
-There has been interest in different ways to match a patients initiating the target to those initiating the comparator. 
-While patients could be directly matched 1-to-1, we could benefit from using more information by matching patients 1-to-many, where one target patient could be matched to $n \geq 1$ comparator. 
-Fixed-ratio matching will find a specific $n$ such that each target attempts to match with $n$ comparators. 
-Variable-ratio matching allows a variable number of comparators to be matched per target subjects.
-[MAS: what about the different weighting schemes?]{.aside}
+Here we seek to evaluate the bias-variance trade-offs of different PS adjustment techniques in a large-scale real world study across multiple data sources, in this case comparing the effectiveness and safety of initiating 2nd-line T2DM treatment across different drug classes.
+Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. [MAS: `CohortMethod` comes from `HADES` (we no longer use OHDSI Methods Library) and HADES has a citation.  Fix here and elsewhere]{.aside}
+[MAS: more importantly, do not use "options implemented" (that sounds lazy); instead enumerate the choices: matching with differing numbers of controls, stratifying, weighing, etc.]{.aside}
+To measure performance, our benchmark examines a large set of negative control outcomes, where we believe the true relative treatment effect is 1, and also using imputed positive control outcomes with predetermined treatment effects > 1.
 
 <!-- Previous studies indicate that one-to-many matching may increase the bias of the eventual outcome model's estimations with a little or negative effect on precision; meanwhile, variable-ratio matching increases the bias while simultaneously increasing the precision of the estimates [@]. -->
 
