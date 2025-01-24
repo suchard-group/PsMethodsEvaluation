@@ -188,6 +188,10 @@ To assess the bias-variance trade-offs of these techniques, we use a set of nega
 We aim to conduct a comprehensive evaluation of the trade-offs of utilizing different PS adjustment strategies.
 The insights gained from this analysis on propensity score techniques are expected to guide decision-making in future studies utilizing observational healthcare data.
 
+<!-- ## Amendments and Updates -->
+
+<!-- ## Milestones -->
+
 ## Rationale and Background
 
 ### The cohort method and propensity scores
@@ -205,7 +209,7 @@ Some recent examples of this are seen in a comparative safety study of anticoagu
 In practice, it may be very difficult to accurately classify a patient's baseline characteristics for whether or not they affect only the outcome, or exposure, or any combination of factors. 
 In fact, many baseline covariates are likely to affect both the treatment assignment and the outcome.
 @austinIntroductionPropensityScore2011 note that in many settings, researchers can safely include all measured baseline characteristics in the propensity score model.
-OHDSI takes this larger approach, where the PS is modeled using a large-scale logistic regression model that utilizes between 10,000 and 100,000 baseline patient characteristics [@ohdsiBookOHDSIObservational2019;@tianEvaluatingLargescalePropensity2018].
+OHDSI takes this larger approach, where the PS is modeled using a large-scale logistic regression model that utilizes between 10,000 and 100,000 baseline patient characteristics [@ohdsiBookOHDSIObservational2019;@tianEvaluatingLargescalePropensity2018;@zhangAdjustingIndirectlyMeasured2022].
 These patient characteristics are generic, implying that they are not selected based on the treatment or outcomes of interest, and include demographics, as well as all diagnoses, drug exposures, measurement, and medical procedures.
 This approach requires additional model fitting strategies due to its sheer dimension to prevent sparse data bias or even non-convergent estimates, and are typically fit using large-scale regularized regression via OHDSI's collection of open-source data analytics tools [@suchardMassiveParallelizationSerial2013;@schuemieHealthAnalyticsDataEvidence2024].
 In this study, we plan to compare both small-scale propensity score models (SSPS) with a small set of hand-picked covariates and large-scale propensity score models (LSPS) utilizing a set of order $10^5$ generic patient characteristics.
@@ -248,45 +252,38 @@ We hope that the insights gained from this analysis on propensity score techniqu
 
 ## Study Objectives
 
-### Research questions
+To inform decision-making in observational health research for propensity score adjustments, we have launched the Propensity-score Methods Evaluation (PME) initiative to execute a series of comprehensive observational studies to compare varying choices in the development of the PS model, including variable selection and the adjustment method (matching, stratifying, weighting). 
+Specifically, these studies aim
 
-How do various PS adjustment techniques, including stratifying, weighting, and multiple types of matching, affect the bias and variance of population-level effect estimation under the new-user cohort method?
-How does variable selection for the PS model affect the results of those adjustment techniques?
-
-### Objectives
-
-To measure the bias-variance trade-off and other performance operating characteristics of the various propensity score adjustment methods in the OHDSI Methods Library using large-scale LEGEND-T2DM data. [MAS: what is new in this subsection compared to the "Research questions" about? ... please follow https://ohdsi-studies.github.io/LegendT2dm/Protocol.html#7_Study_Objectives]{.aside}
+  1. To determine, through systematic evaluation, the performance of a small-scale propensity score (SSPS) model that utilizes a small set of $<100$ hand-picked covariates, against a large-scale propensity score (LSPS) model that utilizes a large set (dimension $10^5$) of generic patient covariates.
+  2. To determine, through systematic evaluation, the comparative performance of different PS adjustment methods, including varying matching techniques, stratification into different strata counts, and IPTW with different ways to account for extreme weights.
+  3. To explain why OHDSI's existing benchmarks consider IPTW an under-performing method compared to the other options, while other researchers recommend and utilize IPTW highly frequently.
 
 ## Methods
 
-### Study Design
+### Study Design 
 
-#### CohortMethod
+#### Propensity score model specifications {#sec-analyseslist}
 
-Here we seek to evaluate the bias-variance trade-offs of different PS adjustment techniques in a large-scale real world study across multiple data sources, in this case comparing the effectiveness and safety of initiating 2nd-line T2DM treatment across different drug classes.
-Specifically, we focus on the options implemented for new-user cohort studies via `CohortMethod` from the OHDSI Methods Library. [MAS: `CohortMethod` comes from `HADES` (we no longer use OHDSI Methods Library) and HADES has a citation.  Fix here and elsewhere]{.aside}
-[MAS: more importantly, do not use "options implemented" (that sounds lazy); instead enumerate the choices: matching with differing numbers of controls, stratifying, weighing, etc.]{.aside}
-To measure performance, our benchmark examines a large set of negative control outcomes, where we believe the true relative treatment effect is 1, and also using imputed positive control outcomes with predetermined treatment effects > 1.
+Our evaluation focuses on the differences in PS adjustment schemes applied to an outcome model and its included patients to estimate a relative effect.
+Each variant assumes a popular Cox proportional hazards approach to model time-to-event until first outcome or censoring after treatment initiation with a single treatment-indicator covariate.
+Variants further condition (or not) the Cox model to have independent baseline hazard functions across matched-set and strata.
 
-<!-- Previous studies indicate that one-to-many matching may increase the bias of the eventual outcome model's estimations with a little or negative effect on precision; meanwhile, variable-ratio matching increases the bias while simultaneously increasing the precision of the estimates [@]. -->
+We first consider the differences in large-scale propensity score (LSPS) and small-scale propensity score (SSPS) models.
+Previously, SSPS models were fit using a relatively small subset of $<100$ hand-picked characteristics based on expert clinical opinions; the goal was to select confounders that were related to the outcome.
+Our SSPS models include roughly $50$ hand-picked covariates, selected by using existing research on our treatments of interest and expert opinions for potential confounding characteristics.
+@sec-ssps lists the chosen covariates of interest for the SSPS models.
+LSPS models, on the other hand, use a large set of generic patient characteristics that may or may not be related to the treatment or outcome; they are simply a generic subset of all possible measured covariates for a patient.
+A model typically involves between 10,000 to 100,000 characteristics (in this case, closer to order 10,000) and include demographics, as well as all diagnoses, drug exposures, measurement, and medical procedures observed prior to treatment initiation, and exclude the target and comparator treatment.
+@sec-lsps lists the categories for the generic characteristics included in the LSPS models.
 
-<!-- Another choice for adjusting for confounding is to include additional covariates in the outcome model. Typically, the outcome model with the propensity score is conditioned only on the propensity score and the treatment initiated. When outcomes are more rare, there may be a lack of data to fit an elaborate model. We can make the choice to add the same variables used in the PS model into the outcome model to adjust for the same variables two times in total, but with different methods. -->
+<!-- TODO?: frequency / characterization for the small-scale covariates, like in Graham's paper : at least a description of _why_ these were picked -->
 
-#### Analysis settings
+When matching and stratifying by PS, we use a recommended caliper of 0.2 standard deviations on the standardized logit scale [@cochranControllingBiasObservational1973].
+Our matching variants include both variable and fixed one-to-one or one-to-many matching ratios.
+For stratification, the recommended number of strata is 5 [@rosenbaumReducingBiasObservational1984], but we also express interest in the effects of 10 and 20 strata.
+We also investigate 2 different ways to counter extreme weights for IPTW: the first trims the weights at the 2.5 and 97.5 percentile, and the second uses overlap weights that emphasize patients with more characteristic overlap.
 
-[MAS: describe the list of varying PS adjustment schemes FIRST, then SECOND describe the 2 * 6 ordered pairs for the 4 classes, then THIRD the negative controls]{.aside}
-
-We will evaluate of an extensive list of varying PS adjustment schemes on pairwise comparisons for two second-line T2DM drug classes. [MAS: we want all 2 * 6 ordered pairs for the 4 classes?]{.aside}
-For each analysis set, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair and some outcomes of interest described in @sec-tcos. 
-
-To measure the bias trade-off in the presence of residual systematic error, we utilize a large set of negative control outcome experiments. 
-In the negative control outcomes, we assume true the null hypothesis of no effect, where we do not believe that exposure to the target or the comparator will cause the outcome. 
-In this study, we utilize the same negative controls as those in the LEGEND-T2DM study, which validated approximately 100 negative controls [@kheraLargescaleEvidenceGeneration2022]. [MAS: Patrick added more negative controls into `Glp1Dili` that JnJ calls their "universal controls"; we should use all of these, and describe how they were generated.]{.aside}
-These negative controls were generated using a data-rich algorithm that draws upon literature, product labels, and spontaneous reports. 
-
-For each negative control, we further generate synthetic positive controls with target effect sizes of \[1.5, 2, 4\] by adding simulated outcomes to the existing negative control until the desired effect is reached [@colomaReferenceStandardEvaluation2013]. 
-
-Our evaluation focuses on the differences in PS adjustment techniques applied to an outcome model and its included patients to estimate a relative effect.
 @tbl-1 lists each variant to be evaluated. 
 
 ```{r}
@@ -341,54 +338,10 @@ table1 <- kbl(data1,
 table1
 ```
 
-Each variant assumes a popular Cox proportional hazards approach to model time-to-event until first outcome or censuring after treatment initiation with a single treatment-indicator covariate.
-Variants further condition (or not) the Cox model to have independent baseline hazard functions across matched-set and strata.
-When matching PS scores, we use a recommended caliper of 0.2 standard deviations on the standardized logit scale [@cochranControllingBiasObservational1973].
-[MAS: insert what the 5 or 10 or 20 means for stratification. based on quantitles?]{.aside}
-When performing IPTW, we trim [MAS: at what values?]{.aside} to counter the effect of extreme weights on the model. 
+#### CohortMethod study design
 
-Finally, variants consider both large-scale propensity score (LSPS) and small-scale propensity score (SSPS) models.
-LSPS models utilize a data-driven approach to covariates, which selects a large subset of patient characteristics. [MAS: you can provide a better description by taking text for recent papers]{.aside}
-<!-- Question for Marc: Should I include list of things included in the PS model (i.e., drug_era 365 days...)? I don't see it in the LEGEND protocol : YES --> 
-Our SSPS models include roughly $50$ hand-picked covariates. [MAS: how? why where those picked?]{.aside} 
-Existing literature often uses smaller models with handpicked variables, so we aim to generate a comparable small-scale model using OHDSI's toolstack. 
-@sec-ssps lists the chosen covariates of interest. 
-<!-- TODO?: frequency / characterization for the small-scale covariates, like in Graham's paper : at least a description of _why_ these were picked -->
-
-### Data sources
-
-We will evaluate all PS variants for all comparisons across a series of administraitive claims and electronic health records (EHR) data through the OHDSI Evidence Network. 
-The models are conveniently run across differing database types as a result of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and the OHDSI Methods Library.
-
-@tbl-datasources lists the 5 data sources that will be utilized in this evaluation, with a brief description and population size, along with information on the data capturing process for its patients and its start date.
-
-```{r}
-#| label: tbl-datasources
-#| tbl-cap: "Committed data sources and their covered populations"
-
-data_sources <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
-  Data source ; Population ; Patients ; History ; Data capture process and short description
-  IBM MarketScan Commercial Claims and Encounters (CCAE) ; Commercially insured, < 65 years ; 142M ; 2000 -- ; Adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy)  from large employers and health plans who provide private healthcare coverage to employees, their spouses and dependents.
-  IBM MarketScan Medicare Supplemental Database (MDCR)  ; Commercially insured, 65+ years ; 10M ; 2000 -- ; Adjudicated health insurance claims of retirees with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service or capitated health plans.
-  IBM MarketScan Multi-State Medicaid Database (MDCD) ; Medicaid enrollees, racially diverse ; 26M ; 2006 -- ; Adjudicated health insurance claims for Medicaid enrollees from multiple states and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims.
-  Optum Electronic Health Records (OptumEHR) ; US, general ; 93M ; 2006 -- ; Clinical information, prescriptions, lab results, vital signs, body measurements, diagnoses and procedures derived from clinical notes using natural language processing.
-",
-show_col_types = FALSE)
-tab <- kable(data_sources, booktabs = TRUE, linesep = "") %>%
-  kable_styling(bootstrap_options = "striped", latex_options = "striped") %>%
-  pack_rows("Administrative claims", 1, 3, latex_align = "c", indent = FALSE) %>%
-  pack_rows("Electronic health records (EHRs)", 4, 5, latex_align = "c", indent = FALSE)
-
-if (knitr::is_latex_output()) {
-  tab %>%
-    column_spec(1, width = "6em") %>%
-    column_spec(2, width = "6em") %>%
-    column_spec(5, width = "20em")
-} else {
-  tab
-}
-
-```
+Here we seek to evaluate the bias-variance trade-offs of different PS adjustment techniques in a large-scale real world study across multiple data sources, in this case comparing initiating different drug classes for 2nd-line type-2 diabetes (T2DM) treatment.
+For each of the analyses specified in @sec-analyseslist, we employ an active comparator, new-user cohort design by selecting one target/comparator (exposure) pair, and all of the selected negative controls and synthesized positive controls described in @sec-tcos.
 
 ### Target, comparator, and outcome specifications {#sec-tcos}
 
@@ -422,9 +375,14 @@ kbl(counts,
 @tbl-cohortcounts displays the cohort counts for each of the second-line drug class comparators.
 
 #### Outcomes
-
+To measure the bias trade-off in the presence of residual systematic error, we utilize a large set of negative control outcome experiments.
+Negative control outcomes assume true the null hypothesis of no effect, where we do not believe that exposure to the target or the comparator will cause the outcome. 
+In this study, we utilize the same negative controls as those in the LEGEND-T2DM study, which validated approximately 100 negative controls that were generated using a data-rich algorithm drawing upon literature, product labels, and spontaneous reports. 
+[@kheraLargescaleEvidenceGeneration2022]. 
+<!-- TODO: [MAS: Patrick added more negative controls into `Glp1Dili` that JnJ calls their "universal controls"; we should use all of these, and describe how they were generated.]{.aside} -->
 The chosen negative control concepts are reported in @sec-ncs. 
-For each negative control, synthetic outcomes with expected hazard ratio $[1.5, 2, 4]$ are generated to act as positive controls.
+For each negative control, we generate synthetic positive controls with target effect sizes of \[1.5, 2, 4\] by adding simulated outcomes to the existing negative control until the desired effect is reached [@colomaReferenceStandardEvaluation2013]. 
+Utilizing negative and positive controls allow us to most importantly evaluate our model for bias, and also its discrimination ability against the null (0 effect), where negative controls are expected to accept the null, and positive controls are expected to reject.
 
 <!-- The three main outcomes of interest are defined using manually crafted rule-based definitions using a combination of diagnosis concept codes in the OMOP-CDM: -->
 
@@ -435,6 +393,43 @@ For each negative control, synthetic outcomes with expected hazard ratio $[1.5, 
 <!-- -   Acute renal failure -->
 
 <!-- These outcome definitions have been previously implemented and validated in the `LEGEND-T2DM` study \[\@?\]. The formal `ATLAS` definitions of the outcomes are found below. -->
+
+<!-- Another choice for adjusting for confounding is to include additional covariates in the outcome model. Typically, the outcome model with the propensity score is conditioned only on the propensity score and the treatment initiated. When outcomes are more rare, there may be a lack of data to fit an elaborate model. We can make the choice to add the same variables used in the PS model into the outcome model to adjust for the same variables two times in total, but with different methods. -->
+
+### Data sources
+
+We will evaluate all PS variants for all comparisons across a series of administrative claims and electronic health records (EHR) data through the OHDSI Evidence Network. 
+The models are conveniently run across differing database types as a result of the community's shared Observational Medical Outcomes Partnership (OMOP) common data model (CDM) and the OHDSI Methods Library.
+
+@tbl-datasources lists the 5 data sources that will be utilized in this evaluation, with a brief description and population size, along with information on the data capturing process for its patients and its start date.
+
+```{r}
+#| label: tbl-datasources
+#| tbl-cap: "Committed data sources and their covered populations"
+
+data_sources <- readr::read_delim(col_names = TRUE, delim = ";", trim_ws = TRUE, file = "
+  Data source ; Population ; Patients ; History ; Data capture process and short description
+  IBM MarketScan Commercial Claims and Encounters (CCAE) ; Commercially insured, < 65 years ; 142M ; 2000 -- ; Adjudicated health insurance claims (e.g. inpatient, outpatient, and outpatient pharmacy)  from large employers and health plans who provide private healthcare coverage to employees, their spouses and dependents.
+  IBM MarketScan Medicare Supplemental Database (MDCR)  ; Commercially insured, 65+ years ; 10M ; 2000 -- ; Adjudicated health insurance claims of retirees with primary or Medicare supplemental coverage through privately insured fee-for-service, point-of-service or capitated health plans.
+  IBM MarketScan Multi-State Medicaid Database (MDCD) ; Medicaid enrollees, racially diverse ; 26M ; 2006 -- ; Adjudicated health insurance claims for Medicaid enrollees from multiple states and includes hospital discharge diagnoses, outpatient diagnoses and procedures, and outpatient pharmacy claims.
+  Optum Electronic Health Records (OptumEHR) ; US, general ; 93M ; 2006 -- ; Clinical information, prescriptions, lab results, vital signs, body measurements, diagnoses and procedures derived from clinical notes using natural language processing.
+",
+show_col_types = FALSE)
+tab <- kable(data_sources, booktabs = TRUE, linesep = "") %>%
+  kable_styling(bootstrap_options = "striped", latex_options = "striped") %>%
+  pack_rows("Administrative claims", 1, 3, latex_align = "c", indent = FALSE) %>%
+  pack_rows("Electronic health records (EHRs)", 4, 5, latex_align = "c", indent = FALSE)
+
+if (knitr::is_latex_output()) {
+  tab %>%
+    column_spec(1, width = "6em") %>%
+    column_spec(2, width = "6em") %>%
+    column_spec(5, width = "20em")
+} else {
+  tab
+}
+
+```
 
 ### Metrics
 Each propensity score adjustment method will be applied to one analysis estimating the treatment effects on the negative and positive controls.
@@ -544,7 +539,7 @@ This differs fundamentally from traditional studies that rarely open their analy
 ### Transparent and re-usable research tools
 We plan to publicly register this protocol and announce its availability for feedback from stakeholders, the OHDSI community, and within clinical professional societies.
 This protocol will link to open source code for all the steps utilized to generate diagnostic measurements, effect estimates, figures, and tables. 
-Such transparency is possible because we construct our studies on top of the OHDSI toolstack of open source software tools that are community developed and rigorously tested [@Schuemie2020How].
+Such transparency is possible because we construct our studies on top of the OHDSI toolstack of open source software tools that are community developed and rigorously tested [@schuemieHowConfidentAre2020].
 We will publicly host PME source code at *github.com/pme*, allowing public contribution and review, and free re-use for anybody's future research.
 
 ### Scientifc meetings and publications
@@ -586,6 +581,39 @@ kbl(ssCovs,
   kable_styling(latex_options = "striped",
                 full_width = F)
 ```
+
+### Large-scale propensity model {#sec-lsps}
+The following features are used in the LSPS models:
+
+Demographic data:
+  - Gender
+  - Age group (5 year bins)
+  - Race
+  - Ethnicity
+  - Index year
+  - Index month
+
+Occuring between -365 days and 0 days relative to index:
+  - Conditions
+  - Drug groups
+  - Procedure
+  - Device exposure
+  - Laboratory measurements
+  - Observations
+  
+Occuring between -30 days and 0 days relative to index:
+  - Conditions
+  - Drug groups
+  - Procedure
+  - Device exposure
+  - Laboratory measurements
+  - Observations
+  
+Other indices:
+  - Charlson comorbidity index 
+  - Diabetes complications severity index
+  - Congestive heart failure, hypertension, age > 75 years, diabetes, previous stroke (CHADS2) score
+  - Congestive heart failure, hypertension, age > 75 years, diabetes, previous stroke, vascular disease (CHADS2-VASc) score
 
 ### Negative control concepts {#sec-ncs}
 
