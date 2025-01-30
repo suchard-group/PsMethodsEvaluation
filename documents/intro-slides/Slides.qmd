@@ -65,7 +65,7 @@ library(formattable)
 :::: {.columns}
 ::: {.column width="50%"}
 ### Hand-picked covariates
-- Most existing models in literature utilize 20-50 manually selected characteristics (i.e. @grahamCardiovascularBleedingMortality2015)
+- Most existing models in literature utilize 5-50 manually selected characteristics (i.e. @grahamCardiovascularBleedingMortality2015)
 - True causal structure is rarely known - different researchers identify different "correct" covariates to include in model
 - Irreproducible
 
@@ -118,7 +118,7 @@ library(formattable)
 
 ## Adjustment types: IPTW supporters
 - @austinRelativeAbilityDifferent2009 conduct a simulation and an empirical study on two cardiovascular drugs and measure the balance of treatment groups before and after adjustment
-  - IPTW $=$ matching $>$ stratification 
+  - IPTW $=$ matching $>$ stratification on RWD
   - Matching $\geq$ IPTW $>$ stratification in simulated data of size 1000 with 6 covariates
 - @pirracchioEvaluationPropensityScore2012 report IPTW has superior bias/variance performance over matching for simulated data from sample sizes 40 to 1000 with 4 covariates
 - @luncefordStratificationWeightingPropensity2004 report IPTW has superior bias/variance performance over stratification for simulated data of sample size 1000, 5000 with 8 covariates

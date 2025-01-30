@@ -91,7 +91,7 @@ printConceptSet <- function(conceptSet,
   
   header <- gsub("###", "#### Concept:", header)
   
-  tab <- data %>% mutate_if(is.numeric, format, digits = 10) %>% knitr::kable(linesep = "", booktabs = TRUE, longtable = TRUE)
+  tab <- data %>% mutate_if(is.numeric, format, digits = 10) %>% kableExtra::kbl(linesep = "", booktabs = TRUE, longtable = TRUE)
   
   if (knitr::is_latex_output()) {
     writeLines(header)
