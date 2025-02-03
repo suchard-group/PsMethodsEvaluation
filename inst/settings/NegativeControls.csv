@@ -76,7 +76,7 @@ targetId,comparatorId,origin,outcomeId,outcomeName,cohortId
 201100000,101100000,cem,40481897,Inadequate sleep hygiene,1075
 201100000,101100000,cem,381021,Lagophthalmos,1076
 201100000,101100000,cem,4051630,Malingering,1077
-201100000,101100000,cem,432798,Mechanical complication of internal orthopedic device, implant AND/OR graft,1078
+201100000,101100000,cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078
 201100000,101100000,cem,40480893,Nonspecific tuberculin test reaction,1079
 201100000,101100000,cem,438130,Opioid abuse,1080
 201100000,101100000,cem,4299094,Opioid intoxication,1081
@@ -135,7 +135,7 @@ targetId,comparatorId,origin,outcomeId,outcomeName,cohortId
 201100000,101100000,Glp1Dili,432867,Hyperlipidemia,1134
 201100000,101100000,Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135
 201100000,101100000,Glp1Dili,140362,Hypoparathyroidism,1136
-201100000,101100000,Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device, implant AND/OR graft,1137
+201100000,101100000,Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137
 201100000,101100000,Glp1Dili,4266367,Influenza,1138
 201100000,101100000,Glp1Dili,4152967,Laceration of perineum,1139
 201100000,101100000,Glp1Dili,81379,Lateral epicondylitis,1140
