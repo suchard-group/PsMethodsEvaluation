@@ -290,9 +290,14 @@
     "ResultModelManager": {
       "Package": "ResultModelManager",
       "Version": "0.5.11",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "ab2192566a39b7c3cd4fa1ed9b51e9a4"
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteRepo": "ResultModelManager",
+      "RemoteUsername": "OHDSI",
+      "RemoteRef": "HEAD",
+      "RemoteSha": "15f3a81acd8b23a571881ddb31e24507688efe83",
+      "Hash": "81566914eeb19e28bcc944523b3dafc7"
     },
     "SqlRender": {
       "Package": "SqlRender",
@@ -1924,6 +1929,13 @@
       "RemotePkgPlatform": "x86_64-w64-mingw32",
       "RemoteSha": "0.5.3",
       "Hash": "16aa934a49658677d8041df9017329b9"
+    },
+    "webshot": {
+      "Package": "webshot",
+      "Version": "0.5.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "16858ee1aba97f902d24049d4a44ef16"
     },
     "webshot2": {
       "Package": "webshot2",

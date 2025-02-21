@@ -1,4 +1,5 @@
 library(LegendT2dmTestCases)
+library(tidyverse)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
 options(andromedaTempFolder = "E:/Li_R/temp")
@@ -69,4 +70,16 @@ LegendT2dmEvidenceExplorer::launchEvidenceExplorer(dataFolder = dataFolder, blin
 #     select(analysisId, rr) %>% arrange(analysisId),
 #   analysisSummary %>% filter(outcomeId == 6, analysisId %in% c(1,2,3)) %>% 
 #     mutate(analysisId = analysisId + 6) %>% select(analysisId, rr) %>% arrange(analysisId)
-# )
+
+
+
+# Insert results into database 
+personal_server <- "/Users/kellyli/Documents/sqlite-tools-osx-x64-3490100/ohdsitest.db"
+resultsConnectionDetails <- createConnectionDetails(dbms = "sqlite",
+                                                    server = personal_server)
+resultsFolder <- file.path(outputFolder, "export")
+
+uploadResultsToDatabase(connectionDetails = resultsConnectionDetails,
+                        schema = "main",
+                        resultsFolder = resultsFolder)
+
