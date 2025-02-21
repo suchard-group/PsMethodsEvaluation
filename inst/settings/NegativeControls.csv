@@ -1,167 +1,1993 @@
-targetId,comparatorId,origin,outcomeId,outcomeName,cohortId
-201100000,101100000,cem/Glp1Dili,439935,Abnormal posture,1001
-201100000,101100000,cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002
-201100000,101100000,cem/Glp1Dili,45757682,Anomaly of jaw size,1003
-201100000,101100000,cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004
-201100000,101100000,cem/Glp1Dili,134765,Cachexia,1005
-201100000,101100000,cem/Glp1Dili,434675,Complication of gastrostomy,1006
-201100000,101100000,cem/Glp1Dili,436077,Developmental delay,1007
-201100000,101100000,cem/Glp1Dili,377910,Deviated nasal septum,1008
-201100000,101100000,cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009
-201100000,101100000,cem/Glp1Dili,374801,Foreign body in ear,1010
-201100000,101100000,cem/Glp1Dili,439788,Galactosemia,1011
-201100000,101100000,cem/Glp1Dili,40481632,Ganglion cyst,1012
-201100000,101100000,cem/Glp1Dili,374375,Impacted cerumen,1013
-201100000,101100000,cem/Glp1Dili,4265896,Jellyfish poisoning,1014
-201100000,101100000,cem/Glp1Dili,4027782,Lipid storage disease,1015
-201100000,101100000,cem/Glp1Dili,433997,Lymphangioma,1016
-201100000,101100000,cem/Glp1Dili,258540,Marfan's syndrome,1017
-201100000,101100000,cem/Glp1Dili,439795,Minimal cognitive impairment,1018
-201100000,101100000,cem/Glp1Dili,4209423,Nicotine dependence,1019
-201100000,101100000,cem/Glp1Dili,432436,Symbolic dysfunction,1020
-201100000,101100000,cem/Glp1Dili,433244,Tooth loss,1021
-201100000,101100000,cem/Glp1Dili,4201387,Tracheostomy present,1022
-201100000,101100000,htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023
-201100000,101100000,htn/Glp1Dili,4088290,Absence of breast,1024
-201100000,101100000,htn/Glp1Dili,75911,Acquired hallux valgus,1025
-201100000,101100000,htn/Glp1Dili,137951,Acquired keratoderma,1026
-201100000,101100000,htn/Glp1Dili,73241,Anal and rectal polyp,1027
-201100000,101100000,htn/Glp1Dili,133655,Burn of forearm,1028
-201100000,101100000,htn/Glp1Dili,73560,Calcaneal spur,1029
-201100000,101100000,htn/Glp1Dili,140842,Changes in skin texture,1030
-201100000,101100000,htn/Glp1Dili,81378,Chondromalacia of patella,1031
-201100000,101100000,htn/Glp1Dili,432303,Cocaine abuse,1032
-201100000,101100000,htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033
-201100000,101100000,htn/Glp1Dili,134438,Contact dermatitis,1034
-201100000,101100000,htn/Glp1Dili,78619,Contusion of knee,1035
-201100000,101100000,htn/Glp1Dili,201606,Crohn's disease,1036
-201100000,101100000,htn/Glp1Dili,76786,Derangement of knee,1037
-201100000,101100000,htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038
-201100000,101100000,htn/Glp1Dili,433527,Endometriosis (clinical),1039
-201100000,101100000,htn/Glp1Dili,259995,Foreign body in orifice,1040
-201100000,101100000,htn/Glp1Dili,40481632,Ganglion cyst,1041
-201100000,101100000,htn/Glp1Dili,433577,Hammer toe,1042
-201100000,101100000,htn/Glp1Dili,4231770,Hereditary thrombophilia,1043
-201100000,101100000,htn/Glp1Dili,4012934,Homocystinuria,1044
-201100000,101100000,htn/Glp1Dili,374375,Impacted cerumen,1045
-201100000,101100000,htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046
-201100000,101100000,htn/Glp1Dili,139099,Ingrowing nail,1047
-201100000,101100000,htn/Glp1Dili,444132,Injury of knee,1048
-201100000,101100000,htn/Glp1Dili,434203,Late effect of contusion,1049
-201100000,101100000,htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050
-201100000,101100000,htn/Glp1Dili,4103703,Melena,1051
-201100000,101100000,htn/Glp1Dili,4209423,Nicotine dependence,1052
-201100000,101100000,htn/Glp1Dili,377572,Noise effects on inner ear,1053
-201100000,101100000,htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054
-201100000,101100000,htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055
-201100000,101100000,htn/Glp1Dili,439790,Psychalgia,1056
-201100000,101100000,htn/Glp1Dili,81634,Ptotic breast,1057
-201100000,101100000,htn/Glp1Dili,380706,Regular astigmatism,1058
-201100000,101100000,htn/Glp1Dili,141932,Senile hyperkeratosis,1059
-201100000,101100000,htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060
-201100000,101100000,htn/Glp1Dili,443172,Splinter of face without major open wound,1061
-201100000,101100000,htn/Glp1Dili,81151,Sprain of ankle,1062
-201100000,101100000,htn/Glp1Dili,378427,Tear film insufficiency,1063
-201100000,101100000,htn/Glp1Dili,437264,Tobacco dependence syndrome,1064
-201100000,101100000,htn/Glp1Dili,140641,Verruca vulgaris,1065
-201100000,101100000,htn/Glp1Dili,4115367,Wrist joint pain,1066
-201100000,101100000,htn/Glp1Dili,440193,Wristdrop,1067
-201100000,101100000,cem,4092879,Absent kidney,1068
-201100000,101100000,cem,4216219,Bizarre personal appearance,1069
-201100000,101100000,cem,4201390,Colostomy present,1070
-201100000,101100000,cem,437448,Exhaustion due to excessive exertion,1071
-201100000,101100000,cem,4092896,Feces contents abnormal,1072
-201100000,101100000,cem,4096540,Foreskin deficient,1073
-201100000,101100000,cem,4168318,Genetic disorder carrier,1074
-201100000,101100000,cem,40481897,Inadequate sleep hygiene,1075
-201100000,101100000,cem,381021,Lagophthalmos,1076
-201100000,101100000,cem,4051630,Malingering,1077
-201100000,101100000,cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078
-201100000,101100000,cem,40480893,Nonspecific tuberculin test reaction,1079
-201100000,101100000,cem,438130,Opioid abuse,1080
-201100000,101100000,cem,4299094,Opioid intoxication,1081
-201100000,101100000,cem,437092,Physiological development failure,1082
-201100000,101100000,cem,433951,Poisoning by tranquilizer,1083
-201100000,101100000,cem,4019836,Social exclusion,1084
-201100000,101100000,cem,436876,Toxic effect of lead compound,1085
-201100000,101100000,cem,440612,Toxic effect of tobacco and nicotine,1086
-201100000,101100000,cem,45757285,Unsatisfactory tooth restoration,1087
-201100000,101100000,htn,436409,Abnormal pupil,1088
-201100000,101100000,htn,434327,Cannabis abuse,1089
-201100000,101100000,htn,4115402,Difficulty sleeping,1090
-201100000,101100000,htn,433111,Effects of hunger,1091
-201100000,101100000,htn,4092896,Feces contents abnormal,1092
-201100000,101100000,htn,4012570,High risk sexual behavior,1093
-201100000,101100000,htn,432593,Kwashiorkor,1094
-201100000,101100000,htn,4083487,Macular drusen,1095
-201100000,101100000,htn,40480893,Nonspecific tuberculin test reaction,1096
-201100000,101100000,htn,438130,Opioid abuse,1097
-201100000,101100000,htn,4091513,Passing flatus,1098
-201100000,101100000,htn,373478,Presbyopia,1099
-201100000,101100000,htn,72748,Strain of rotator cuff capsule,1100
-201100000,101100000,Glp1Dili,4299544,Acanthosis nigricans,1101
-201100000,101100000,Glp1Dili,376707,Acute conjunctivitis,1102
-201100000,101100000,Glp1Dili,24660,Acute tonsillitis,1103
-201100000,101100000,Glp1Dili,77644,Adhesive capsulitis of shoulder,1104
-201100000,101100000,Glp1Dili,4218106,Alcoholism,1105
-201100000,101100000,Glp1Dili,257007,Allergic rhinitis,1106
-201100000,101100000,Glp1Dili,378425,Blepharitis,1107
-201100000,101100000,Glp1Dili,256449,Bronchiectasis,1108
-201100000,101100000,Glp1Dili,4152350,Burping,1109
-201100000,101100000,Glp1Dili,4067069,Callosity,1110
-201100000,101100000,Glp1Dili,4172458,Candidiasis of skin,1111
-201100000,101100000,Glp1Dili,440387,Cannabis dependence,1112
-201100000,101100000,Glp1Dili,380094,Carpal tunnel syndrome,1113
-201100000,101100000,Glp1Dili,4134120,Cerebral palsy,1114
-201100000,101100000,Glp1Dili,137548,Cervical radiculopathy,1115
-201100000,101100000,Glp1Dili,381581,Chalazion,1116
-201100000,101100000,Glp1Dili,255573,Chronic obstructive lung disease,1117
-201100000,101100000,Glp1Dili,4272340,Costal chondritis,1118
-201100000,101100000,Glp1Dili,436027,Coxsackie virus disease,1119
-201100000,101100000,Glp1Dili,441267,Cystic fibrosis,1120
-201100000,101100000,Glp1Dili,197610,Cyst of ovary,1121
-201100000,101100000,Glp1Dili,133228,Dental caries,1122
-201100000,101100000,Glp1Dili,4147672,Disease due to Papilloma virus,1123
-201100000,101100000,Glp1Dili,4213373,Dislocation of shoulder joint,1124
-201100000,101100000,Glp1Dili,192367,Dysplasia of cervix,1125
-201100000,101100000,Glp1Dili,4249170,Epicondylitis,1126
-201100000,101100000,Glp1Dili,74855,Genital herpes simplex,1127
-201100000,101100000,Glp1Dili,440674,Gout,1128
-201100000,101100000,Glp1Dili,4163735,Hemochromatosis,1129
-201100000,101100000,Glp1Dili,195562,Hemorrhoids,1130
-201100000,101100000,Glp1Dili,4265426,Hordeolum,1131
-201100000,101100000,Glp1Dili,441788,Human papilloma virus infection,1132
-201100000,101100000,Glp1Dili,4131791,Hydrocele of testis,1133
-201100000,101100000,Glp1Dili,432867,Hyperlipidemia,1134
-201100000,101100000,Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135
-201100000,101100000,Glp1Dili,140362,Hypoparathyroidism,1136
-201100000,101100000,Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137
-201100000,101100000,Glp1Dili,4266367,Influenza,1138
-201100000,101100000,Glp1Dili,4152967,Laceration of perineum,1139
-201100000,101100000,Glp1Dili,81379,Lateral epicondylitis,1140
-201100000,101100000,Glp1Dili,194133,Low back pain,1141
-201100000,101100000,Glp1Dili,79833,Ménière's disease,1142
-201100000,101100000,Glp1Dili,436940,Metabolic syndrome X,1143
-201100000,101100000,Glp1Dili,134898,Non-toxic uninodular goiter,1144
-201100000,101100000,Glp1Dili,4318847,Obstruction of urethra,1145
-201100000,101100000,Glp1Dili,140648,Onychomycosis due to dermatophyte,1146
-201100000,101100000,Glp1Dili,4079750,Osteoarthritis of knee,1147
-201100000,101100000,Glp1Dili,80502,Osteoporosis,1148
-201100000,101100000,Glp1Dili,37206607,Overactive bladder,1149
-201100000,101100000,Glp1Dili,381270,Parkinson's disease,1150
-201100000,101100000,Glp1Dili,375292,Perforation of tympanic membrane,1151
-201100000,101100000,Glp1Dili,4002650,Plantar fasciitis,1152
-201100000,101100000,Glp1Dili,253796,Pneumothorax,1153
-201100000,101100000,Glp1Dili,4295888,Prolapse of intestine,1154
-201100000,101100000,Glp1Dili,194997,Prostatitis,1155
-201100000,101100000,Glp1Dili,374044,Ptosis of eyelid,1156
-201100000,101100000,Glp1Dili,73300,Radial styloid tenosynovitis,1157
-201100000,101100000,Glp1Dili,372409,Sciatica,1158
-201100000,101100000,Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159
-201100000,101100000,Glp1Dili,313459,Sleep apnea,1160
-201100000,101100000,Glp1Dili,4142875,Solitary nodule of lung,1161
-201100000,101100000,Glp1Dili,133141,Tinea pedis,1162
-201100000,101100000,Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163
-201100000,101100000,Glp1Dili,201916,Ureteric stone,1164
-201100000,101100000,Glp1Dili,4092565,Uterine prolapse,1165
-201100000,101100000,Glp1Dili,436070,Vitamin D deficiency,1166
+origin,outcomeId,outcomeName,cohortId,targetId,comparatorId
+cem/Glp1Dili,439935,Abnormal posture,1001,101100000,201100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,101100000,201100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,101100000,201100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,101100000,201100000
+cem/Glp1Dili,134765,Cachexia,1005,101100000,201100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,101100000,201100000
+cem/Glp1Dili,436077,Developmental delay,1007,101100000,201100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,101100000,201100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,101100000,201100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,101100000,201100000
+cem/Glp1Dili,439788,Galactosemia,1011,101100000,201100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,101100000,201100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,101100000,201100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,101100000,201100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,101100000,201100000
+cem/Glp1Dili,433997,Lymphangioma,1016,101100000,201100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,101100000,201100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,101100000,201100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,101100000,201100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,101100000,201100000
+cem/Glp1Dili,433244,Tooth loss,1021,101100000,201100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,101100000,201100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,101100000,201100000
+htn/Glp1Dili,4088290,Absence of breast,1024,101100000,201100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,101100000,201100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,101100000,201100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,101100000,201100000
+htn/Glp1Dili,133655,Burn of forearm,1028,101100000,201100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,101100000,201100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,101100000,201100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,101100000,201100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,101100000,201100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,101100000,201100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,101100000,201100000
+htn/Glp1Dili,78619,Contusion of knee,1035,101100000,201100000
+htn/Glp1Dili,201606,Crohn's disease,1036,101100000,201100000
+htn/Glp1Dili,76786,Derangement of knee,1037,101100000,201100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,101100000,201100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,101100000,201100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,101100000,201100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,101100000,201100000
+htn/Glp1Dili,433577,Hammer toe,1042,101100000,201100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,101100000,201100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,101100000,201100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,101100000,201100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,101100000,201100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,101100000,201100000
+htn/Glp1Dili,444132,Injury of knee,1048,101100000,201100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,101100000,201100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,101100000,201100000
+htn/Glp1Dili,4103703,Melena,1051,101100000,201100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,101100000,201100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,101100000,201100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,101100000,201100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,101100000,201100000
+htn/Glp1Dili,439790,Psychalgia,1056,101100000,201100000
+htn/Glp1Dili,81634,Ptotic breast,1057,101100000,201100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,101100000,201100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,101100000,201100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,101100000,201100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,101100000,201100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,101100000,201100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,101100000,201100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,101100000,201100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,101100000,201100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,101100000,201100000
+htn/Glp1Dili,440193,Wristdrop,1067,101100000,201100000
+cem,4092879,Absent kidney,1068,101100000,201100000
+cem,4216219,Bizarre personal appearance,1069,101100000,201100000
+cem,4201390,Colostomy present,1070,101100000,201100000
+cem,437448,Exhaustion due to excessive exertion,1071,101100000,201100000
+cem,4092896,Feces contents abnormal,1072,101100000,201100000
+cem,4096540,Foreskin deficient,1073,101100000,201100000
+cem,4168318,Genetic disorder carrier,1074,101100000,201100000
+cem,40481897,Inadequate sleep hygiene,1075,101100000,201100000
+cem,381021,Lagophthalmos,1076,101100000,201100000
+cem,4051630,Malingering,1077,101100000,201100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,101100000,201100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,101100000,201100000
+cem,438130,Opioid abuse,1080,101100000,201100000
+cem,4299094,Opioid intoxication,1081,101100000,201100000
+cem,437092,Physiological development failure,1082,101100000,201100000
+cem,433951,Poisoning by tranquilizer,1083,101100000,201100000
+cem,4019836,Social exclusion,1084,101100000,201100000
+cem,436876,Toxic effect of lead compound,1085,101100000,201100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,101100000,201100000
+cem,45757285,Unsatisfactory tooth restoration,1087,101100000,201100000
+htn,436409,Abnormal pupil,1088,101100000,201100000
+htn,434327,Cannabis abuse,1089,101100000,201100000
+htn,4115402,Difficulty sleeping,1090,101100000,201100000
+htn,433111,Effects of hunger,1091,101100000,201100000
+htn,4092896,Feces contents abnormal,1092,101100000,201100000
+htn,4012570,High risk sexual behavior,1093,101100000,201100000
+htn,432593,Kwashiorkor,1094,101100000,201100000
+htn,4083487,Macular drusen,1095,101100000,201100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,101100000,201100000
+htn,438130,Opioid abuse,1097,101100000,201100000
+htn,4091513,Passing flatus,1098,101100000,201100000
+htn,373478,Presbyopia,1099,101100000,201100000
+htn,72748,Strain of rotator cuff capsule,1100,101100000,201100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,101100000,201100000
+Glp1Dili,376707,Acute conjunctivitis,1102,101100000,201100000
+Glp1Dili,24660,Acute tonsillitis,1103,101100000,201100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,101100000,201100000
+Glp1Dili,4218106,Alcoholism,1105,101100000,201100000
+Glp1Dili,257007,Allergic rhinitis,1106,101100000,201100000
+Glp1Dili,378425,Blepharitis,1107,101100000,201100000
+Glp1Dili,256449,Bronchiectasis,1108,101100000,201100000
+Glp1Dili,4152350,Burping,1109,101100000,201100000
+Glp1Dili,4067069,Callosity,1110,101100000,201100000
+Glp1Dili,4172458,Candidiasis of skin,1111,101100000,201100000
+Glp1Dili,440387,Cannabis dependence,1112,101100000,201100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,101100000,201100000
+Glp1Dili,4134120,Cerebral palsy,1114,101100000,201100000
+Glp1Dili,137548,Cervical radiculopathy,1115,101100000,201100000
+Glp1Dili,381581,Chalazion,1116,101100000,201100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,101100000,201100000
+Glp1Dili,4272340,Costal chondritis,1118,101100000,201100000
+Glp1Dili,436027,Coxsackie virus disease,1119,101100000,201100000
+Glp1Dili,441267,Cystic fibrosis,1120,101100000,201100000
+Glp1Dili,197610,Cyst of ovary,1121,101100000,201100000
+Glp1Dili,133228,Dental caries,1122,101100000,201100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,101100000,201100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,101100000,201100000
+Glp1Dili,192367,Dysplasia of cervix,1125,101100000,201100000
+Glp1Dili,4249170,Epicondylitis,1126,101100000,201100000
+Glp1Dili,74855,Genital herpes simplex,1127,101100000,201100000
+Glp1Dili,440674,Gout,1128,101100000,201100000
+Glp1Dili,4163735,Hemochromatosis,1129,101100000,201100000
+Glp1Dili,195562,Hemorrhoids,1130,101100000,201100000
+Glp1Dili,4265426,Hordeolum,1131,101100000,201100000
+Glp1Dili,441788,Human papilloma virus infection,1132,101100000,201100000
+Glp1Dili,4131791,Hydrocele of testis,1133,101100000,201100000
+Glp1Dili,432867,Hyperlipidemia,1134,101100000,201100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,101100000,201100000
+Glp1Dili,140362,Hypoparathyroidism,1136,101100000,201100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,101100000,201100000
+Glp1Dili,4266367,Influenza,1138,101100000,201100000
+Glp1Dili,4152967,Laceration of perineum,1139,101100000,201100000
+Glp1Dili,81379,Lateral epicondylitis,1140,101100000,201100000
+Glp1Dili,194133,Low back pain,1141,101100000,201100000
+Glp1Dili,79833,Ménière's disease,1142,101100000,201100000
+Glp1Dili,436940,Metabolic syndrome X,1143,101100000,201100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,101100000,201100000
+Glp1Dili,4318847,Obstruction of urethra,1145,101100000,201100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,101100000,201100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,101100000,201100000
+Glp1Dili,80502,Osteoporosis,1148,101100000,201100000
+Glp1Dili,37206607,Overactive bladder,1149,101100000,201100000
+Glp1Dili,381270,Parkinson's disease,1150,101100000,201100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,101100000,201100000
+Glp1Dili,4002650,Plantar fasciitis,1152,101100000,201100000
+Glp1Dili,253796,Pneumothorax,1153,101100000,201100000
+Glp1Dili,4295888,Prolapse of intestine,1154,101100000,201100000
+Glp1Dili,194997,Prostatitis,1155,101100000,201100000
+Glp1Dili,374044,Ptosis of eyelid,1156,101100000,201100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,101100000,201100000
+Glp1Dili,372409,Sciatica,1158,101100000,201100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,101100000,201100000
+Glp1Dili,313459,Sleep apnea,1160,101100000,201100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,101100000,201100000
+Glp1Dili,133141,Tinea pedis,1162,101100000,201100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,101100000,201100000
+Glp1Dili,201916,Ureteric stone,1164,101100000,201100000
+Glp1Dili,4092565,Uterine prolapse,1165,101100000,201100000
+Glp1Dili,436070,Vitamin D deficiency,1166,101100000,201100000
+cem/Glp1Dili,439935,Abnormal posture,1001,101100000,301100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,101100000,301100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,101100000,301100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,101100000,301100000
+cem/Glp1Dili,134765,Cachexia,1005,101100000,301100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,101100000,301100000
+cem/Glp1Dili,436077,Developmental delay,1007,101100000,301100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,101100000,301100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,101100000,301100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,101100000,301100000
+cem/Glp1Dili,439788,Galactosemia,1011,101100000,301100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,101100000,301100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,101100000,301100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,101100000,301100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,101100000,301100000
+cem/Glp1Dili,433997,Lymphangioma,1016,101100000,301100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,101100000,301100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,101100000,301100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,101100000,301100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,101100000,301100000
+cem/Glp1Dili,433244,Tooth loss,1021,101100000,301100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,101100000,301100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,101100000,301100000
+htn/Glp1Dili,4088290,Absence of breast,1024,101100000,301100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,101100000,301100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,101100000,301100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,101100000,301100000
+htn/Glp1Dili,133655,Burn of forearm,1028,101100000,301100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,101100000,301100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,101100000,301100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,101100000,301100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,101100000,301100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,101100000,301100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,101100000,301100000
+htn/Glp1Dili,78619,Contusion of knee,1035,101100000,301100000
+htn/Glp1Dili,201606,Crohn's disease,1036,101100000,301100000
+htn/Glp1Dili,76786,Derangement of knee,1037,101100000,301100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,101100000,301100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,101100000,301100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,101100000,301100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,101100000,301100000
+htn/Glp1Dili,433577,Hammer toe,1042,101100000,301100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,101100000,301100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,101100000,301100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,101100000,301100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,101100000,301100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,101100000,301100000
+htn/Glp1Dili,444132,Injury of knee,1048,101100000,301100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,101100000,301100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,101100000,301100000
+htn/Glp1Dili,4103703,Melena,1051,101100000,301100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,101100000,301100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,101100000,301100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,101100000,301100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,101100000,301100000
+htn/Glp1Dili,439790,Psychalgia,1056,101100000,301100000
+htn/Glp1Dili,81634,Ptotic breast,1057,101100000,301100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,101100000,301100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,101100000,301100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,101100000,301100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,101100000,301100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,101100000,301100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,101100000,301100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,101100000,301100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,101100000,301100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,101100000,301100000
+htn/Glp1Dili,440193,Wristdrop,1067,101100000,301100000
+cem,4092879,Absent kidney,1068,101100000,301100000
+cem,4216219,Bizarre personal appearance,1069,101100000,301100000
+cem,4201390,Colostomy present,1070,101100000,301100000
+cem,437448,Exhaustion due to excessive exertion,1071,101100000,301100000
+cem,4092896,Feces contents abnormal,1072,101100000,301100000
+cem,4096540,Foreskin deficient,1073,101100000,301100000
+cem,4168318,Genetic disorder carrier,1074,101100000,301100000
+cem,40481897,Inadequate sleep hygiene,1075,101100000,301100000
+cem,381021,Lagophthalmos,1076,101100000,301100000
+cem,4051630,Malingering,1077,101100000,301100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,101100000,301100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,101100000,301100000
+cem,438130,Opioid abuse,1080,101100000,301100000
+cem,4299094,Opioid intoxication,1081,101100000,301100000
+cem,437092,Physiological development failure,1082,101100000,301100000
+cem,433951,Poisoning by tranquilizer,1083,101100000,301100000
+cem,4019836,Social exclusion,1084,101100000,301100000
+cem,436876,Toxic effect of lead compound,1085,101100000,301100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,101100000,301100000
+cem,45757285,Unsatisfactory tooth restoration,1087,101100000,301100000
+htn,436409,Abnormal pupil,1088,101100000,301100000
+htn,434327,Cannabis abuse,1089,101100000,301100000
+htn,4115402,Difficulty sleeping,1090,101100000,301100000
+htn,433111,Effects of hunger,1091,101100000,301100000
+htn,4092896,Feces contents abnormal,1092,101100000,301100000
+htn,4012570,High risk sexual behavior,1093,101100000,301100000
+htn,432593,Kwashiorkor,1094,101100000,301100000
+htn,4083487,Macular drusen,1095,101100000,301100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,101100000,301100000
+htn,438130,Opioid abuse,1097,101100000,301100000
+htn,4091513,Passing flatus,1098,101100000,301100000
+htn,373478,Presbyopia,1099,101100000,301100000
+htn,72748,Strain of rotator cuff capsule,1100,101100000,301100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,101100000,301100000
+Glp1Dili,376707,Acute conjunctivitis,1102,101100000,301100000
+Glp1Dili,24660,Acute tonsillitis,1103,101100000,301100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,101100000,301100000
+Glp1Dili,4218106,Alcoholism,1105,101100000,301100000
+Glp1Dili,257007,Allergic rhinitis,1106,101100000,301100000
+Glp1Dili,378425,Blepharitis,1107,101100000,301100000
+Glp1Dili,256449,Bronchiectasis,1108,101100000,301100000
+Glp1Dili,4152350,Burping,1109,101100000,301100000
+Glp1Dili,4067069,Callosity,1110,101100000,301100000
+Glp1Dili,4172458,Candidiasis of skin,1111,101100000,301100000
+Glp1Dili,440387,Cannabis dependence,1112,101100000,301100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,101100000,301100000
+Glp1Dili,4134120,Cerebral palsy,1114,101100000,301100000
+Glp1Dili,137548,Cervical radiculopathy,1115,101100000,301100000
+Glp1Dili,381581,Chalazion,1116,101100000,301100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,101100000,301100000
+Glp1Dili,4272340,Costal chondritis,1118,101100000,301100000
+Glp1Dili,436027,Coxsackie virus disease,1119,101100000,301100000
+Glp1Dili,441267,Cystic fibrosis,1120,101100000,301100000
+Glp1Dili,197610,Cyst of ovary,1121,101100000,301100000
+Glp1Dili,133228,Dental caries,1122,101100000,301100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,101100000,301100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,101100000,301100000
+Glp1Dili,192367,Dysplasia of cervix,1125,101100000,301100000
+Glp1Dili,4249170,Epicondylitis,1126,101100000,301100000
+Glp1Dili,74855,Genital herpes simplex,1127,101100000,301100000
+Glp1Dili,440674,Gout,1128,101100000,301100000
+Glp1Dili,4163735,Hemochromatosis,1129,101100000,301100000
+Glp1Dili,195562,Hemorrhoids,1130,101100000,301100000
+Glp1Dili,4265426,Hordeolum,1131,101100000,301100000
+Glp1Dili,441788,Human papilloma virus infection,1132,101100000,301100000
+Glp1Dili,4131791,Hydrocele of testis,1133,101100000,301100000
+Glp1Dili,432867,Hyperlipidemia,1134,101100000,301100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,101100000,301100000
+Glp1Dili,140362,Hypoparathyroidism,1136,101100000,301100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,101100000,301100000
+Glp1Dili,4266367,Influenza,1138,101100000,301100000
+Glp1Dili,4152967,Laceration of perineum,1139,101100000,301100000
+Glp1Dili,81379,Lateral epicondylitis,1140,101100000,301100000
+Glp1Dili,194133,Low back pain,1141,101100000,301100000
+Glp1Dili,79833,Ménière's disease,1142,101100000,301100000
+Glp1Dili,436940,Metabolic syndrome X,1143,101100000,301100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,101100000,301100000
+Glp1Dili,4318847,Obstruction of urethra,1145,101100000,301100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,101100000,301100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,101100000,301100000
+Glp1Dili,80502,Osteoporosis,1148,101100000,301100000
+Glp1Dili,37206607,Overactive bladder,1149,101100000,301100000
+Glp1Dili,381270,Parkinson's disease,1150,101100000,301100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,101100000,301100000
+Glp1Dili,4002650,Plantar fasciitis,1152,101100000,301100000
+Glp1Dili,253796,Pneumothorax,1153,101100000,301100000
+Glp1Dili,4295888,Prolapse of intestine,1154,101100000,301100000
+Glp1Dili,194997,Prostatitis,1155,101100000,301100000
+Glp1Dili,374044,Ptosis of eyelid,1156,101100000,301100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,101100000,301100000
+Glp1Dili,372409,Sciatica,1158,101100000,301100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,101100000,301100000
+Glp1Dili,313459,Sleep apnea,1160,101100000,301100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,101100000,301100000
+Glp1Dili,133141,Tinea pedis,1162,101100000,301100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,101100000,301100000
+Glp1Dili,201916,Ureteric stone,1164,101100000,301100000
+Glp1Dili,4092565,Uterine prolapse,1165,101100000,301100000
+Glp1Dili,436070,Vitamin D deficiency,1166,101100000,301100000
+cem/Glp1Dili,439935,Abnormal posture,1001,101100000,401100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,101100000,401100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,101100000,401100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,101100000,401100000
+cem/Glp1Dili,134765,Cachexia,1005,101100000,401100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,101100000,401100000
+cem/Glp1Dili,436077,Developmental delay,1007,101100000,401100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,101100000,401100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,101100000,401100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,101100000,401100000
+cem/Glp1Dili,439788,Galactosemia,1011,101100000,401100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,101100000,401100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,101100000,401100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,101100000,401100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,101100000,401100000
+cem/Glp1Dili,433997,Lymphangioma,1016,101100000,401100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,101100000,401100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,101100000,401100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,101100000,401100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,101100000,401100000
+cem/Glp1Dili,433244,Tooth loss,1021,101100000,401100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,101100000,401100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,101100000,401100000
+htn/Glp1Dili,4088290,Absence of breast,1024,101100000,401100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,101100000,401100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,101100000,401100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,101100000,401100000
+htn/Glp1Dili,133655,Burn of forearm,1028,101100000,401100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,101100000,401100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,101100000,401100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,101100000,401100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,101100000,401100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,101100000,401100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,101100000,401100000
+htn/Glp1Dili,78619,Contusion of knee,1035,101100000,401100000
+htn/Glp1Dili,201606,Crohn's disease,1036,101100000,401100000
+htn/Glp1Dili,76786,Derangement of knee,1037,101100000,401100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,101100000,401100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,101100000,401100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,101100000,401100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,101100000,401100000
+htn/Glp1Dili,433577,Hammer toe,1042,101100000,401100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,101100000,401100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,101100000,401100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,101100000,401100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,101100000,401100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,101100000,401100000
+htn/Glp1Dili,444132,Injury of knee,1048,101100000,401100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,101100000,401100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,101100000,401100000
+htn/Glp1Dili,4103703,Melena,1051,101100000,401100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,101100000,401100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,101100000,401100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,101100000,401100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,101100000,401100000
+htn/Glp1Dili,439790,Psychalgia,1056,101100000,401100000
+htn/Glp1Dili,81634,Ptotic breast,1057,101100000,401100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,101100000,401100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,101100000,401100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,101100000,401100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,101100000,401100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,101100000,401100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,101100000,401100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,101100000,401100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,101100000,401100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,101100000,401100000
+htn/Glp1Dili,440193,Wristdrop,1067,101100000,401100000
+cem,4092879,Absent kidney,1068,101100000,401100000
+cem,4216219,Bizarre personal appearance,1069,101100000,401100000
+cem,4201390,Colostomy present,1070,101100000,401100000
+cem,437448,Exhaustion due to excessive exertion,1071,101100000,401100000
+cem,4092896,Feces contents abnormal,1072,101100000,401100000
+cem,4096540,Foreskin deficient,1073,101100000,401100000
+cem,4168318,Genetic disorder carrier,1074,101100000,401100000
+cem,40481897,Inadequate sleep hygiene,1075,101100000,401100000
+cem,381021,Lagophthalmos,1076,101100000,401100000
+cem,4051630,Malingering,1077,101100000,401100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,101100000,401100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,101100000,401100000
+cem,438130,Opioid abuse,1080,101100000,401100000
+cem,4299094,Opioid intoxication,1081,101100000,401100000
+cem,437092,Physiological development failure,1082,101100000,401100000
+cem,433951,Poisoning by tranquilizer,1083,101100000,401100000
+cem,4019836,Social exclusion,1084,101100000,401100000
+cem,436876,Toxic effect of lead compound,1085,101100000,401100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,101100000,401100000
+cem,45757285,Unsatisfactory tooth restoration,1087,101100000,401100000
+htn,436409,Abnormal pupil,1088,101100000,401100000
+htn,434327,Cannabis abuse,1089,101100000,401100000
+htn,4115402,Difficulty sleeping,1090,101100000,401100000
+htn,433111,Effects of hunger,1091,101100000,401100000
+htn,4092896,Feces contents abnormal,1092,101100000,401100000
+htn,4012570,High risk sexual behavior,1093,101100000,401100000
+htn,432593,Kwashiorkor,1094,101100000,401100000
+htn,4083487,Macular drusen,1095,101100000,401100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,101100000,401100000
+htn,438130,Opioid abuse,1097,101100000,401100000
+htn,4091513,Passing flatus,1098,101100000,401100000
+htn,373478,Presbyopia,1099,101100000,401100000
+htn,72748,Strain of rotator cuff capsule,1100,101100000,401100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,101100000,401100000
+Glp1Dili,376707,Acute conjunctivitis,1102,101100000,401100000
+Glp1Dili,24660,Acute tonsillitis,1103,101100000,401100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,101100000,401100000
+Glp1Dili,4218106,Alcoholism,1105,101100000,401100000
+Glp1Dili,257007,Allergic rhinitis,1106,101100000,401100000
+Glp1Dili,378425,Blepharitis,1107,101100000,401100000
+Glp1Dili,256449,Bronchiectasis,1108,101100000,401100000
+Glp1Dili,4152350,Burping,1109,101100000,401100000
+Glp1Dili,4067069,Callosity,1110,101100000,401100000
+Glp1Dili,4172458,Candidiasis of skin,1111,101100000,401100000
+Glp1Dili,440387,Cannabis dependence,1112,101100000,401100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,101100000,401100000
+Glp1Dili,4134120,Cerebral palsy,1114,101100000,401100000
+Glp1Dili,137548,Cervical radiculopathy,1115,101100000,401100000
+Glp1Dili,381581,Chalazion,1116,101100000,401100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,101100000,401100000
+Glp1Dili,4272340,Costal chondritis,1118,101100000,401100000
+Glp1Dili,436027,Coxsackie virus disease,1119,101100000,401100000
+Glp1Dili,441267,Cystic fibrosis,1120,101100000,401100000
+Glp1Dili,197610,Cyst of ovary,1121,101100000,401100000
+Glp1Dili,133228,Dental caries,1122,101100000,401100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,101100000,401100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,101100000,401100000
+Glp1Dili,192367,Dysplasia of cervix,1125,101100000,401100000
+Glp1Dili,4249170,Epicondylitis,1126,101100000,401100000
+Glp1Dili,74855,Genital herpes simplex,1127,101100000,401100000
+Glp1Dili,440674,Gout,1128,101100000,401100000
+Glp1Dili,4163735,Hemochromatosis,1129,101100000,401100000
+Glp1Dili,195562,Hemorrhoids,1130,101100000,401100000
+Glp1Dili,4265426,Hordeolum,1131,101100000,401100000
+Glp1Dili,441788,Human papilloma virus infection,1132,101100000,401100000
+Glp1Dili,4131791,Hydrocele of testis,1133,101100000,401100000
+Glp1Dili,432867,Hyperlipidemia,1134,101100000,401100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,101100000,401100000
+Glp1Dili,140362,Hypoparathyroidism,1136,101100000,401100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,101100000,401100000
+Glp1Dili,4266367,Influenza,1138,101100000,401100000
+Glp1Dili,4152967,Laceration of perineum,1139,101100000,401100000
+Glp1Dili,81379,Lateral epicondylitis,1140,101100000,401100000
+Glp1Dili,194133,Low back pain,1141,101100000,401100000
+Glp1Dili,79833,Ménière's disease,1142,101100000,401100000
+Glp1Dili,436940,Metabolic syndrome X,1143,101100000,401100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,101100000,401100000
+Glp1Dili,4318847,Obstruction of urethra,1145,101100000,401100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,101100000,401100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,101100000,401100000
+Glp1Dili,80502,Osteoporosis,1148,101100000,401100000
+Glp1Dili,37206607,Overactive bladder,1149,101100000,401100000
+Glp1Dili,381270,Parkinson's disease,1150,101100000,401100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,101100000,401100000
+Glp1Dili,4002650,Plantar fasciitis,1152,101100000,401100000
+Glp1Dili,253796,Pneumothorax,1153,101100000,401100000
+Glp1Dili,4295888,Prolapse of intestine,1154,101100000,401100000
+Glp1Dili,194997,Prostatitis,1155,101100000,401100000
+Glp1Dili,374044,Ptosis of eyelid,1156,101100000,401100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,101100000,401100000
+Glp1Dili,372409,Sciatica,1158,101100000,401100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,101100000,401100000
+Glp1Dili,313459,Sleep apnea,1160,101100000,401100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,101100000,401100000
+Glp1Dili,133141,Tinea pedis,1162,101100000,401100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,101100000,401100000
+Glp1Dili,201916,Ureteric stone,1164,101100000,401100000
+Glp1Dili,4092565,Uterine prolapse,1165,101100000,401100000
+Glp1Dili,436070,Vitamin D deficiency,1166,101100000,401100000
+cem/Glp1Dili,439935,Abnormal posture,1001,201100000,101100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,201100000,101100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,201100000,101100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,201100000,101100000
+cem/Glp1Dili,134765,Cachexia,1005,201100000,101100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,201100000,101100000
+cem/Glp1Dili,436077,Developmental delay,1007,201100000,101100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,201100000,101100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,201100000,101100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,201100000,101100000
+cem/Glp1Dili,439788,Galactosemia,1011,201100000,101100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,201100000,101100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,201100000,101100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,201100000,101100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,201100000,101100000
+cem/Glp1Dili,433997,Lymphangioma,1016,201100000,101100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,201100000,101100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,201100000,101100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,201100000,101100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,201100000,101100000
+cem/Glp1Dili,433244,Tooth loss,1021,201100000,101100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,201100000,101100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,201100000,101100000
+htn/Glp1Dili,4088290,Absence of breast,1024,201100000,101100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,201100000,101100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,201100000,101100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,201100000,101100000
+htn/Glp1Dili,133655,Burn of forearm,1028,201100000,101100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,201100000,101100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,201100000,101100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,201100000,101100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,201100000,101100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,201100000,101100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,201100000,101100000
+htn/Glp1Dili,78619,Contusion of knee,1035,201100000,101100000
+htn/Glp1Dili,201606,Crohn's disease,1036,201100000,101100000
+htn/Glp1Dili,76786,Derangement of knee,1037,201100000,101100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,201100000,101100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,201100000,101100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,201100000,101100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,201100000,101100000
+htn/Glp1Dili,433577,Hammer toe,1042,201100000,101100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,201100000,101100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,201100000,101100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,201100000,101100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,201100000,101100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,201100000,101100000
+htn/Glp1Dili,444132,Injury of knee,1048,201100000,101100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,201100000,101100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,201100000,101100000
+htn/Glp1Dili,4103703,Melena,1051,201100000,101100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,201100000,101100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,201100000,101100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,201100000,101100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,201100000,101100000
+htn/Glp1Dili,439790,Psychalgia,1056,201100000,101100000
+htn/Glp1Dili,81634,Ptotic breast,1057,201100000,101100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,201100000,101100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,201100000,101100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,201100000,101100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,201100000,101100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,201100000,101100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,201100000,101100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,201100000,101100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,201100000,101100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,201100000,101100000
+htn/Glp1Dili,440193,Wristdrop,1067,201100000,101100000
+cem,4092879,Absent kidney,1068,201100000,101100000
+cem,4216219,Bizarre personal appearance,1069,201100000,101100000
+cem,4201390,Colostomy present,1070,201100000,101100000
+cem,437448,Exhaustion due to excessive exertion,1071,201100000,101100000
+cem,4092896,Feces contents abnormal,1072,201100000,101100000
+cem,4096540,Foreskin deficient,1073,201100000,101100000
+cem,4168318,Genetic disorder carrier,1074,201100000,101100000
+cem,40481897,Inadequate sleep hygiene,1075,201100000,101100000
+cem,381021,Lagophthalmos,1076,201100000,101100000
+cem,4051630,Malingering,1077,201100000,101100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,201100000,101100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,201100000,101100000
+cem,438130,Opioid abuse,1080,201100000,101100000
+cem,4299094,Opioid intoxication,1081,201100000,101100000
+cem,437092,Physiological development failure,1082,201100000,101100000
+cem,433951,Poisoning by tranquilizer,1083,201100000,101100000
+cem,4019836,Social exclusion,1084,201100000,101100000
+cem,436876,Toxic effect of lead compound,1085,201100000,101100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,201100000,101100000
+cem,45757285,Unsatisfactory tooth restoration,1087,201100000,101100000
+htn,436409,Abnormal pupil,1088,201100000,101100000
+htn,434327,Cannabis abuse,1089,201100000,101100000
+htn,4115402,Difficulty sleeping,1090,201100000,101100000
+htn,433111,Effects of hunger,1091,201100000,101100000
+htn,4092896,Feces contents abnormal,1092,201100000,101100000
+htn,4012570,High risk sexual behavior,1093,201100000,101100000
+htn,432593,Kwashiorkor,1094,201100000,101100000
+htn,4083487,Macular drusen,1095,201100000,101100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,201100000,101100000
+htn,438130,Opioid abuse,1097,201100000,101100000
+htn,4091513,Passing flatus,1098,201100000,101100000
+htn,373478,Presbyopia,1099,201100000,101100000
+htn,72748,Strain of rotator cuff capsule,1100,201100000,101100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,201100000,101100000
+Glp1Dili,376707,Acute conjunctivitis,1102,201100000,101100000
+Glp1Dili,24660,Acute tonsillitis,1103,201100000,101100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,201100000,101100000
+Glp1Dili,4218106,Alcoholism,1105,201100000,101100000
+Glp1Dili,257007,Allergic rhinitis,1106,201100000,101100000
+Glp1Dili,378425,Blepharitis,1107,201100000,101100000
+Glp1Dili,256449,Bronchiectasis,1108,201100000,101100000
+Glp1Dili,4152350,Burping,1109,201100000,101100000
+Glp1Dili,4067069,Callosity,1110,201100000,101100000
+Glp1Dili,4172458,Candidiasis of skin,1111,201100000,101100000
+Glp1Dili,440387,Cannabis dependence,1112,201100000,101100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,201100000,101100000
+Glp1Dili,4134120,Cerebral palsy,1114,201100000,101100000
+Glp1Dili,137548,Cervical radiculopathy,1115,201100000,101100000
+Glp1Dili,381581,Chalazion,1116,201100000,101100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,201100000,101100000
+Glp1Dili,4272340,Costal chondritis,1118,201100000,101100000
+Glp1Dili,436027,Coxsackie virus disease,1119,201100000,101100000
+Glp1Dili,441267,Cystic fibrosis,1120,201100000,101100000
+Glp1Dili,197610,Cyst of ovary,1121,201100000,101100000
+Glp1Dili,133228,Dental caries,1122,201100000,101100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,201100000,101100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,201100000,101100000
+Glp1Dili,192367,Dysplasia of cervix,1125,201100000,101100000
+Glp1Dili,4249170,Epicondylitis,1126,201100000,101100000
+Glp1Dili,74855,Genital herpes simplex,1127,201100000,101100000
+Glp1Dili,440674,Gout,1128,201100000,101100000
+Glp1Dili,4163735,Hemochromatosis,1129,201100000,101100000
+Glp1Dili,195562,Hemorrhoids,1130,201100000,101100000
+Glp1Dili,4265426,Hordeolum,1131,201100000,101100000
+Glp1Dili,441788,Human papilloma virus infection,1132,201100000,101100000
+Glp1Dili,4131791,Hydrocele of testis,1133,201100000,101100000
+Glp1Dili,432867,Hyperlipidemia,1134,201100000,101100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,201100000,101100000
+Glp1Dili,140362,Hypoparathyroidism,1136,201100000,101100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,201100000,101100000
+Glp1Dili,4266367,Influenza,1138,201100000,101100000
+Glp1Dili,4152967,Laceration of perineum,1139,201100000,101100000
+Glp1Dili,81379,Lateral epicondylitis,1140,201100000,101100000
+Glp1Dili,194133,Low back pain,1141,201100000,101100000
+Glp1Dili,79833,Ménière's disease,1142,201100000,101100000
+Glp1Dili,436940,Metabolic syndrome X,1143,201100000,101100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,201100000,101100000
+Glp1Dili,4318847,Obstruction of urethra,1145,201100000,101100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,201100000,101100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,201100000,101100000
+Glp1Dili,80502,Osteoporosis,1148,201100000,101100000
+Glp1Dili,37206607,Overactive bladder,1149,201100000,101100000
+Glp1Dili,381270,Parkinson's disease,1150,201100000,101100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,201100000,101100000
+Glp1Dili,4002650,Plantar fasciitis,1152,201100000,101100000
+Glp1Dili,253796,Pneumothorax,1153,201100000,101100000
+Glp1Dili,4295888,Prolapse of intestine,1154,201100000,101100000
+Glp1Dili,194997,Prostatitis,1155,201100000,101100000
+Glp1Dili,374044,Ptosis of eyelid,1156,201100000,101100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,201100000,101100000
+Glp1Dili,372409,Sciatica,1158,201100000,101100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,201100000,101100000
+Glp1Dili,313459,Sleep apnea,1160,201100000,101100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,201100000,101100000
+Glp1Dili,133141,Tinea pedis,1162,201100000,101100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,201100000,101100000
+Glp1Dili,201916,Ureteric stone,1164,201100000,101100000
+Glp1Dili,4092565,Uterine prolapse,1165,201100000,101100000
+Glp1Dili,436070,Vitamin D deficiency,1166,201100000,101100000
+cem/Glp1Dili,439935,Abnormal posture,1001,201100000,301100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,201100000,301100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,201100000,301100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,201100000,301100000
+cem/Glp1Dili,134765,Cachexia,1005,201100000,301100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,201100000,301100000
+cem/Glp1Dili,436077,Developmental delay,1007,201100000,301100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,201100000,301100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,201100000,301100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,201100000,301100000
+cem/Glp1Dili,439788,Galactosemia,1011,201100000,301100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,201100000,301100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,201100000,301100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,201100000,301100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,201100000,301100000
+cem/Glp1Dili,433997,Lymphangioma,1016,201100000,301100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,201100000,301100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,201100000,301100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,201100000,301100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,201100000,301100000
+cem/Glp1Dili,433244,Tooth loss,1021,201100000,301100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,201100000,301100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,201100000,301100000
+htn/Glp1Dili,4088290,Absence of breast,1024,201100000,301100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,201100000,301100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,201100000,301100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,201100000,301100000
+htn/Glp1Dili,133655,Burn of forearm,1028,201100000,301100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,201100000,301100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,201100000,301100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,201100000,301100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,201100000,301100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,201100000,301100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,201100000,301100000
+htn/Glp1Dili,78619,Contusion of knee,1035,201100000,301100000
+htn/Glp1Dili,201606,Crohn's disease,1036,201100000,301100000
+htn/Glp1Dili,76786,Derangement of knee,1037,201100000,301100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,201100000,301100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,201100000,301100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,201100000,301100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,201100000,301100000
+htn/Glp1Dili,433577,Hammer toe,1042,201100000,301100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,201100000,301100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,201100000,301100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,201100000,301100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,201100000,301100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,201100000,301100000
+htn/Glp1Dili,444132,Injury of knee,1048,201100000,301100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,201100000,301100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,201100000,301100000
+htn/Glp1Dili,4103703,Melena,1051,201100000,301100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,201100000,301100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,201100000,301100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,201100000,301100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,201100000,301100000
+htn/Glp1Dili,439790,Psychalgia,1056,201100000,301100000
+htn/Glp1Dili,81634,Ptotic breast,1057,201100000,301100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,201100000,301100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,201100000,301100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,201100000,301100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,201100000,301100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,201100000,301100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,201100000,301100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,201100000,301100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,201100000,301100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,201100000,301100000
+htn/Glp1Dili,440193,Wristdrop,1067,201100000,301100000
+cem,4092879,Absent kidney,1068,201100000,301100000
+cem,4216219,Bizarre personal appearance,1069,201100000,301100000
+cem,4201390,Colostomy present,1070,201100000,301100000
+cem,437448,Exhaustion due to excessive exertion,1071,201100000,301100000
+cem,4092896,Feces contents abnormal,1072,201100000,301100000
+cem,4096540,Foreskin deficient,1073,201100000,301100000
+cem,4168318,Genetic disorder carrier,1074,201100000,301100000
+cem,40481897,Inadequate sleep hygiene,1075,201100000,301100000
+cem,381021,Lagophthalmos,1076,201100000,301100000
+cem,4051630,Malingering,1077,201100000,301100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,201100000,301100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,201100000,301100000
+cem,438130,Opioid abuse,1080,201100000,301100000
+cem,4299094,Opioid intoxication,1081,201100000,301100000
+cem,437092,Physiological development failure,1082,201100000,301100000
+cem,433951,Poisoning by tranquilizer,1083,201100000,301100000
+cem,4019836,Social exclusion,1084,201100000,301100000
+cem,436876,Toxic effect of lead compound,1085,201100000,301100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,201100000,301100000
+cem,45757285,Unsatisfactory tooth restoration,1087,201100000,301100000
+htn,436409,Abnormal pupil,1088,201100000,301100000
+htn,434327,Cannabis abuse,1089,201100000,301100000
+htn,4115402,Difficulty sleeping,1090,201100000,301100000
+htn,433111,Effects of hunger,1091,201100000,301100000
+htn,4092896,Feces contents abnormal,1092,201100000,301100000
+htn,4012570,High risk sexual behavior,1093,201100000,301100000
+htn,432593,Kwashiorkor,1094,201100000,301100000
+htn,4083487,Macular drusen,1095,201100000,301100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,201100000,301100000
+htn,438130,Opioid abuse,1097,201100000,301100000
+htn,4091513,Passing flatus,1098,201100000,301100000
+htn,373478,Presbyopia,1099,201100000,301100000
+htn,72748,Strain of rotator cuff capsule,1100,201100000,301100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,201100000,301100000
+Glp1Dili,376707,Acute conjunctivitis,1102,201100000,301100000
+Glp1Dili,24660,Acute tonsillitis,1103,201100000,301100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,201100000,301100000
+Glp1Dili,4218106,Alcoholism,1105,201100000,301100000
+Glp1Dili,257007,Allergic rhinitis,1106,201100000,301100000
+Glp1Dili,378425,Blepharitis,1107,201100000,301100000
+Glp1Dili,256449,Bronchiectasis,1108,201100000,301100000
+Glp1Dili,4152350,Burping,1109,201100000,301100000
+Glp1Dili,4067069,Callosity,1110,201100000,301100000
+Glp1Dili,4172458,Candidiasis of skin,1111,201100000,301100000
+Glp1Dili,440387,Cannabis dependence,1112,201100000,301100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,201100000,301100000
+Glp1Dili,4134120,Cerebral palsy,1114,201100000,301100000
+Glp1Dili,137548,Cervical radiculopathy,1115,201100000,301100000
+Glp1Dili,381581,Chalazion,1116,201100000,301100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,201100000,301100000
+Glp1Dili,4272340,Costal chondritis,1118,201100000,301100000
+Glp1Dili,436027,Coxsackie virus disease,1119,201100000,301100000
+Glp1Dili,441267,Cystic fibrosis,1120,201100000,301100000
+Glp1Dili,197610,Cyst of ovary,1121,201100000,301100000
+Glp1Dili,133228,Dental caries,1122,201100000,301100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,201100000,301100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,201100000,301100000
+Glp1Dili,192367,Dysplasia of cervix,1125,201100000,301100000
+Glp1Dili,4249170,Epicondylitis,1126,201100000,301100000
+Glp1Dili,74855,Genital herpes simplex,1127,201100000,301100000
+Glp1Dili,440674,Gout,1128,201100000,301100000
+Glp1Dili,4163735,Hemochromatosis,1129,201100000,301100000
+Glp1Dili,195562,Hemorrhoids,1130,201100000,301100000
+Glp1Dili,4265426,Hordeolum,1131,201100000,301100000
+Glp1Dili,441788,Human papilloma virus infection,1132,201100000,301100000
+Glp1Dili,4131791,Hydrocele of testis,1133,201100000,301100000
+Glp1Dili,432867,Hyperlipidemia,1134,201100000,301100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,201100000,301100000
+Glp1Dili,140362,Hypoparathyroidism,1136,201100000,301100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,201100000,301100000
+Glp1Dili,4266367,Influenza,1138,201100000,301100000
+Glp1Dili,4152967,Laceration of perineum,1139,201100000,301100000
+Glp1Dili,81379,Lateral epicondylitis,1140,201100000,301100000
+Glp1Dili,194133,Low back pain,1141,201100000,301100000
+Glp1Dili,79833,Ménière's disease,1142,201100000,301100000
+Glp1Dili,436940,Metabolic syndrome X,1143,201100000,301100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,201100000,301100000
+Glp1Dili,4318847,Obstruction of urethra,1145,201100000,301100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,201100000,301100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,201100000,301100000
+Glp1Dili,80502,Osteoporosis,1148,201100000,301100000
+Glp1Dili,37206607,Overactive bladder,1149,201100000,301100000
+Glp1Dili,381270,Parkinson's disease,1150,201100000,301100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,201100000,301100000
+Glp1Dili,4002650,Plantar fasciitis,1152,201100000,301100000
+Glp1Dili,253796,Pneumothorax,1153,201100000,301100000
+Glp1Dili,4295888,Prolapse of intestine,1154,201100000,301100000
+Glp1Dili,194997,Prostatitis,1155,201100000,301100000
+Glp1Dili,374044,Ptosis of eyelid,1156,201100000,301100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,201100000,301100000
+Glp1Dili,372409,Sciatica,1158,201100000,301100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,201100000,301100000
+Glp1Dili,313459,Sleep apnea,1160,201100000,301100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,201100000,301100000
+Glp1Dili,133141,Tinea pedis,1162,201100000,301100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,201100000,301100000
+Glp1Dili,201916,Ureteric stone,1164,201100000,301100000
+Glp1Dili,4092565,Uterine prolapse,1165,201100000,301100000
+Glp1Dili,436070,Vitamin D deficiency,1166,201100000,301100000
+cem/Glp1Dili,439935,Abnormal posture,1001,201100000,401100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,201100000,401100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,201100000,401100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,201100000,401100000
+cem/Glp1Dili,134765,Cachexia,1005,201100000,401100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,201100000,401100000
+cem/Glp1Dili,436077,Developmental delay,1007,201100000,401100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,201100000,401100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,201100000,401100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,201100000,401100000
+cem/Glp1Dili,439788,Galactosemia,1011,201100000,401100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,201100000,401100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,201100000,401100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,201100000,401100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,201100000,401100000
+cem/Glp1Dili,433997,Lymphangioma,1016,201100000,401100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,201100000,401100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,201100000,401100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,201100000,401100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,201100000,401100000
+cem/Glp1Dili,433244,Tooth loss,1021,201100000,401100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,201100000,401100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,201100000,401100000
+htn/Glp1Dili,4088290,Absence of breast,1024,201100000,401100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,201100000,401100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,201100000,401100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,201100000,401100000
+htn/Glp1Dili,133655,Burn of forearm,1028,201100000,401100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,201100000,401100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,201100000,401100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,201100000,401100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,201100000,401100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,201100000,401100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,201100000,401100000
+htn/Glp1Dili,78619,Contusion of knee,1035,201100000,401100000
+htn/Glp1Dili,201606,Crohn's disease,1036,201100000,401100000
+htn/Glp1Dili,76786,Derangement of knee,1037,201100000,401100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,201100000,401100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,201100000,401100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,201100000,401100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,201100000,401100000
+htn/Glp1Dili,433577,Hammer toe,1042,201100000,401100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,201100000,401100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,201100000,401100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,201100000,401100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,201100000,401100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,201100000,401100000
+htn/Glp1Dili,444132,Injury of knee,1048,201100000,401100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,201100000,401100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,201100000,401100000
+htn/Glp1Dili,4103703,Melena,1051,201100000,401100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,201100000,401100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,201100000,401100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,201100000,401100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,201100000,401100000
+htn/Glp1Dili,439790,Psychalgia,1056,201100000,401100000
+htn/Glp1Dili,81634,Ptotic breast,1057,201100000,401100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,201100000,401100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,201100000,401100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,201100000,401100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,201100000,401100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,201100000,401100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,201100000,401100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,201100000,401100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,201100000,401100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,201100000,401100000
+htn/Glp1Dili,440193,Wristdrop,1067,201100000,401100000
+cem,4092879,Absent kidney,1068,201100000,401100000
+cem,4216219,Bizarre personal appearance,1069,201100000,401100000
+cem,4201390,Colostomy present,1070,201100000,401100000
+cem,437448,Exhaustion due to excessive exertion,1071,201100000,401100000
+cem,4092896,Feces contents abnormal,1072,201100000,401100000
+cem,4096540,Foreskin deficient,1073,201100000,401100000
+cem,4168318,Genetic disorder carrier,1074,201100000,401100000
+cem,40481897,Inadequate sleep hygiene,1075,201100000,401100000
+cem,381021,Lagophthalmos,1076,201100000,401100000
+cem,4051630,Malingering,1077,201100000,401100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,201100000,401100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,201100000,401100000
+cem,438130,Opioid abuse,1080,201100000,401100000
+cem,4299094,Opioid intoxication,1081,201100000,401100000
+cem,437092,Physiological development failure,1082,201100000,401100000
+cem,433951,Poisoning by tranquilizer,1083,201100000,401100000
+cem,4019836,Social exclusion,1084,201100000,401100000
+cem,436876,Toxic effect of lead compound,1085,201100000,401100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,201100000,401100000
+cem,45757285,Unsatisfactory tooth restoration,1087,201100000,401100000
+htn,436409,Abnormal pupil,1088,201100000,401100000
+htn,434327,Cannabis abuse,1089,201100000,401100000
+htn,4115402,Difficulty sleeping,1090,201100000,401100000
+htn,433111,Effects of hunger,1091,201100000,401100000
+htn,4092896,Feces contents abnormal,1092,201100000,401100000
+htn,4012570,High risk sexual behavior,1093,201100000,401100000
+htn,432593,Kwashiorkor,1094,201100000,401100000
+htn,4083487,Macular drusen,1095,201100000,401100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,201100000,401100000
+htn,438130,Opioid abuse,1097,201100000,401100000
+htn,4091513,Passing flatus,1098,201100000,401100000
+htn,373478,Presbyopia,1099,201100000,401100000
+htn,72748,Strain of rotator cuff capsule,1100,201100000,401100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,201100000,401100000
+Glp1Dili,376707,Acute conjunctivitis,1102,201100000,401100000
+Glp1Dili,24660,Acute tonsillitis,1103,201100000,401100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,201100000,401100000
+Glp1Dili,4218106,Alcoholism,1105,201100000,401100000
+Glp1Dili,257007,Allergic rhinitis,1106,201100000,401100000
+Glp1Dili,378425,Blepharitis,1107,201100000,401100000
+Glp1Dili,256449,Bronchiectasis,1108,201100000,401100000
+Glp1Dili,4152350,Burping,1109,201100000,401100000
+Glp1Dili,4067069,Callosity,1110,201100000,401100000
+Glp1Dili,4172458,Candidiasis of skin,1111,201100000,401100000
+Glp1Dili,440387,Cannabis dependence,1112,201100000,401100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,201100000,401100000
+Glp1Dili,4134120,Cerebral palsy,1114,201100000,401100000
+Glp1Dili,137548,Cervical radiculopathy,1115,201100000,401100000
+Glp1Dili,381581,Chalazion,1116,201100000,401100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,201100000,401100000
+Glp1Dili,4272340,Costal chondritis,1118,201100000,401100000
+Glp1Dili,436027,Coxsackie virus disease,1119,201100000,401100000
+Glp1Dili,441267,Cystic fibrosis,1120,201100000,401100000
+Glp1Dili,197610,Cyst of ovary,1121,201100000,401100000
+Glp1Dili,133228,Dental caries,1122,201100000,401100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,201100000,401100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,201100000,401100000
+Glp1Dili,192367,Dysplasia of cervix,1125,201100000,401100000
+Glp1Dili,4249170,Epicondylitis,1126,201100000,401100000
+Glp1Dili,74855,Genital herpes simplex,1127,201100000,401100000
+Glp1Dili,440674,Gout,1128,201100000,401100000
+Glp1Dili,4163735,Hemochromatosis,1129,201100000,401100000
+Glp1Dili,195562,Hemorrhoids,1130,201100000,401100000
+Glp1Dili,4265426,Hordeolum,1131,201100000,401100000
+Glp1Dili,441788,Human papilloma virus infection,1132,201100000,401100000
+Glp1Dili,4131791,Hydrocele of testis,1133,201100000,401100000
+Glp1Dili,432867,Hyperlipidemia,1134,201100000,401100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,201100000,401100000
+Glp1Dili,140362,Hypoparathyroidism,1136,201100000,401100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,201100000,401100000
+Glp1Dili,4266367,Influenza,1138,201100000,401100000
+Glp1Dili,4152967,Laceration of perineum,1139,201100000,401100000
+Glp1Dili,81379,Lateral epicondylitis,1140,201100000,401100000
+Glp1Dili,194133,Low back pain,1141,201100000,401100000
+Glp1Dili,79833,Ménière's disease,1142,201100000,401100000
+Glp1Dili,436940,Metabolic syndrome X,1143,201100000,401100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,201100000,401100000
+Glp1Dili,4318847,Obstruction of urethra,1145,201100000,401100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,201100000,401100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,201100000,401100000
+Glp1Dili,80502,Osteoporosis,1148,201100000,401100000
+Glp1Dili,37206607,Overactive bladder,1149,201100000,401100000
+Glp1Dili,381270,Parkinson's disease,1150,201100000,401100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,201100000,401100000
+Glp1Dili,4002650,Plantar fasciitis,1152,201100000,401100000
+Glp1Dili,253796,Pneumothorax,1153,201100000,401100000
+Glp1Dili,4295888,Prolapse of intestine,1154,201100000,401100000
+Glp1Dili,194997,Prostatitis,1155,201100000,401100000
+Glp1Dili,374044,Ptosis of eyelid,1156,201100000,401100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,201100000,401100000
+Glp1Dili,372409,Sciatica,1158,201100000,401100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,201100000,401100000
+Glp1Dili,313459,Sleep apnea,1160,201100000,401100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,201100000,401100000
+Glp1Dili,133141,Tinea pedis,1162,201100000,401100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,201100000,401100000
+Glp1Dili,201916,Ureteric stone,1164,201100000,401100000
+Glp1Dili,4092565,Uterine prolapse,1165,201100000,401100000
+Glp1Dili,436070,Vitamin D deficiency,1166,201100000,401100000
+cem/Glp1Dili,439935,Abnormal posture,1001,301100000,101100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,301100000,101100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,301100000,101100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,301100000,101100000
+cem/Glp1Dili,134765,Cachexia,1005,301100000,101100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,301100000,101100000
+cem/Glp1Dili,436077,Developmental delay,1007,301100000,101100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,301100000,101100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,301100000,101100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,301100000,101100000
+cem/Glp1Dili,439788,Galactosemia,1011,301100000,101100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,301100000,101100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,301100000,101100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,301100000,101100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,301100000,101100000
+cem/Glp1Dili,433997,Lymphangioma,1016,301100000,101100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,301100000,101100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,301100000,101100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,301100000,101100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,301100000,101100000
+cem/Glp1Dili,433244,Tooth loss,1021,301100000,101100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,301100000,101100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,301100000,101100000
+htn/Glp1Dili,4088290,Absence of breast,1024,301100000,101100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,301100000,101100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,301100000,101100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,301100000,101100000
+htn/Glp1Dili,133655,Burn of forearm,1028,301100000,101100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,301100000,101100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,301100000,101100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,301100000,101100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,301100000,101100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,301100000,101100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,301100000,101100000
+htn/Glp1Dili,78619,Contusion of knee,1035,301100000,101100000
+htn/Glp1Dili,201606,Crohn's disease,1036,301100000,101100000
+htn/Glp1Dili,76786,Derangement of knee,1037,301100000,101100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,301100000,101100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,301100000,101100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,301100000,101100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,301100000,101100000
+htn/Glp1Dili,433577,Hammer toe,1042,301100000,101100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,301100000,101100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,301100000,101100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,301100000,101100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,301100000,101100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,301100000,101100000
+htn/Glp1Dili,444132,Injury of knee,1048,301100000,101100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,301100000,101100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,301100000,101100000
+htn/Glp1Dili,4103703,Melena,1051,301100000,101100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,301100000,101100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,301100000,101100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,301100000,101100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,301100000,101100000
+htn/Glp1Dili,439790,Psychalgia,1056,301100000,101100000
+htn/Glp1Dili,81634,Ptotic breast,1057,301100000,101100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,301100000,101100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,301100000,101100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,301100000,101100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,301100000,101100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,301100000,101100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,301100000,101100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,301100000,101100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,301100000,101100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,301100000,101100000
+htn/Glp1Dili,440193,Wristdrop,1067,301100000,101100000
+cem,4092879,Absent kidney,1068,301100000,101100000
+cem,4216219,Bizarre personal appearance,1069,301100000,101100000
+cem,4201390,Colostomy present,1070,301100000,101100000
+cem,437448,Exhaustion due to excessive exertion,1071,301100000,101100000
+cem,4092896,Feces contents abnormal,1072,301100000,101100000
+cem,4096540,Foreskin deficient,1073,301100000,101100000
+cem,4168318,Genetic disorder carrier,1074,301100000,101100000
+cem,40481897,Inadequate sleep hygiene,1075,301100000,101100000
+cem,381021,Lagophthalmos,1076,301100000,101100000
+cem,4051630,Malingering,1077,301100000,101100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,301100000,101100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,301100000,101100000
+cem,438130,Opioid abuse,1080,301100000,101100000
+cem,4299094,Opioid intoxication,1081,301100000,101100000
+cem,437092,Physiological development failure,1082,301100000,101100000
+cem,433951,Poisoning by tranquilizer,1083,301100000,101100000
+cem,4019836,Social exclusion,1084,301100000,101100000
+cem,436876,Toxic effect of lead compound,1085,301100000,101100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,301100000,101100000
+cem,45757285,Unsatisfactory tooth restoration,1087,301100000,101100000
+htn,436409,Abnormal pupil,1088,301100000,101100000
+htn,434327,Cannabis abuse,1089,301100000,101100000
+htn,4115402,Difficulty sleeping,1090,301100000,101100000
+htn,433111,Effects of hunger,1091,301100000,101100000
+htn,4092896,Feces contents abnormal,1092,301100000,101100000
+htn,4012570,High risk sexual behavior,1093,301100000,101100000
+htn,432593,Kwashiorkor,1094,301100000,101100000
+htn,4083487,Macular drusen,1095,301100000,101100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,301100000,101100000
+htn,438130,Opioid abuse,1097,301100000,101100000
+htn,4091513,Passing flatus,1098,301100000,101100000
+htn,373478,Presbyopia,1099,301100000,101100000
+htn,72748,Strain of rotator cuff capsule,1100,301100000,101100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,301100000,101100000
+Glp1Dili,376707,Acute conjunctivitis,1102,301100000,101100000
+Glp1Dili,24660,Acute tonsillitis,1103,301100000,101100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,301100000,101100000
+Glp1Dili,4218106,Alcoholism,1105,301100000,101100000
+Glp1Dili,257007,Allergic rhinitis,1106,301100000,101100000
+Glp1Dili,378425,Blepharitis,1107,301100000,101100000
+Glp1Dili,256449,Bronchiectasis,1108,301100000,101100000
+Glp1Dili,4152350,Burping,1109,301100000,101100000
+Glp1Dili,4067069,Callosity,1110,301100000,101100000
+Glp1Dili,4172458,Candidiasis of skin,1111,301100000,101100000
+Glp1Dili,440387,Cannabis dependence,1112,301100000,101100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,301100000,101100000
+Glp1Dili,4134120,Cerebral palsy,1114,301100000,101100000
+Glp1Dili,137548,Cervical radiculopathy,1115,301100000,101100000
+Glp1Dili,381581,Chalazion,1116,301100000,101100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,301100000,101100000
+Glp1Dili,4272340,Costal chondritis,1118,301100000,101100000
+Glp1Dili,436027,Coxsackie virus disease,1119,301100000,101100000
+Glp1Dili,441267,Cystic fibrosis,1120,301100000,101100000
+Glp1Dili,197610,Cyst of ovary,1121,301100000,101100000
+Glp1Dili,133228,Dental caries,1122,301100000,101100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,301100000,101100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,301100000,101100000
+Glp1Dili,192367,Dysplasia of cervix,1125,301100000,101100000
+Glp1Dili,4249170,Epicondylitis,1126,301100000,101100000
+Glp1Dili,74855,Genital herpes simplex,1127,301100000,101100000
+Glp1Dili,440674,Gout,1128,301100000,101100000
+Glp1Dili,4163735,Hemochromatosis,1129,301100000,101100000
+Glp1Dili,195562,Hemorrhoids,1130,301100000,101100000
+Glp1Dili,4265426,Hordeolum,1131,301100000,101100000
+Glp1Dili,441788,Human papilloma virus infection,1132,301100000,101100000
+Glp1Dili,4131791,Hydrocele of testis,1133,301100000,101100000
+Glp1Dili,432867,Hyperlipidemia,1134,301100000,101100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,301100000,101100000
+Glp1Dili,140362,Hypoparathyroidism,1136,301100000,101100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,301100000,101100000
+Glp1Dili,4266367,Influenza,1138,301100000,101100000
+Glp1Dili,4152967,Laceration of perineum,1139,301100000,101100000
+Glp1Dili,81379,Lateral epicondylitis,1140,301100000,101100000
+Glp1Dili,194133,Low back pain,1141,301100000,101100000
+Glp1Dili,79833,Ménière's disease,1142,301100000,101100000
+Glp1Dili,436940,Metabolic syndrome X,1143,301100000,101100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,301100000,101100000
+Glp1Dili,4318847,Obstruction of urethra,1145,301100000,101100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,301100000,101100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,301100000,101100000
+Glp1Dili,80502,Osteoporosis,1148,301100000,101100000
+Glp1Dili,37206607,Overactive bladder,1149,301100000,101100000
+Glp1Dili,381270,Parkinson's disease,1150,301100000,101100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,301100000,101100000
+Glp1Dili,4002650,Plantar fasciitis,1152,301100000,101100000
+Glp1Dili,253796,Pneumothorax,1153,301100000,101100000
+Glp1Dili,4295888,Prolapse of intestine,1154,301100000,101100000
+Glp1Dili,194997,Prostatitis,1155,301100000,101100000
+Glp1Dili,374044,Ptosis of eyelid,1156,301100000,101100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,301100000,101100000
+Glp1Dili,372409,Sciatica,1158,301100000,101100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,301100000,101100000
+Glp1Dili,313459,Sleep apnea,1160,301100000,101100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,301100000,101100000
+Glp1Dili,133141,Tinea pedis,1162,301100000,101100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,301100000,101100000
+Glp1Dili,201916,Ureteric stone,1164,301100000,101100000
+Glp1Dili,4092565,Uterine prolapse,1165,301100000,101100000
+Glp1Dili,436070,Vitamin D deficiency,1166,301100000,101100000
+cem/Glp1Dili,439935,Abnormal posture,1001,301100000,201100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,301100000,201100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,301100000,201100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,301100000,201100000
+cem/Glp1Dili,134765,Cachexia,1005,301100000,201100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,301100000,201100000
+cem/Glp1Dili,436077,Developmental delay,1007,301100000,201100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,301100000,201100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,301100000,201100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,301100000,201100000
+cem/Glp1Dili,439788,Galactosemia,1011,301100000,201100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,301100000,201100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,301100000,201100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,301100000,201100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,301100000,201100000
+cem/Glp1Dili,433997,Lymphangioma,1016,301100000,201100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,301100000,201100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,301100000,201100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,301100000,201100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,301100000,201100000
+cem/Glp1Dili,433244,Tooth loss,1021,301100000,201100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,301100000,201100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,301100000,201100000
+htn/Glp1Dili,4088290,Absence of breast,1024,301100000,201100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,301100000,201100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,301100000,201100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,301100000,201100000
+htn/Glp1Dili,133655,Burn of forearm,1028,301100000,201100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,301100000,201100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,301100000,201100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,301100000,201100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,301100000,201100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,301100000,201100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,301100000,201100000
+htn/Glp1Dili,78619,Contusion of knee,1035,301100000,201100000
+htn/Glp1Dili,201606,Crohn's disease,1036,301100000,201100000
+htn/Glp1Dili,76786,Derangement of knee,1037,301100000,201100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,301100000,201100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,301100000,201100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,301100000,201100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,301100000,201100000
+htn/Glp1Dili,433577,Hammer toe,1042,301100000,201100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,301100000,201100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,301100000,201100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,301100000,201100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,301100000,201100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,301100000,201100000
+htn/Glp1Dili,444132,Injury of knee,1048,301100000,201100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,301100000,201100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,301100000,201100000
+htn/Glp1Dili,4103703,Melena,1051,301100000,201100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,301100000,201100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,301100000,201100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,301100000,201100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,301100000,201100000
+htn/Glp1Dili,439790,Psychalgia,1056,301100000,201100000
+htn/Glp1Dili,81634,Ptotic breast,1057,301100000,201100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,301100000,201100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,301100000,201100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,301100000,201100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,301100000,201100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,301100000,201100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,301100000,201100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,301100000,201100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,301100000,201100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,301100000,201100000
+htn/Glp1Dili,440193,Wristdrop,1067,301100000,201100000
+cem,4092879,Absent kidney,1068,301100000,201100000
+cem,4216219,Bizarre personal appearance,1069,301100000,201100000
+cem,4201390,Colostomy present,1070,301100000,201100000
+cem,437448,Exhaustion due to excessive exertion,1071,301100000,201100000
+cem,4092896,Feces contents abnormal,1072,301100000,201100000
+cem,4096540,Foreskin deficient,1073,301100000,201100000
+cem,4168318,Genetic disorder carrier,1074,301100000,201100000
+cem,40481897,Inadequate sleep hygiene,1075,301100000,201100000
+cem,381021,Lagophthalmos,1076,301100000,201100000
+cem,4051630,Malingering,1077,301100000,201100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,301100000,201100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,301100000,201100000
+cem,438130,Opioid abuse,1080,301100000,201100000
+cem,4299094,Opioid intoxication,1081,301100000,201100000
+cem,437092,Physiological development failure,1082,301100000,201100000
+cem,433951,Poisoning by tranquilizer,1083,301100000,201100000
+cem,4019836,Social exclusion,1084,301100000,201100000
+cem,436876,Toxic effect of lead compound,1085,301100000,201100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,301100000,201100000
+cem,45757285,Unsatisfactory tooth restoration,1087,301100000,201100000
+htn,436409,Abnormal pupil,1088,301100000,201100000
+htn,434327,Cannabis abuse,1089,301100000,201100000
+htn,4115402,Difficulty sleeping,1090,301100000,201100000
+htn,433111,Effects of hunger,1091,301100000,201100000
+htn,4092896,Feces contents abnormal,1092,301100000,201100000
+htn,4012570,High risk sexual behavior,1093,301100000,201100000
+htn,432593,Kwashiorkor,1094,301100000,201100000
+htn,4083487,Macular drusen,1095,301100000,201100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,301100000,201100000
+htn,438130,Opioid abuse,1097,301100000,201100000
+htn,4091513,Passing flatus,1098,301100000,201100000
+htn,373478,Presbyopia,1099,301100000,201100000
+htn,72748,Strain of rotator cuff capsule,1100,301100000,201100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,301100000,201100000
+Glp1Dili,376707,Acute conjunctivitis,1102,301100000,201100000
+Glp1Dili,24660,Acute tonsillitis,1103,301100000,201100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,301100000,201100000
+Glp1Dili,4218106,Alcoholism,1105,301100000,201100000
+Glp1Dili,257007,Allergic rhinitis,1106,301100000,201100000
+Glp1Dili,378425,Blepharitis,1107,301100000,201100000
+Glp1Dili,256449,Bronchiectasis,1108,301100000,201100000
+Glp1Dili,4152350,Burping,1109,301100000,201100000
+Glp1Dili,4067069,Callosity,1110,301100000,201100000
+Glp1Dili,4172458,Candidiasis of skin,1111,301100000,201100000
+Glp1Dili,440387,Cannabis dependence,1112,301100000,201100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,301100000,201100000
+Glp1Dili,4134120,Cerebral palsy,1114,301100000,201100000
+Glp1Dili,137548,Cervical radiculopathy,1115,301100000,201100000
+Glp1Dili,381581,Chalazion,1116,301100000,201100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,301100000,201100000
+Glp1Dili,4272340,Costal chondritis,1118,301100000,201100000
+Glp1Dili,436027,Coxsackie virus disease,1119,301100000,201100000
+Glp1Dili,441267,Cystic fibrosis,1120,301100000,201100000
+Glp1Dili,197610,Cyst of ovary,1121,301100000,201100000
+Glp1Dili,133228,Dental caries,1122,301100000,201100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,301100000,201100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,301100000,201100000
+Glp1Dili,192367,Dysplasia of cervix,1125,301100000,201100000
+Glp1Dili,4249170,Epicondylitis,1126,301100000,201100000
+Glp1Dili,74855,Genital herpes simplex,1127,301100000,201100000
+Glp1Dili,440674,Gout,1128,301100000,201100000
+Glp1Dili,4163735,Hemochromatosis,1129,301100000,201100000
+Glp1Dili,195562,Hemorrhoids,1130,301100000,201100000
+Glp1Dili,4265426,Hordeolum,1131,301100000,201100000
+Glp1Dili,441788,Human papilloma virus infection,1132,301100000,201100000
+Glp1Dili,4131791,Hydrocele of testis,1133,301100000,201100000
+Glp1Dili,432867,Hyperlipidemia,1134,301100000,201100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,301100000,201100000
+Glp1Dili,140362,Hypoparathyroidism,1136,301100000,201100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,301100000,201100000
+Glp1Dili,4266367,Influenza,1138,301100000,201100000
+Glp1Dili,4152967,Laceration of perineum,1139,301100000,201100000
+Glp1Dili,81379,Lateral epicondylitis,1140,301100000,201100000
+Glp1Dili,194133,Low back pain,1141,301100000,201100000
+Glp1Dili,79833,Ménière's disease,1142,301100000,201100000
+Glp1Dili,436940,Metabolic syndrome X,1143,301100000,201100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,301100000,201100000
+Glp1Dili,4318847,Obstruction of urethra,1145,301100000,201100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,301100000,201100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,301100000,201100000
+Glp1Dili,80502,Osteoporosis,1148,301100000,201100000
+Glp1Dili,37206607,Overactive bladder,1149,301100000,201100000
+Glp1Dili,381270,Parkinson's disease,1150,301100000,201100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,301100000,201100000
+Glp1Dili,4002650,Plantar fasciitis,1152,301100000,201100000
+Glp1Dili,253796,Pneumothorax,1153,301100000,201100000
+Glp1Dili,4295888,Prolapse of intestine,1154,301100000,201100000
+Glp1Dili,194997,Prostatitis,1155,301100000,201100000
+Glp1Dili,374044,Ptosis of eyelid,1156,301100000,201100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,301100000,201100000
+Glp1Dili,372409,Sciatica,1158,301100000,201100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,301100000,201100000
+Glp1Dili,313459,Sleep apnea,1160,301100000,201100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,301100000,201100000
+Glp1Dili,133141,Tinea pedis,1162,301100000,201100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,301100000,201100000
+Glp1Dili,201916,Ureteric stone,1164,301100000,201100000
+Glp1Dili,4092565,Uterine prolapse,1165,301100000,201100000
+Glp1Dili,436070,Vitamin D deficiency,1166,301100000,201100000
+cem/Glp1Dili,439935,Abnormal posture,1001,301100000,401100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,301100000,401100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,301100000,401100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,301100000,401100000
+cem/Glp1Dili,134765,Cachexia,1005,301100000,401100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,301100000,401100000
+cem/Glp1Dili,436077,Developmental delay,1007,301100000,401100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,301100000,401100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,301100000,401100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,301100000,401100000
+cem/Glp1Dili,439788,Galactosemia,1011,301100000,401100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,301100000,401100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,301100000,401100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,301100000,401100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,301100000,401100000
+cem/Glp1Dili,433997,Lymphangioma,1016,301100000,401100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,301100000,401100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,301100000,401100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,301100000,401100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,301100000,401100000
+cem/Glp1Dili,433244,Tooth loss,1021,301100000,401100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,301100000,401100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,301100000,401100000
+htn/Glp1Dili,4088290,Absence of breast,1024,301100000,401100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,301100000,401100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,301100000,401100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,301100000,401100000
+htn/Glp1Dili,133655,Burn of forearm,1028,301100000,401100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,301100000,401100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,301100000,401100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,301100000,401100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,301100000,401100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,301100000,401100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,301100000,401100000
+htn/Glp1Dili,78619,Contusion of knee,1035,301100000,401100000
+htn/Glp1Dili,201606,Crohn's disease,1036,301100000,401100000
+htn/Glp1Dili,76786,Derangement of knee,1037,301100000,401100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,301100000,401100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,301100000,401100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,301100000,401100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,301100000,401100000
+htn/Glp1Dili,433577,Hammer toe,1042,301100000,401100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,301100000,401100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,301100000,401100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,301100000,401100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,301100000,401100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,301100000,401100000
+htn/Glp1Dili,444132,Injury of knee,1048,301100000,401100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,301100000,401100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,301100000,401100000
+htn/Glp1Dili,4103703,Melena,1051,301100000,401100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,301100000,401100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,301100000,401100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,301100000,401100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,301100000,401100000
+htn/Glp1Dili,439790,Psychalgia,1056,301100000,401100000
+htn/Glp1Dili,81634,Ptotic breast,1057,301100000,401100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,301100000,401100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,301100000,401100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,301100000,401100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,301100000,401100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,301100000,401100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,301100000,401100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,301100000,401100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,301100000,401100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,301100000,401100000
+htn/Glp1Dili,440193,Wristdrop,1067,301100000,401100000
+cem,4092879,Absent kidney,1068,301100000,401100000
+cem,4216219,Bizarre personal appearance,1069,301100000,401100000
+cem,4201390,Colostomy present,1070,301100000,401100000
+cem,437448,Exhaustion due to excessive exertion,1071,301100000,401100000
+cem,4092896,Feces contents abnormal,1072,301100000,401100000
+cem,4096540,Foreskin deficient,1073,301100000,401100000
+cem,4168318,Genetic disorder carrier,1074,301100000,401100000
+cem,40481897,Inadequate sleep hygiene,1075,301100000,401100000
+cem,381021,Lagophthalmos,1076,301100000,401100000
+cem,4051630,Malingering,1077,301100000,401100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,301100000,401100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,301100000,401100000
+cem,438130,Opioid abuse,1080,301100000,401100000
+cem,4299094,Opioid intoxication,1081,301100000,401100000
+cem,437092,Physiological development failure,1082,301100000,401100000
+cem,433951,Poisoning by tranquilizer,1083,301100000,401100000
+cem,4019836,Social exclusion,1084,301100000,401100000
+cem,436876,Toxic effect of lead compound,1085,301100000,401100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,301100000,401100000
+cem,45757285,Unsatisfactory tooth restoration,1087,301100000,401100000
+htn,436409,Abnormal pupil,1088,301100000,401100000
+htn,434327,Cannabis abuse,1089,301100000,401100000
+htn,4115402,Difficulty sleeping,1090,301100000,401100000
+htn,433111,Effects of hunger,1091,301100000,401100000
+htn,4092896,Feces contents abnormal,1092,301100000,401100000
+htn,4012570,High risk sexual behavior,1093,301100000,401100000
+htn,432593,Kwashiorkor,1094,301100000,401100000
+htn,4083487,Macular drusen,1095,301100000,401100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,301100000,401100000
+htn,438130,Opioid abuse,1097,301100000,401100000
+htn,4091513,Passing flatus,1098,301100000,401100000
+htn,373478,Presbyopia,1099,301100000,401100000
+htn,72748,Strain of rotator cuff capsule,1100,301100000,401100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,301100000,401100000
+Glp1Dili,376707,Acute conjunctivitis,1102,301100000,401100000
+Glp1Dili,24660,Acute tonsillitis,1103,301100000,401100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,301100000,401100000
+Glp1Dili,4218106,Alcoholism,1105,301100000,401100000
+Glp1Dili,257007,Allergic rhinitis,1106,301100000,401100000
+Glp1Dili,378425,Blepharitis,1107,301100000,401100000
+Glp1Dili,256449,Bronchiectasis,1108,301100000,401100000
+Glp1Dili,4152350,Burping,1109,301100000,401100000
+Glp1Dili,4067069,Callosity,1110,301100000,401100000
+Glp1Dili,4172458,Candidiasis of skin,1111,301100000,401100000
+Glp1Dili,440387,Cannabis dependence,1112,301100000,401100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,301100000,401100000
+Glp1Dili,4134120,Cerebral palsy,1114,301100000,401100000
+Glp1Dili,137548,Cervical radiculopathy,1115,301100000,401100000
+Glp1Dili,381581,Chalazion,1116,301100000,401100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,301100000,401100000
+Glp1Dili,4272340,Costal chondritis,1118,301100000,401100000
+Glp1Dili,436027,Coxsackie virus disease,1119,301100000,401100000
+Glp1Dili,441267,Cystic fibrosis,1120,301100000,401100000
+Glp1Dili,197610,Cyst of ovary,1121,301100000,401100000
+Glp1Dili,133228,Dental caries,1122,301100000,401100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,301100000,401100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,301100000,401100000
+Glp1Dili,192367,Dysplasia of cervix,1125,301100000,401100000
+Glp1Dili,4249170,Epicondylitis,1126,301100000,401100000
+Glp1Dili,74855,Genital herpes simplex,1127,301100000,401100000
+Glp1Dili,440674,Gout,1128,301100000,401100000
+Glp1Dili,4163735,Hemochromatosis,1129,301100000,401100000
+Glp1Dili,195562,Hemorrhoids,1130,301100000,401100000
+Glp1Dili,4265426,Hordeolum,1131,301100000,401100000
+Glp1Dili,441788,Human papilloma virus infection,1132,301100000,401100000
+Glp1Dili,4131791,Hydrocele of testis,1133,301100000,401100000
+Glp1Dili,432867,Hyperlipidemia,1134,301100000,401100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,301100000,401100000
+Glp1Dili,140362,Hypoparathyroidism,1136,301100000,401100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,301100000,401100000
+Glp1Dili,4266367,Influenza,1138,301100000,401100000
+Glp1Dili,4152967,Laceration of perineum,1139,301100000,401100000
+Glp1Dili,81379,Lateral epicondylitis,1140,301100000,401100000
+Glp1Dili,194133,Low back pain,1141,301100000,401100000
+Glp1Dili,79833,Ménière's disease,1142,301100000,401100000
+Glp1Dili,436940,Metabolic syndrome X,1143,301100000,401100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,301100000,401100000
+Glp1Dili,4318847,Obstruction of urethra,1145,301100000,401100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,301100000,401100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,301100000,401100000
+Glp1Dili,80502,Osteoporosis,1148,301100000,401100000
+Glp1Dili,37206607,Overactive bladder,1149,301100000,401100000
+Glp1Dili,381270,Parkinson's disease,1150,301100000,401100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,301100000,401100000
+Glp1Dili,4002650,Plantar fasciitis,1152,301100000,401100000
+Glp1Dili,253796,Pneumothorax,1153,301100000,401100000
+Glp1Dili,4295888,Prolapse of intestine,1154,301100000,401100000
+Glp1Dili,194997,Prostatitis,1155,301100000,401100000
+Glp1Dili,374044,Ptosis of eyelid,1156,301100000,401100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,301100000,401100000
+Glp1Dili,372409,Sciatica,1158,301100000,401100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,301100000,401100000
+Glp1Dili,313459,Sleep apnea,1160,301100000,401100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,301100000,401100000
+Glp1Dili,133141,Tinea pedis,1162,301100000,401100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,301100000,401100000
+Glp1Dili,201916,Ureteric stone,1164,301100000,401100000
+Glp1Dili,4092565,Uterine prolapse,1165,301100000,401100000
+Glp1Dili,436070,Vitamin D deficiency,1166,301100000,401100000
+cem/Glp1Dili,439935,Abnormal posture,1001,401100000,101100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,401100000,101100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,401100000,101100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,401100000,101100000
+cem/Glp1Dili,134765,Cachexia,1005,401100000,101100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,401100000,101100000
+cem/Glp1Dili,436077,Developmental delay,1007,401100000,101100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,401100000,101100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,401100000,101100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,401100000,101100000
+cem/Glp1Dili,439788,Galactosemia,1011,401100000,101100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,401100000,101100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,401100000,101100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,401100000,101100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,401100000,101100000
+cem/Glp1Dili,433997,Lymphangioma,1016,401100000,101100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,401100000,101100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,401100000,101100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,401100000,101100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,401100000,101100000
+cem/Glp1Dili,433244,Tooth loss,1021,401100000,101100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,401100000,101100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,401100000,101100000
+htn/Glp1Dili,4088290,Absence of breast,1024,401100000,101100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,401100000,101100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,401100000,101100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,401100000,101100000
+htn/Glp1Dili,133655,Burn of forearm,1028,401100000,101100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,401100000,101100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,401100000,101100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,401100000,101100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,401100000,101100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,401100000,101100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,401100000,101100000
+htn/Glp1Dili,78619,Contusion of knee,1035,401100000,101100000
+htn/Glp1Dili,201606,Crohn's disease,1036,401100000,101100000
+htn/Glp1Dili,76786,Derangement of knee,1037,401100000,101100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,401100000,101100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,401100000,101100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,401100000,101100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,401100000,101100000
+htn/Glp1Dili,433577,Hammer toe,1042,401100000,101100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,401100000,101100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,401100000,101100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,401100000,101100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,401100000,101100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,401100000,101100000
+htn/Glp1Dili,444132,Injury of knee,1048,401100000,101100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,401100000,101100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,401100000,101100000
+htn/Glp1Dili,4103703,Melena,1051,401100000,101100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,401100000,101100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,401100000,101100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,401100000,101100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,401100000,101100000
+htn/Glp1Dili,439790,Psychalgia,1056,401100000,101100000
+htn/Glp1Dili,81634,Ptotic breast,1057,401100000,101100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,401100000,101100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,401100000,101100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,401100000,101100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,401100000,101100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,401100000,101100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,401100000,101100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,401100000,101100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,401100000,101100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,401100000,101100000
+htn/Glp1Dili,440193,Wristdrop,1067,401100000,101100000
+cem,4092879,Absent kidney,1068,401100000,101100000
+cem,4216219,Bizarre personal appearance,1069,401100000,101100000
+cem,4201390,Colostomy present,1070,401100000,101100000
+cem,437448,Exhaustion due to excessive exertion,1071,401100000,101100000
+cem,4092896,Feces contents abnormal,1072,401100000,101100000
+cem,4096540,Foreskin deficient,1073,401100000,101100000
+cem,4168318,Genetic disorder carrier,1074,401100000,101100000
+cem,40481897,Inadequate sleep hygiene,1075,401100000,101100000
+cem,381021,Lagophthalmos,1076,401100000,101100000
+cem,4051630,Malingering,1077,401100000,101100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,401100000,101100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,401100000,101100000
+cem,438130,Opioid abuse,1080,401100000,101100000
+cem,4299094,Opioid intoxication,1081,401100000,101100000
+cem,437092,Physiological development failure,1082,401100000,101100000
+cem,433951,Poisoning by tranquilizer,1083,401100000,101100000
+cem,4019836,Social exclusion,1084,401100000,101100000
+cem,436876,Toxic effect of lead compound,1085,401100000,101100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,401100000,101100000
+cem,45757285,Unsatisfactory tooth restoration,1087,401100000,101100000
+htn,436409,Abnormal pupil,1088,401100000,101100000
+htn,434327,Cannabis abuse,1089,401100000,101100000
+htn,4115402,Difficulty sleeping,1090,401100000,101100000
+htn,433111,Effects of hunger,1091,401100000,101100000
+htn,4092896,Feces contents abnormal,1092,401100000,101100000
+htn,4012570,High risk sexual behavior,1093,401100000,101100000
+htn,432593,Kwashiorkor,1094,401100000,101100000
+htn,4083487,Macular drusen,1095,401100000,101100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,401100000,101100000
+htn,438130,Opioid abuse,1097,401100000,101100000
+htn,4091513,Passing flatus,1098,401100000,101100000
+htn,373478,Presbyopia,1099,401100000,101100000
+htn,72748,Strain of rotator cuff capsule,1100,401100000,101100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,401100000,101100000
+Glp1Dili,376707,Acute conjunctivitis,1102,401100000,101100000
+Glp1Dili,24660,Acute tonsillitis,1103,401100000,101100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,401100000,101100000
+Glp1Dili,4218106,Alcoholism,1105,401100000,101100000
+Glp1Dili,257007,Allergic rhinitis,1106,401100000,101100000
+Glp1Dili,378425,Blepharitis,1107,401100000,101100000
+Glp1Dili,256449,Bronchiectasis,1108,401100000,101100000
+Glp1Dili,4152350,Burping,1109,401100000,101100000
+Glp1Dili,4067069,Callosity,1110,401100000,101100000
+Glp1Dili,4172458,Candidiasis of skin,1111,401100000,101100000
+Glp1Dili,440387,Cannabis dependence,1112,401100000,101100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,401100000,101100000
+Glp1Dili,4134120,Cerebral palsy,1114,401100000,101100000
+Glp1Dili,137548,Cervical radiculopathy,1115,401100000,101100000
+Glp1Dili,381581,Chalazion,1116,401100000,101100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,401100000,101100000
+Glp1Dili,4272340,Costal chondritis,1118,401100000,101100000
+Glp1Dili,436027,Coxsackie virus disease,1119,401100000,101100000
+Glp1Dili,441267,Cystic fibrosis,1120,401100000,101100000
+Glp1Dili,197610,Cyst of ovary,1121,401100000,101100000
+Glp1Dili,133228,Dental caries,1122,401100000,101100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,401100000,101100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,401100000,101100000
+Glp1Dili,192367,Dysplasia of cervix,1125,401100000,101100000
+Glp1Dili,4249170,Epicondylitis,1126,401100000,101100000
+Glp1Dili,74855,Genital herpes simplex,1127,401100000,101100000
+Glp1Dili,440674,Gout,1128,401100000,101100000
+Glp1Dili,4163735,Hemochromatosis,1129,401100000,101100000
+Glp1Dili,195562,Hemorrhoids,1130,401100000,101100000
+Glp1Dili,4265426,Hordeolum,1131,401100000,101100000
+Glp1Dili,441788,Human papilloma virus infection,1132,401100000,101100000
+Glp1Dili,4131791,Hydrocele of testis,1133,401100000,101100000
+Glp1Dili,432867,Hyperlipidemia,1134,401100000,101100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,401100000,101100000
+Glp1Dili,140362,Hypoparathyroidism,1136,401100000,101100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,401100000,101100000
+Glp1Dili,4266367,Influenza,1138,401100000,101100000
+Glp1Dili,4152967,Laceration of perineum,1139,401100000,101100000
+Glp1Dili,81379,Lateral epicondylitis,1140,401100000,101100000
+Glp1Dili,194133,Low back pain,1141,401100000,101100000
+Glp1Dili,79833,Ménière's disease,1142,401100000,101100000
+Glp1Dili,436940,Metabolic syndrome X,1143,401100000,101100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,401100000,101100000
+Glp1Dili,4318847,Obstruction of urethra,1145,401100000,101100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,401100000,101100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,401100000,101100000
+Glp1Dili,80502,Osteoporosis,1148,401100000,101100000
+Glp1Dili,37206607,Overactive bladder,1149,401100000,101100000
+Glp1Dili,381270,Parkinson's disease,1150,401100000,101100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,401100000,101100000
+Glp1Dili,4002650,Plantar fasciitis,1152,401100000,101100000
+Glp1Dili,253796,Pneumothorax,1153,401100000,101100000
+Glp1Dili,4295888,Prolapse of intestine,1154,401100000,101100000
+Glp1Dili,194997,Prostatitis,1155,401100000,101100000
+Glp1Dili,374044,Ptosis of eyelid,1156,401100000,101100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,401100000,101100000
+Glp1Dili,372409,Sciatica,1158,401100000,101100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,401100000,101100000
+Glp1Dili,313459,Sleep apnea,1160,401100000,101100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,401100000,101100000
+Glp1Dili,133141,Tinea pedis,1162,401100000,101100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,401100000,101100000
+Glp1Dili,201916,Ureteric stone,1164,401100000,101100000
+Glp1Dili,4092565,Uterine prolapse,1165,401100000,101100000
+Glp1Dili,436070,Vitamin D deficiency,1166,401100000,101100000
+cem/Glp1Dili,439935,Abnormal posture,1001,401100000,201100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,401100000,201100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,401100000,201100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,401100000,201100000
+cem/Glp1Dili,134765,Cachexia,1005,401100000,201100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,401100000,201100000
+cem/Glp1Dili,436077,Developmental delay,1007,401100000,201100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,401100000,201100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,401100000,201100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,401100000,201100000
+cem/Glp1Dili,439788,Galactosemia,1011,401100000,201100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,401100000,201100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,401100000,201100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,401100000,201100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,401100000,201100000
+cem/Glp1Dili,433997,Lymphangioma,1016,401100000,201100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,401100000,201100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,401100000,201100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,401100000,201100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,401100000,201100000
+cem/Glp1Dili,433244,Tooth loss,1021,401100000,201100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,401100000,201100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,401100000,201100000
+htn/Glp1Dili,4088290,Absence of breast,1024,401100000,201100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,401100000,201100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,401100000,201100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,401100000,201100000
+htn/Glp1Dili,133655,Burn of forearm,1028,401100000,201100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,401100000,201100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,401100000,201100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,401100000,201100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,401100000,201100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,401100000,201100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,401100000,201100000
+htn/Glp1Dili,78619,Contusion of knee,1035,401100000,201100000
+htn/Glp1Dili,201606,Crohn's disease,1036,401100000,201100000
+htn/Glp1Dili,76786,Derangement of knee,1037,401100000,201100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,401100000,201100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,401100000,201100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,401100000,201100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,401100000,201100000
+htn/Glp1Dili,433577,Hammer toe,1042,401100000,201100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,401100000,201100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,401100000,201100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,401100000,201100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,401100000,201100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,401100000,201100000
+htn/Glp1Dili,444132,Injury of knee,1048,401100000,201100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,401100000,201100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,401100000,201100000
+htn/Glp1Dili,4103703,Melena,1051,401100000,201100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,401100000,201100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,401100000,201100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,401100000,201100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,401100000,201100000
+htn/Glp1Dili,439790,Psychalgia,1056,401100000,201100000
+htn/Glp1Dili,81634,Ptotic breast,1057,401100000,201100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,401100000,201100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,401100000,201100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,401100000,201100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,401100000,201100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,401100000,201100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,401100000,201100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,401100000,201100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,401100000,201100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,401100000,201100000
+htn/Glp1Dili,440193,Wristdrop,1067,401100000,201100000
+cem,4092879,Absent kidney,1068,401100000,201100000
+cem,4216219,Bizarre personal appearance,1069,401100000,201100000
+cem,4201390,Colostomy present,1070,401100000,201100000
+cem,437448,Exhaustion due to excessive exertion,1071,401100000,201100000
+cem,4092896,Feces contents abnormal,1072,401100000,201100000
+cem,4096540,Foreskin deficient,1073,401100000,201100000
+cem,4168318,Genetic disorder carrier,1074,401100000,201100000
+cem,40481897,Inadequate sleep hygiene,1075,401100000,201100000
+cem,381021,Lagophthalmos,1076,401100000,201100000
+cem,4051630,Malingering,1077,401100000,201100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,401100000,201100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,401100000,201100000
+cem,438130,Opioid abuse,1080,401100000,201100000
+cem,4299094,Opioid intoxication,1081,401100000,201100000
+cem,437092,Physiological development failure,1082,401100000,201100000
+cem,433951,Poisoning by tranquilizer,1083,401100000,201100000
+cem,4019836,Social exclusion,1084,401100000,201100000
+cem,436876,Toxic effect of lead compound,1085,401100000,201100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,401100000,201100000
+cem,45757285,Unsatisfactory tooth restoration,1087,401100000,201100000
+htn,436409,Abnormal pupil,1088,401100000,201100000
+htn,434327,Cannabis abuse,1089,401100000,201100000
+htn,4115402,Difficulty sleeping,1090,401100000,201100000
+htn,433111,Effects of hunger,1091,401100000,201100000
+htn,4092896,Feces contents abnormal,1092,401100000,201100000
+htn,4012570,High risk sexual behavior,1093,401100000,201100000
+htn,432593,Kwashiorkor,1094,401100000,201100000
+htn,4083487,Macular drusen,1095,401100000,201100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,401100000,201100000
+htn,438130,Opioid abuse,1097,401100000,201100000
+htn,4091513,Passing flatus,1098,401100000,201100000
+htn,373478,Presbyopia,1099,401100000,201100000
+htn,72748,Strain of rotator cuff capsule,1100,401100000,201100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,401100000,201100000
+Glp1Dili,376707,Acute conjunctivitis,1102,401100000,201100000
+Glp1Dili,24660,Acute tonsillitis,1103,401100000,201100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,401100000,201100000
+Glp1Dili,4218106,Alcoholism,1105,401100000,201100000
+Glp1Dili,257007,Allergic rhinitis,1106,401100000,201100000
+Glp1Dili,378425,Blepharitis,1107,401100000,201100000
+Glp1Dili,256449,Bronchiectasis,1108,401100000,201100000
+Glp1Dili,4152350,Burping,1109,401100000,201100000
+Glp1Dili,4067069,Callosity,1110,401100000,201100000
+Glp1Dili,4172458,Candidiasis of skin,1111,401100000,201100000
+Glp1Dili,440387,Cannabis dependence,1112,401100000,201100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,401100000,201100000
+Glp1Dili,4134120,Cerebral palsy,1114,401100000,201100000
+Glp1Dili,137548,Cervical radiculopathy,1115,401100000,201100000
+Glp1Dili,381581,Chalazion,1116,401100000,201100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,401100000,201100000
+Glp1Dili,4272340,Costal chondritis,1118,401100000,201100000
+Glp1Dili,436027,Coxsackie virus disease,1119,401100000,201100000
+Glp1Dili,441267,Cystic fibrosis,1120,401100000,201100000
+Glp1Dili,197610,Cyst of ovary,1121,401100000,201100000
+Glp1Dili,133228,Dental caries,1122,401100000,201100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,401100000,201100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,401100000,201100000
+Glp1Dili,192367,Dysplasia of cervix,1125,401100000,201100000
+Glp1Dili,4249170,Epicondylitis,1126,401100000,201100000
+Glp1Dili,74855,Genital herpes simplex,1127,401100000,201100000
+Glp1Dili,440674,Gout,1128,401100000,201100000
+Glp1Dili,4163735,Hemochromatosis,1129,401100000,201100000
+Glp1Dili,195562,Hemorrhoids,1130,401100000,201100000
+Glp1Dili,4265426,Hordeolum,1131,401100000,201100000
+Glp1Dili,441788,Human papilloma virus infection,1132,401100000,201100000
+Glp1Dili,4131791,Hydrocele of testis,1133,401100000,201100000
+Glp1Dili,432867,Hyperlipidemia,1134,401100000,201100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,401100000,201100000
+Glp1Dili,140362,Hypoparathyroidism,1136,401100000,201100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,401100000,201100000
+Glp1Dili,4266367,Influenza,1138,401100000,201100000
+Glp1Dili,4152967,Laceration of perineum,1139,401100000,201100000
+Glp1Dili,81379,Lateral epicondylitis,1140,401100000,201100000
+Glp1Dili,194133,Low back pain,1141,401100000,201100000
+Glp1Dili,79833,Ménière's disease,1142,401100000,201100000
+Glp1Dili,436940,Metabolic syndrome X,1143,401100000,201100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,401100000,201100000
+Glp1Dili,4318847,Obstruction of urethra,1145,401100000,201100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,401100000,201100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,401100000,201100000
+Glp1Dili,80502,Osteoporosis,1148,401100000,201100000
+Glp1Dili,37206607,Overactive bladder,1149,401100000,201100000
+Glp1Dili,381270,Parkinson's disease,1150,401100000,201100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,401100000,201100000
+Glp1Dili,4002650,Plantar fasciitis,1152,401100000,201100000
+Glp1Dili,253796,Pneumothorax,1153,401100000,201100000
+Glp1Dili,4295888,Prolapse of intestine,1154,401100000,201100000
+Glp1Dili,194997,Prostatitis,1155,401100000,201100000
+Glp1Dili,374044,Ptosis of eyelid,1156,401100000,201100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,401100000,201100000
+Glp1Dili,372409,Sciatica,1158,401100000,201100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,401100000,201100000
+Glp1Dili,313459,Sleep apnea,1160,401100000,201100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,401100000,201100000
+Glp1Dili,133141,Tinea pedis,1162,401100000,201100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,401100000,201100000
+Glp1Dili,201916,Ureteric stone,1164,401100000,201100000
+Glp1Dili,4092565,Uterine prolapse,1165,401100000,201100000
+Glp1Dili,436070,Vitamin D deficiency,1166,401100000,201100000
+cem/Glp1Dili,439935,Abnormal posture,1001,401100000,301100000
+cem/Glp1Dili,443585,Abrasion and/or friction burn of multiple sites,1002,401100000,301100000
+cem/Glp1Dili,45757682,Anomaly of jaw size,1003,401100000,301100000
+cem/Glp1Dili,81878,Benign paroxysmal positional vertigo,1004,401100000,301100000
+cem/Glp1Dili,134765,Cachexia,1005,401100000,301100000
+cem/Glp1Dili,434675,Complication of gastrostomy,1006,401100000,301100000
+cem/Glp1Dili,436077,Developmental delay,1007,401100000,301100000
+cem/Glp1Dili,377910,Deviated nasal septum,1008,401100000,301100000
+cem/htn/Glp1Dili,4170770,Epidermoid cyst,1009,401100000,301100000
+cem/Glp1Dili,374801,Foreign body in ear,1010,401100000,301100000
+cem/Glp1Dili,439788,Galactosemia,1011,401100000,301100000
+cem/Glp1Dili,40481632,Ganglion cyst,1012,401100000,301100000
+cem/Glp1Dili,374375,Impacted cerumen,1013,401100000,301100000
+cem/Glp1Dili,4265896,Jellyfish poisoning,1014,401100000,301100000
+cem/Glp1Dili,4027782,Lipid storage disease,1015,401100000,301100000
+cem/Glp1Dili,433997,Lymphangioma,1016,401100000,301100000
+cem/Glp1Dili,258540,Marfan's syndrome,1017,401100000,301100000
+cem/Glp1Dili,439795,Minimal cognitive impairment,1018,401100000,301100000
+cem/Glp1Dili,4209423,Nicotine dependence,1019,401100000,301100000
+cem/Glp1Dili,432436,Symbolic dysfunction,1020,401100000,301100000
+cem/Glp1Dili,433244,Tooth loss,1021,401100000,301100000
+cem/Glp1Dili,4201387,Tracheostomy present,1022,401100000,301100000
+htn/Glp1Dili,199192,Abrasion and/or friction burn of trunk without infection,1023,401100000,301100000
+htn/Glp1Dili,4088290,Absence of breast,1024,401100000,301100000
+htn/Glp1Dili,75911,Acquired hallux valgus,1025,401100000,301100000
+htn/Glp1Dili,137951,Acquired keratoderma,1026,401100000,301100000
+htn/Glp1Dili,73241,Anal and rectal polyp,1027,401100000,301100000
+htn/Glp1Dili,133655,Burn of forearm,1028,401100000,301100000
+htn/Glp1Dili,73560,Calcaneal spur,1029,401100000,301100000
+htn/Glp1Dili,140842,Changes in skin texture,1030,401100000,301100000
+htn/Glp1Dili,81378,Chondromalacia of patella,1031,401100000,301100000
+htn/Glp1Dili,432303,Cocaine abuse,1032,401100000,301100000
+htn/Glp1Dili,46269889,Complication due to Crohn's disease,1033,401100000,301100000
+htn/Glp1Dili,134438,Contact dermatitis,1034,401100000,301100000
+htn/Glp1Dili,78619,Contusion of knee,1035,401100000,301100000
+htn/Glp1Dili,201606,Crohn's disease,1036,401100000,301100000
+htn/Glp1Dili,76786,Derangement of knee,1037,401100000,301100000
+htn/Glp1Dili,45757370,Disproportion of reconstructed breast,1038,401100000,301100000
+htn/Glp1Dili,433527,Endometriosis (clinical),1039,401100000,301100000
+htn/Glp1Dili,259995,Foreign body in orifice,1040,401100000,301100000
+htn/Glp1Dili,40481632,Ganglion cyst,1041,401100000,301100000
+htn/Glp1Dili,433577,Hammer toe,1042,401100000,301100000
+htn/Glp1Dili,4231770,Hereditary thrombophilia,1043,401100000,301100000
+htn/Glp1Dili,4012934,Homocystinuria,1044,401100000,301100000
+htn/Glp1Dili,374375,Impacted cerumen,1045,401100000,301100000
+htn/Glp1Dili,4344500,Impingement syndrome of shoulder region,1046,401100000,301100000
+htn/Glp1Dili,139099,Ingrowing nail,1047,401100000,301100000
+htn/Glp1Dili,444132,Injury of knee,1048,401100000,301100000
+htn/Glp1Dili,434203,Late effect of contusion,1049,401100000,301100000
+htn/Glp1Dili,438329,Late effect of motor vehicle accident,1050,401100000,301100000
+htn/Glp1Dili,4103703,Melena,1051,401100000,301100000
+htn/Glp1Dili,4209423,Nicotine dependence,1052,401100000,301100000
+htn/Glp1Dili,377572,Noise effects on inner ear,1053,401100000,301100000
+htn/Glp1Dili,136368,Non-toxic multinodular goiter,1054,401100000,301100000
+htn/Glp1Dili,4202045,Postviral fatigue syndrome,1055,401100000,301100000
+htn/Glp1Dili,439790,Psychalgia,1056,401100000,301100000
+htn/Glp1Dili,81634,Ptotic breast,1057,401100000,301100000
+htn/Glp1Dili,380706,Regular astigmatism,1058,401100000,301100000
+htn/Glp1Dili,141932,Senile hyperkeratosis,1059,401100000,301100000
+htn/Glp1Dili,36713918,Somatic dysfunction of lumbar region,1060,401100000,301100000
+htn/Glp1Dili,443172,Splinter of face without major open wound,1061,401100000,301100000
+htn/Glp1Dili,81151,Sprain of ankle,1062,401100000,301100000
+htn/Glp1Dili,378427,Tear film insufficiency,1063,401100000,301100000
+htn/Glp1Dili,437264,Tobacco dependence syndrome,1064,401100000,301100000
+htn/Glp1Dili,140641,Verruca vulgaris,1065,401100000,301100000
+htn/Glp1Dili,4115367,Wrist joint pain,1066,401100000,301100000
+htn/Glp1Dili,440193,Wristdrop,1067,401100000,301100000
+cem,4092879,Absent kidney,1068,401100000,301100000
+cem,4216219,Bizarre personal appearance,1069,401100000,301100000
+cem,4201390,Colostomy present,1070,401100000,301100000
+cem,437448,Exhaustion due to excessive exertion,1071,401100000,301100000
+cem,4092896,Feces contents abnormal,1072,401100000,301100000
+cem,4096540,Foreskin deficient,1073,401100000,301100000
+cem,4168318,Genetic disorder carrier,1074,401100000,301100000
+cem,40481897,Inadequate sleep hygiene,1075,401100000,301100000
+cem,381021,Lagophthalmos,1076,401100000,301100000
+cem,4051630,Malingering,1077,401100000,301100000
+cem,432798,Mechanical complication of internal orthopedic device implant AND/OR graft,1078,401100000,301100000
+cem,40480893,Nonspecific tuberculin test reaction,1079,401100000,301100000
+cem,438130,Opioid abuse,1080,401100000,301100000
+cem,4299094,Opioid intoxication,1081,401100000,301100000
+cem,437092,Physiological development failure,1082,401100000,301100000
+cem,433951,Poisoning by tranquilizer,1083,401100000,301100000
+cem,4019836,Social exclusion,1084,401100000,301100000
+cem,436876,Toxic effect of lead compound,1085,401100000,301100000
+cem,440612,Toxic effect of tobacco and nicotine,1086,401100000,301100000
+cem,45757285,Unsatisfactory tooth restoration,1087,401100000,301100000
+htn,436409,Abnormal pupil,1088,401100000,301100000
+htn,434327,Cannabis abuse,1089,401100000,301100000
+htn,4115402,Difficulty sleeping,1090,401100000,301100000
+htn,433111,Effects of hunger,1091,401100000,301100000
+htn,4092896,Feces contents abnormal,1092,401100000,301100000
+htn,4012570,High risk sexual behavior,1093,401100000,301100000
+htn,432593,Kwashiorkor,1094,401100000,301100000
+htn,4083487,Macular drusen,1095,401100000,301100000
+htn,40480893,Nonspecific tuberculin test reaction,1096,401100000,301100000
+htn,438130,Opioid abuse,1097,401100000,301100000
+htn,4091513,Passing flatus,1098,401100000,301100000
+htn,373478,Presbyopia,1099,401100000,301100000
+htn,72748,Strain of rotator cuff capsule,1100,401100000,301100000
+Glp1Dili,4299544,Acanthosis nigricans,1101,401100000,301100000
+Glp1Dili,376707,Acute conjunctivitis,1102,401100000,301100000
+Glp1Dili,24660,Acute tonsillitis,1103,401100000,301100000
+Glp1Dili,77644,Adhesive capsulitis of shoulder,1104,401100000,301100000
+Glp1Dili,4218106,Alcoholism,1105,401100000,301100000
+Glp1Dili,257007,Allergic rhinitis,1106,401100000,301100000
+Glp1Dili,378425,Blepharitis,1107,401100000,301100000
+Glp1Dili,256449,Bronchiectasis,1108,401100000,301100000
+Glp1Dili,4152350,Burping,1109,401100000,301100000
+Glp1Dili,4067069,Callosity,1110,401100000,301100000
+Glp1Dili,4172458,Candidiasis of skin,1111,401100000,301100000
+Glp1Dili,440387,Cannabis dependence,1112,401100000,301100000
+Glp1Dili,380094,Carpal tunnel syndrome,1113,401100000,301100000
+Glp1Dili,4134120,Cerebral palsy,1114,401100000,301100000
+Glp1Dili,137548,Cervical radiculopathy,1115,401100000,301100000
+Glp1Dili,381581,Chalazion,1116,401100000,301100000
+Glp1Dili,255573,Chronic obstructive lung disease,1117,401100000,301100000
+Glp1Dili,4272340,Costal chondritis,1118,401100000,301100000
+Glp1Dili,436027,Coxsackie virus disease,1119,401100000,301100000
+Glp1Dili,441267,Cystic fibrosis,1120,401100000,301100000
+Glp1Dili,197610,Cyst of ovary,1121,401100000,301100000
+Glp1Dili,133228,Dental caries,1122,401100000,301100000
+Glp1Dili,4147672,Disease due to Papilloma virus,1123,401100000,301100000
+Glp1Dili,4213373,Dislocation of shoulder joint,1124,401100000,301100000
+Glp1Dili,192367,Dysplasia of cervix,1125,401100000,301100000
+Glp1Dili,4249170,Epicondylitis,1126,401100000,301100000
+Glp1Dili,74855,Genital herpes simplex,1127,401100000,301100000
+Glp1Dili,440674,Gout,1128,401100000,301100000
+Glp1Dili,4163735,Hemochromatosis,1129,401100000,301100000
+Glp1Dili,195562,Hemorrhoids,1130,401100000,301100000
+Glp1Dili,4265426,Hordeolum,1131,401100000,301100000
+Glp1Dili,441788,Human papilloma virus infection,1132,401100000,301100000
+Glp1Dili,4131791,Hydrocele of testis,1133,401100000,301100000
+Glp1Dili,432867,Hyperlipidemia,1134,401100000,301100000
+Glp1Dili,441829,Hyperosmolality and or hypernatremia,1135,401100000,301100000
+Glp1Dili,140362,Hypoparathyroidism,1136,401100000,301100000
+Glp1Dili,440276,Infection AND/OR inflammatory reaction due to internal prosthetic device implant AND/OR graft,1137,401100000,301100000
+Glp1Dili,4266367,Influenza,1138,401100000,301100000
+Glp1Dili,4152967,Laceration of perineum,1139,401100000,301100000
+Glp1Dili,81379,Lateral epicondylitis,1140,401100000,301100000
+Glp1Dili,194133,Low back pain,1141,401100000,301100000
+Glp1Dili,79833,Ménière's disease,1142,401100000,301100000
+Glp1Dili,436940,Metabolic syndrome X,1143,401100000,301100000
+Glp1Dili,134898,Non-toxic uninodular goiter,1144,401100000,301100000
+Glp1Dili,4318847,Obstruction of urethra,1145,401100000,301100000
+Glp1Dili,140648,Onychomycosis due to dermatophyte,1146,401100000,301100000
+Glp1Dili,4079750,Osteoarthritis of knee,1147,401100000,301100000
+Glp1Dili,80502,Osteoporosis,1148,401100000,301100000
+Glp1Dili,37206607,Overactive bladder,1149,401100000,301100000
+Glp1Dili,381270,Parkinson's disease,1150,401100000,301100000
+Glp1Dili,375292,Perforation of tympanic membrane,1151,401100000,301100000
+Glp1Dili,4002650,Plantar fasciitis,1152,401100000,301100000
+Glp1Dili,253796,Pneumothorax,1153,401100000,301100000
+Glp1Dili,4295888,Prolapse of intestine,1154,401100000,301100000
+Glp1Dili,194997,Prostatitis,1155,401100000,301100000
+Glp1Dili,374044,Ptosis of eyelid,1156,401100000,301100000
+Glp1Dili,73300,Radial styloid tenosynovitis,1157,401100000,301100000
+Glp1Dili,372409,Sciatica,1158,401100000,301100000
+Glp1Dili,4213628,Sickling disorder due to hemoglobin S,1159,401100000,301100000
+Glp1Dili,313459,Sleep apnea,1160,401100000,301100000
+Glp1Dili,4142875,Solitary nodule of lung,1161,401100000,301100000
+Glp1Dili,133141,Tinea pedis,1162,401100000,301100000
+Glp1Dili,443412,Type 1 diabetes mellitus without complication,1163,401100000,301100000
+Glp1Dili,201916,Ureteric stone,1164,401100000,301100000
+Glp1Dili,4092565,Uterine prolapse,1165,401100000,301100000
+Glp1Dili,436070,Vitamin D deficiency,1166,401100000,301100000

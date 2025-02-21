@@ -1,5 +1,4 @@
 library(LegendT2dmTestCases)
-library(tidyverse)
 
 # Optional: specify where the temporary files (used by the Andromeda package) will be created:
 options(andromedaTempFolder = "E:/Li_R/temp")
@@ -9,7 +8,7 @@ Sys.setenv(DATABASECONNECTOR_JAR_FOLDER = "E:/Li_R/Drivers")
 maxCores <- 6
 
 # The folder where the study intermediate and result files will be written:
-outputFolder <- "E:/Li_R/t2dmPsTrial2"
+outputFolder <- "E:/Li_R/t2dmPsTrial3"
 
 # Details for connecting to the server:
 server <- "mdcr_server_name"
@@ -18,6 +17,7 @@ connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "redshift
                                                                 user = keyring::key_get("user", "kli69"),
                                                                 password = keyring::key_get("password", "kli69"),
                                                                 port = 5439)
+
 # Add the database containing the OMOP CDM data
 cdmDatabaseSchema <- "cdm_truven_mdcr_v2755"
 # Add a sharebale name for the database containing the OMOP CDM data
@@ -38,8 +38,23 @@ databaseDescription <- "IBM MarketScan® Medicare Supplemental and Coordination 
 # For some database platforms (e.g. Oracle): define a schema that can be used to emulate temp tables:
 options(sqlRenderTempEmulationSchema = NULL)
 
-createAnalysesDetails(outputFolder = "E:/Li_R/LegendT2dmTestCases/inst/settings")
+# createAnalysesDetails(outputFolder = "E:/Li_R/LegendT2dmTestCases/inst/settings")
 
+# # Write negative controls list
+# tcs <- read.csv("./inst/settings/TcosOfInterest.csv") %>%
+#   select(unique(c("targetId", "comparatorId")))
+# 
+# ncs <- read.csv("./inst/settings/NegativeControlsFinal.csv") %>%
+#   select(origin, outcomeId, outcomeName, cohortId)
+# 
+# expanded_table <- do.call(rbind, lapply(1:nrow(tcs), function(i) {
+#   cbind(ncs, tcs[i, ])
+# }))
+# 
+# write.csv(expanded_table, file = "./inst/settings/NegativeControls.csv",
+#           row.names = F, quote = F)
+
+outputFolder <- "E:/Li_R/t2dmPsTrial2"
 execute(connectionDetails = connectionDetails,
         cdmDatabaseSchema = cdmDatabaseSchema,
         cohortDatabaseSchema = cohortDatabaseSchema,
@@ -50,7 +65,7 @@ execute(connectionDetails = connectionDetails,
         databaseDescription = databaseDescription,
         createCohorts = FALSE,
         synthesizePositiveControls = FALSE,
-        runAnalyses = TRUE,
+        runAnalyses = FALSE,
         packageResults = TRUE,
         maxCores = maxCores)
 
@@ -70,6 +85,8 @@ LegendT2dmEvidenceExplorer::launchEvidenceExplorer(dataFolder = dataFolder, blin
 #     select(analysisId, rr) %>% arrange(analysisId),
 #   analysisSummary %>% filter(outcomeId == 6, analysisId %in% c(1,2,3)) %>% 
 #     mutate(analysisId = analysisId + 6) %>% select(analysisId, rr) %>% arrange(analysisId)
+# )
+
 
 
 
@@ -82,4 +99,3 @@ resultsFolder <- file.path(outputFolder, "export")
 uploadResultsToDatabase(connectionDetails = resultsConnectionDetails,
                         schema = "main",
                         resultsFolder = resultsFolder)
-

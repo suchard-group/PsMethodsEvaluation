@@ -48,70 +48,71 @@ createAnalysesDetails <- function(outputFolder,
   
   # Covariate Settings - SSPS
   
-  covariateSettingsSmall <- createCovariateSettings(useDemographicsAgeGroup = TRUE,
-                                                    useDemographicsGender = TRUE,
-                                                    useDemographicsRace = TRUE,
-                                                    useDemographicsEthnicity = TRUE,
-                                                    useDemographicsIndexYear = TRUE,
-                                                    useDemographicsIndexMonth = TRUE,
-                                                    useConditionOccurrenceLongTerm = TRUE,
-                                                    useConditionOccurrenceShortTerm = TRUE,
-                                                    useConditionOccurrencePrimaryInpatientMediumTerm = TRUE,
-                                                    useConditionEraLongTerm = TRUE,
-                                                    useConditionEraAnyTimePrior = TRUE,
-                                                    useConditionEraOverlapping = TRUE,
-                                                    useConditionGroupEraLongTerm = TRUE,
-                                                    useConditionGroupEraShortTerm = TRUE,
-                                                    useDrugExposureLongTerm = TRUE,
-                                                    useDrugExposureShortTerm = TRUE,
-                                                    useDrugEraLongTerm = TRUE,
-                                                    useDrugEraShortTerm = TRUE,
-                                                    useDrugEraOverlapping = TRUE,
-                                                    useDrugEraAnyTimePrior = TRUE,
-                                                    useDrugGroupEraLongTerm = TRUE,
-                                                    useDrugGroupEraShortTerm = TRUE,
-                                                    useProcedureOccurrenceLongTerm = TRUE,
-                                                    useProcedureOccurrenceShortTerm = TRUE,
-                                                    useObservationLongTerm = TRUE,
-                                                    useObservationShortTerm = TRUE,
-                                                    useMeasurementLongTerm = TRUE,
-                                                    useMeasurementShortTerm = TRUE,
-                                                    useDistinctMeasurementCountLongTerm = TRUE,
-                                                    useVisitConceptCountLongTerm = TRUE,
-                                                    useDcsi =  TRUE,
-                                                    useChads2 = TRUE,
-                                                    useCharlsonIndex = TRUE,
-                                                    useChads2Vasc = TRUE,
-                                                    includedCovariateIds = c(0:20*1000 + 3, #Age groups
-                                                                             8532001, # Female,
-                                                                             2000:2020*1000 + 6, # Index year
-                                                                             201826210, # T2DM
-                                                                             317576210, # CAD
-                                                                             4329847210, # MI
-                                                                             317009210, # Asthma
-                                                                             316139210, # Heart failure
-                                                                             46271022210, # Chronic kidney disease
-                                                                             313217210, # Atrial fibrillation,
-                                                                             1901, # Charlson index - Romano adaptation
-                                                                             21600985410, # Platelet aggregation inhibitors excl. heparin
-                                                                             1310149410, # Warfarin
-                                                                             21602722410, # Corticosteroids for systemic use
-                                                                             1331270410, # Dipyridamole
-                                                                             21603933410, # NSAIDS
-                                                                             21600095410, # PPIs
-                                                                             21601855410, # Statins
-                                                                             21602514410, # Estrogens
-                                                                             21602537410, # Progestogens
-                                                                             21600712410, # Anti-glycemic agent
-                                                                             4245997802, # BMI
-                                                                             255573210, # COPD
-                                                                             4212540210, # Liver disease
-                                                                             4159131210, # Dyslipidemia
-                                                                             4281749210, # Valvular heart disease
-                                                                             4239381210, # Drug abuse
-                                                                             443392210, # Cancer
-                                                                             439727210),
-                                                    excludedCovariateConceptIds = filterConceptIds# HIV infection
+  covariateSettingsSmall <- FeatureExtraction::createCovariateSettings(
+    useDemographicsAgeGroup = TRUE,
+    useDemographicsGender = TRUE,
+    useDemographicsRace = TRUE,
+    useDemographicsEthnicity = TRUE,
+    useDemographicsIndexYear = TRUE,
+    useDemographicsIndexMonth = TRUE,
+    useConditionOccurrenceLongTerm = TRUE,
+    useConditionOccurrenceShortTerm = TRUE,
+    useConditionOccurrencePrimaryInpatientMediumTerm = TRUE,
+    useConditionEraLongTerm = TRUE,
+    useConditionEraAnyTimePrior = TRUE,
+    useConditionEraOverlapping = TRUE,
+    useConditionGroupEraLongTerm = TRUE,
+    useConditionGroupEraShortTerm = TRUE,
+    useDrugExposureLongTerm = TRUE,
+    useDrugExposureShortTerm = TRUE,
+    useDrugEraLongTerm = TRUE,
+    useDrugEraShortTerm = TRUE,
+    useDrugEraOverlapping = TRUE,
+    useDrugEraAnyTimePrior = TRUE,
+    useDrugGroupEraLongTerm = TRUE,
+    useDrugGroupEraShortTerm = TRUE,
+    useProcedureOccurrenceLongTerm = TRUE,
+    useProcedureOccurrenceShortTerm = TRUE,
+    useObservationLongTerm = TRUE,
+    useObservationShortTerm = TRUE,
+    useMeasurementLongTerm = TRUE,
+    useMeasurementShortTerm = TRUE,
+    useDistinctMeasurementCountLongTerm = TRUE,
+    useVisitConceptCountLongTerm = TRUE,
+    useDcsi =  TRUE,
+    useChads2 = TRUE,
+    useCharlsonIndex = TRUE,
+    useChads2Vasc = TRUE,
+    includedCovariateIds = c(0:20*1000 + 3, #Age groups
+                             8532001, # Female,
+                             2000:2020*1000 + 6, # Index year
+                             201826210, # T2DM
+                             317576210, # CAD
+                             4329847210, # MI
+                             317009210, # Asthma
+                             316139210, # Heart failure
+                             46271022210, # Chronic kidney disease
+                             313217210, # Atrial fibrillation,
+                             1901, # Charlson index - Romano adaptation
+                             21600985410, # Platelet aggregation inhibitors excl. heparin
+                             1310149410, # Warfarin
+                             21602722410, # Corticosteroids for systemic use
+                             1331270410, # Dipyridamole
+                             21603933410, # NSAIDS
+                             21600095410, # PPIs
+                             21601855410, # Statins
+                             21602514410, # Estrogens
+                             21602537410, # Progestogens
+                             21600712410, # Anti-glycemic agent
+                             4245997802, # BMI
+                             255573210, # COPD
+                             4212540210, # Liver disease
+                             4159131210, # Dyslipidemia
+                             4281749210, # Valvular heart disease
+                             4239381210, # Drug abuse
+                             443392210, # Cancer
+                             439727210),
+    excludedCovariateConceptIds = filterConceptIds# HIV infection
   )
   getDbCmDataArgsSmall <- CohortMethod::createGetDbCohortMethodDataArgs(
     covariateSettings = covariateSettingsSmall
@@ -175,7 +176,7 @@ createAnalysesDetails <- function(outputFolder,
     estimator = "ato" 
   )
   
-  trimByPsArgs <- createTrimByPsArgs()
+  trimByPsArgs <- CohortMethod::createTrimByPsArgs()
   
   matchOnPsArgsOneToOne <- CohortMethod::createMatchOnPsArgs(
     caliper = 0.2,

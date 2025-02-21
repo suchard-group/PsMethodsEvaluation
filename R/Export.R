@@ -81,7 +81,7 @@ exportResults <- function(outputFolder,
 
 exportAnalyses <- function(outputFolder, exportFolder) {
   ParallelLogger::logInfo("Exporting analyses")
-  ParallelLogger::logInfo("- cohort_method_analysis table")
+  ParallelLogger::logInfo("- cm_analysis table")
   
   tempFileName <- tempfile()
   
@@ -101,7 +101,7 @@ exportAnalyses <- function(outputFolder, exportFolder) {
   cohortMethodAnalysis <- unique(cohortMethodAnalysis)
   unlink(tempFileName)
   colnames(cohortMethodAnalysis) <- SqlRender::camelCaseToSnakeCase(colnames(cohortMethodAnalysis))
-  fileName <- file.path(exportFolder, "cohort_method_analysis.csv")
+  fileName <- file.path(exportFolder, "cm_analysis.csv")
   readr::write_csv(cohortMethodAnalysis, fileName)
   
   
@@ -118,7 +118,7 @@ exportAnalyses <- function(outputFolder, exportFolder) {
   }
   covariateAnalysis <- lapply(cmAnalysisList, getCovariateAnalyses)
   covariateAnalysis <- do.call("rbind", covariateAnalysis)
-  fileName <- file.path(exportFolder, "covariate_analysis.csv")
+  fileName <- file.path(exportFolder, "cm_covariate_analysis.csv")
   readr::write_csv(covariateAnalysis, fileName)
 }
 
@@ -272,7 +272,7 @@ exportMetadata <- function(outputFolder,
   readr::write_csv(comparisonSummary, fileName)
   
   ParallelLogger::logInfo("- attrition table")
-  fileName <- file.path(exportFolder, "attrition.csv")
+  fileName <- file.path(exportFolder, "cm_attrition.csv")
   if (file.exists(fileName)) {
     unlink(fileName)
   }
@@ -342,7 +342,7 @@ exportMetadata <- function(outputFolder,
   covariates <- do.call("rbind", covariates)
   covariates$databaseId <- databaseId
   colnames(covariates) <- SqlRender::camelCaseToSnakeCase(colnames(covariates))
-  fileName <- file.path(exportFolder, "covariate.csv")
+  fileName <- file.path(exportFolder, "cm_covariate.csv")
   readr::write_csv(covariates, fileName)
   rm(covariates)  # Free up memory
   
@@ -363,6 +363,28 @@ exportMetadata <- function(outputFolder,
                            c(0, 0.1, 0.25, 0.5, 0.85, 0.9, 1))
     comparatorDist <- quantile(strataPop$survivalTime[strataPop$treatment == 0],
                                c(0, 0.1, 0.25, 0.5, 0.85, 0.9, 1))
+    
+    if (nrow(strataPop) == 0) {
+      targetMinMaxDates <- tibble(
+        minDate = as.Date(NA),
+        maxDate = as.Date(NA)
+      )
+      comparatorMinMaxDates <- targetMinMaxDates
+    } else {
+      targetMinMaxDates <- strataPop %>%
+        filter(.data$treatment == 1) %>%
+        summarise(
+          minDate = min(.data$cohortStartDate),
+          maxDate = max(.data$cohortStartDate)
+        )
+      
+      comparatorMinMaxDates <- strataPop %>%
+        filter(.data$treatment == 0) %>%
+        summarise(
+          minDate = min(.data$cohortStartDate),
+          maxDate = max(.data$cohortStartDate)
+        )
+      
     row <- tibble::tibble(target_id = reference$targetId[i],
                           comparator_id = reference$comparatorId[i],
                           outcome_id = reference$outcomeId[i],
@@ -380,7 +402,11 @@ exportMetadata <- function(outputFolder,
                           comparator_median_days = comparatorDist[4],
                           comparator_p75_days = comparatorDist[5],
                           comparator_p90_days = comparatorDist[6],
-                          comparator_max_days = comparatorDist[7])
+                          comparator_max_days = comparatorDist[7],
+                          target_min_date = targetMinMaxDates$minDate,
+                          target_max_date = targetMinMaxDates$maxDate,
+                          comparator_min_date = comparatorMinMaxDates$minDate,
+                          comparator_max_date = comparatorMinMaxDates$maxDate)
     return(row)
   }
   outcomesOfInterest <- getOutcomesOfInterest()
@@ -392,6 +418,7 @@ exportMetadata <- function(outputFolder,
   fileName <- file.path(exportFolder, "cm_follow_up_dist.csv")
   readr::write_csv(results, fileName)
   rm(results)  # Free up memory
+  }
 }
 
 enforceMinCellValue <- function(data, fieldName, minValues, silent = FALSE) {
@@ -413,8 +440,7 @@ enforceMinCellValue <- function(data, fieldName, minValues, silent = FALSE) {
   }
   return(data)
 }
-
-
+  
 exportMainResults <- function(outputFolder,
                               exportFolder,
                               databaseId,
@@ -423,7 +449,7 @@ exportMainResults <- function(outputFolder,
   ParallelLogger::logInfo("Exporting main results")
   
   
-  ParallelLogger::logInfo("- cohort_method_result table")
+  ParallelLogger::logInfo("- cm_result table")
   results <- readr::read_csv(file.path(outputFolder, "analysisSummary.csv"), col_types = readr::cols())
   results$databaseId <- databaseId
   results <- enforceMinCellValue(results, "targetSubjects", minCellCount)
@@ -431,7 +457,7 @@ exportMainResults <- function(outputFolder,
   results <- enforceMinCellValue(results, "targetOutcomes", minCellCount)
   results <- enforceMinCellValue(results, "comparatorOutcomes", minCellCount)
   colnames(results) <- SqlRender::camelCaseToSnakeCase(colnames(results))
-  fileName <- file.path(exportFolder, "cohort_method_result.csv")
+  fileName <- file.path(exportFolder, "cm_result.csv")
   readr::write_csv(results, fileName)
   rm(results)  # Free up memory
   
@@ -502,7 +528,7 @@ exportDiagnostics <- function(outputFolder,
                               maxCores) {
   ParallelLogger::logInfo("Exporting diagnostics")
   ParallelLogger::logInfo("- covariate_balance table")
-  fileName <- file.path(exportFolder, "covariate_balance.csv")
+  fileName <- file.path(exportFolder, "cm_covariate_balance.csv")
   if (file.exists(fileName)) {
     unlink(fileName)
   }
@@ -548,27 +574,35 @@ exportDiagnostics <- function(outputFolder,
                            "comparatorId",
                            "outcomeId",
                            "analysisId",
-                           "interactionCovariateId",
                            "covariateId",
                            "beforeMatchingMeanTarget",
                            "beforeMatchingMeanComparator",
                            "beforeMatchingStdDiff",
                            "afterMatchingMeanTarget",
                            "afterMatchingMeanComparator",
-                           "afterMatchingStdDiff")]
+                           "afterMatchingStdDiff",
+                           "beforeMatchingMean",
+                           "afterMatchingMean",
+                           "targetStdDiff",
+                           "comparatorStdDiff",
+                           "targetComparatorStdDiff")]
     colnames(balance) <- c("databaseId",
                            "targetId",
                            "comparatorId",
                            "outcomeId",
                            "analysisId",
-                           "interactionCovariateId",
                            "covariateId",
                            "targetMeanBefore",
                            "comparatorMeanBefore",
                            "stdDiffBefore",
                            "targetMeanAfter",
                            "comparatorMeanAfter",
-                           "stdDiffAfter")
+                           "stdDiffAfter",
+                           "meanBefore",
+                           "meanAfter",
+                           "targetStdDiff",
+                           "comparatorStdDiff",
+                           "targetComparatorStdDiff")
     balance$targetMeanBefore[is.na(balance$targetMeanBefore)] <- 0
     balance$comparatorMeanBefore[is.na(balance$comparatorMeanBefore)] <- 0
     balance$stdDiffBefore <- round(balance$stdDiffBefore, 3)
@@ -599,19 +633,6 @@ exportDiagnostics <- function(outputFolder,
                          0 & balance$comparatorMeanAfter != 0 & balance$stdDiffBefore != 0 & balance$stdDiffAfter !=
                          0, ]
     balance <- balance[!is.na(balance$targetId), ]
-    colnames(balance) <- c("databaseId",
-                           "targetId",
-                           "comparatorId",
-                           "outcomeId",
-                           "analysisId",
-                           "interactionCovariateId",
-                           "covariateId",
-                           "beforeMatchingMeanTarget",
-                           "beforeMatchingMeanComparator",
-                           "beforeMatchingStdDiff",
-                           "afterMatchingMeanTarget",
-                           "afterMatchingMeanComparator",
-                           "afterMatchingStdDiff")
     colnames(balance) <- SqlRender::camelCaseToSnakeCase(colnames(balance))
     write.table(x = balance,
                 file = fileName,
@@ -662,7 +683,7 @@ exportDiagnostics <- function(outputFolder,
                       reference = reference,
                       .progress = "text")
   data <- do.call("rbind", data)
-  fileName <- file.path(exportFolder, "preference_score_dist.csv")
+  fileName <- file.path(exportFolder, "cm_preference_score_dist.csv")
   if (!is.null(data)) {
     colnames(data) <- SqlRender::camelCaseToSnakeCase(colnames(data))
     readr::write_csv(data, fileName)
@@ -705,7 +726,7 @@ exportDiagnostics <- function(outputFolder,
                       reference = reference,
                       .progress = "text")
   data <- do.call("rbind", data)
-  fileName <- file.path(exportFolder, "propensity_model.csv")
+  fileName <- file.path(exportFolder, "cm_propensity_model.csv")
   if (!is.null(data)) {
     colnames(data) <- SqlRender::camelCaseToSnakeCase(colnames(data))
     readr::write_csv(data, fileName)
@@ -753,7 +774,7 @@ exportDiagnostics <- function(outputFolder,
                 qmethod = "double",
                 append = !first)
   }
-  outputFile <- file.path(exportFolder, "kaplan_meier_dist.csv")
+  outputFile <- file.path(exportFolder, "cm_kaplan_meier_dist.csv")
   files <- list.files(tempFolder, "km_.*.rds", full.names = TRUE)
   saveKmToCsv(files[1], first = TRUE, outputFile = outputFile)
   if (length(files) > 1) {
@@ -934,5 +955,7 @@ prepareKaplanMeier <- function(population) {
   # Remove duplicate (except time) entries:
   data <- data[order(data$time), ]
   data <- data[!duplicated(data[, -1]), ]
+  
+  data$time_day <- data$time
   return(data)
 }
